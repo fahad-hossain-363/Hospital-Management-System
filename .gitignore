@@ -1,0 +1,31 @@
+# Compiled files
+*.exe
+*.out
+*.o
+*.obj
+*.so
+*.dll
+*.a
+
+# Data files (patient/doctor records)
+data/*.dat
+data/*.txt
+*.csv
+
+# IDE files
+.vscode/
+.vs/
+*.suo
+*.user
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build directory
+build/
+bin/
+
+# Backup files
+*.bak
+*~
