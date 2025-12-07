@@ -28,6 +28,7 @@ void patient_add(void) {
     new_patient.id = generate_patient_id();
     new_patient.is_active = true;
     
+    // lines for menu
     char name_line[70], age_line[70], gender_line[70], phone_line[70], address_line[70], blood_group_line[70];
     
     // Step 1: Get Name
@@ -193,7 +194,7 @@ void search_patient_by(void) {
                 // patient_search_by_phone();
                 break;
             case 4:
-                ui_print_info("Returning to patient menu...");
+                ui_print_info("Returning to receptionist menu...");
                 break;
             default:
                 ui_print_error("Invalid choice! Please try again.");

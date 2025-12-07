@@ -45,7 +45,7 @@ void ui_print_warning(const char *message) {
 }
 
 void ui_print_info(const char *message) {
-    printf(BLUE "\n%s" RESET "\n", message);
+    printf(BRIGHT_BLUE "\n%s" RESET "\n", message);
 }
 
 
