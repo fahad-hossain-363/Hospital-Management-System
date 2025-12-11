@@ -55,7 +55,7 @@ void patient_add(void) {
     new_patient.is_active = true;
     
     // lines for menu
-    char name_line[70], age_line[70], gender_line[70], phone_line[70], address_line[70], blood_group_line[70];
+    char name_line[NAME_LINE_SIZE], age_line[AGE_LINE_SIZE], gender_line[GENDER_LINE_SIZE], phone_line[PHONE_LINE_SIZE], address_line[ADDRESS_LINE_SIZE], blood_group_line[BLOOD_LINE_SIZE];
     
     // Step 1: Get Name
     while (1) {

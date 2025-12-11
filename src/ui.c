@@ -141,28 +141,28 @@ void ui_print_menu
 
 void ui_print_patient(Patient patient, int index) {
 
-    char id_line[70];
+    char id_line[ID_LINE_SIZE];
     snprintf(id_line, sizeof(id_line), "Patient ID: %d", patient.id);
 
-    char name_line[70];
+    char name_line[NAME_LINE_SIZE];
     snprintf(name_line, sizeof(name_line), "Name: %s", patient.name);
 
-    char age_line[70];
+    char age_line[AGE_LINE_SIZE];
     snprintf(age_line, sizeof(age_line), "Age: %d", patient.age);
 
-    char gender_line[70];
+    char gender_line[GENDER_LINE_SIZE];
     snprintf(gender_line, sizeof(gender_line), "Gender: %s", patient.gender == MALE ? "Male" : "Female");
 
-    char phone_line[70];
+    char phone_line[PHONE_LINE_SIZE];
     snprintf(phone_line, sizeof(phone_line), "Phone: %s", patient.phone);
 
-    char address_line[70];
+    char address_line[ADDRESS_LINE_SIZE];
     snprintf(address_line, sizeof(address_line), "Address: %s", patient.address);
 
-    char blood_group_line[70];
+    char blood_group_line[BLOOD_LINE_SIZE];
     snprintf(blood_group_line, sizeof(blood_group_line), "Blood Group: %s", patient.blood_group);
 
-    char status_line[70];
+    char status_line[STATUS_LINE_SIZE];
     snprintf(status_line, sizeof(status_line), "Status: %s", patient.is_active ? "Active" : "Inactive");
 
     const char* items[] = {

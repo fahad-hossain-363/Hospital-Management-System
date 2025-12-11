@@ -56,7 +56,7 @@ void doctor_add(void) {
     new_doctor.is_available = true;
     
     // lines for menu
-    char name_line[70], phone_line[70], email_line[70], spec_line[70], room_line[70];
+    char name_line[NAME_SIZE], phone_line[PHONE_SIZE], email_line[EMAIL_SIZE], spec_line[SPEC_SIZE], room_line[ROOM_SIZE];
     
     // Step 1: Get Name
     while (1) {
