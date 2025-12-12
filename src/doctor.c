@@ -17,10 +17,12 @@ int doctor_save_to_file(void) {
     if (file == NULL) {
         return -1;
     }
-    fwrite(&doctor_count, sizeof(int), 1, file);
-    fwrite(&doctor_available, sizeof(int), 1, file);
-    fwrite(doctors, sizeof(Doctor), doctor_count, file);
-    
+    if (fwrite(&doctor_count, sizeof(int), 1, file) != 1 ||
+        fwrite(&doctor_available, sizeof(int), 1, file) != 1 ||
+        fwrite(doctors, sizeof(Doctor), doctor_count, file) != (size_t)doctor_count) {
+        fclose(file);
+        return -1;
+    }
     fclose(file);
     return 0;
 }
@@ -30,134 +32,27 @@ int doctor_load_from_file(void) {
     if (file == NULL) {
         return -1;
     }
-    fread(&doctor_count, sizeof(int), 1, file);
-    fread(&doctor_available, sizeof(int), 1, file);
-    fread(doctors, sizeof(Doctor), doctor_count, file);
-
+    if (fread(&doctor_count, sizeof(int), 1, file) != 1 ||
+        fread(&doctor_available, sizeof(int), 1, file) != 1) {
+        fclose(file);
+        return -1;
+    }
+    if (doctor_count < 0 || doctor_count > MAX_DOCTORS) {
+        fclose(file);
+        doctor_count = 0;
+        return -1;
+    }
+    if (fread(doctors, sizeof(Doctor), doctor_count, file) != (size_t)doctor_count) {
+        fclose(file);
+        doctor_count = 0;
+        return -1;
+    }
     fclose(file);
     return 0;
 }
 
 int doctor_generate_id(void) {
     return DOCTOR_ID_START + doctor_count;
-}
-
-void doctor_add(void) {
-    if (doctor_count >= MAX_DOCTORS) {
-        ui_print_error("Error: Maximum doctor limit reached!");
-        ui_pause();
-        return;
-    }
-    
-    // Create new doctor
-    Doctor new_doctor;
-    new_doctor.id = doctor_generate_id();
-    new_doctor.is_active = true;
-    new_doctor.is_available = true;
-    
-    // lines for menu
-    char name_line[NAME_SIZE], phone_line[PHONE_SIZE], email_line[EMAIL_SIZE], spec_line[SPEC_SIZE], room_line[ROOM_SIZE];
-    
-    // Step 1: Get Name
-    while (1) {
-        ui_clear_screen();
-        ui_print_banner();
-        const char* step1[] = {"Name:", ">> "};
-        ui_print_menu("Add Doctor", step1, 2, UI_SIZE);
-        utils_get_string(new_doctor.name, NAME_SIZE);
-        if (utils_is_valid_name(new_doctor.name)) {
-            utils_fix_name(new_doctor.name);
-            break;
-        }
-        ui_print_error("Invalid name! Please try again.");
-        ui_pause();
-    }
-    
-    // Step 2: Get Phone
-    while (1) {
-        ui_clear_screen();
-        ui_print_banner();
-        snprintf(name_line, sizeof(name_line), "Name: %s", new_doctor.name);
-        const char* step2[] = {name_line, "Phone (11 digits):", ">> "};
-        ui_print_menu("Add Doctor", step2, 3, UI_SIZE);
-        utils_get_string(new_doctor.phone, PHONE_SIZE);
-        if (utils_is_valid_phone(new_doctor.phone)) {
-            break;
-        }
-        ui_print_error("Invalid phone! Please try again.");
-        ui_pause();
-    }
-    
-    // Step 3: Get Email
-    while (1) {
-        ui_clear_screen();
-        ui_print_banner();
-        snprintf(phone_line, sizeof(phone_line), "Phone: %s", new_doctor.phone);
-        const char* step3[] = {name_line, phone_line, "Email:", ">> "};
-        ui_print_menu("Add Doctor", step3, 4, UI_SIZE);
-        utils_get_string(new_doctor.email, EMAIL_SIZE);
-        if (utils_is_valid_email(new_doctor.email)) {
-            break;
-        }
-        ui_print_error("Invalid email! Please try again.");
-        ui_pause();
-    }
-    
-    // Step 4: Get Specialization
-    while (1) {
-        ui_clear_screen();
-        ui_print_banner();
-        snprintf(email_line, sizeof(email_line), "Email: %s", new_doctor.email);
-        const char* step4[] = {name_line, phone_line, email_line, "Specialization:", ">> "};
-        ui_print_menu("Add Doctor", step4, 5, UI_SIZE);
-        utils_get_string(new_doctor.specialization, SPEC_SIZE);
-        if (strlen(new_doctor.specialization) > 0) {
-            utils_fix_name(new_doctor.specialization);
-            break;
-        }
-        ui_print_error("Specialization cannot be empty!");
-        ui_pause();
-    }
-    
-    // Step 5: Auto-generate Room Number and Confirm
-    new_doctor.room_number = 100 + doctor_count + 1;
-    snprintf(spec_line, sizeof(spec_line), "Specialization: %s", new_doctor.specialization);
-    snprintf(room_line, sizeof(room_line), "Room Number: %d (auto-assigned)", new_doctor.room_number);
-    
-    const char* step5[] = 
-    {
-        name_line, phone_line, email_line, spec_line, room_line,
-        "Confirm (Y/N):", ">> "
-    };
-    ui_clear_screen();
-    ui_print_banner();
-    ui_print_menu("Add Doctor", step5, 7, UI_SIZE);
-    char confirm = utils_get_char();
-    if (confirm != 'Y' && confirm != 'y') {
-        ui_print_info("Doctor addition cancelled.");
-        ui_pause();
-        return;
-    }
-    
-    // Add to array
-    doctors[doctor_count] = new_doctor;
-    doctor_count++;
-    doctor_available++;
-    
-    ui_clear_screen();
-    ui_print_banner();
-
-    char id_line[70];
-    snprintf(id_line, sizeof(id_line), "Doctor ID: %d", new_doctor.id);
-    const char* success_items[] = 
-    {
-        id_line, name_line, phone_line, 
-        email_line, spec_line, room_line,
-        "Doctor added successfully!"
-    };
-    ui_print_menu("Doctor Added", success_items, 7, UI_SIZE);
-    ui_pause();
-    
 }
 
 void doctor_view_all() {
@@ -363,7 +258,7 @@ void doctor_search_by(void) {
             "Search by doctor name",
             "Search by doctor phone",
             "Back to Doctor Menu",
-            "Enter your choice: "
+            ">> "
         };
         
         ui_print_menu("Search Doctor", menu_items, 5, UI_SIZE);
@@ -519,8 +414,8 @@ void doctor_update_availability(const char* menu_items[], int index) {
     ui_print_banner();
     
     const char* menu[] = {
-        menu_items[5],
         "Set availability (1 for available, 2 for unavailable): ",
+        menu_items[5],
         ">> "
     };
     
@@ -623,7 +518,7 @@ void doctor_update_using_id() {
         room_line,
         avail_line,
         "Go back",
-        "Enter which field to update: "
+        ">> "
     };
     
     char title[50];
@@ -676,7 +571,7 @@ void doctor_discharge() {
             ">> "
         };
         
-        ui_print_menu("Discharge Doctor", enter_id_items, 2, UI_SIZE);
+        ui_print_menu("Deactivate Doctor", enter_id_items, 2, UI_SIZE);
         id = utils_get_int();
 
         if (id == 0) {
@@ -710,7 +605,7 @@ void doctor_discharge() {
         ">> "
     };
     
-    ui_print_menu("Discharge Doctor", menu, 3, UI_SIZE);
+    ui_print_menu("Deactivate Doctor", menu, 3, UI_SIZE);
     int input = utils_get_int();
 
     if (input == 1) {
@@ -731,8 +626,8 @@ void doctor_view_discharged(void) {
     ui_print_banner();
 
     if (doctor_unavailable == 0) {
-        const char* menu_items[] = {"No discharged doctors found!"};
-        ui_print_menu("Discharged Doctors", menu_items, 1, UI_SIZE);
+        const char* menu_items[] = {"No inactive doctors found!"};
+        ui_print_menu("Inactive Doctors", menu_items, 1, UI_SIZE);
         ui_pause();
         return;
     }
@@ -743,58 +638,4 @@ void doctor_view_discharged(void) {
         }
     }
     ui_pause();
-}
-
-void doctor_menu(void) {
-    int choice;
-    
-    do {
-        ui_clear_screen();
-        ui_print_banner();
-        
-        const char* menu_items[] = {
-            "Add Doctor",
-            "View Active Doctors",
-            "View Discharged Doctors",
-            "Search Doctor",
-            "Update Doctor",
-            "Discharge Doctor",
-            "Back to Main Menu",
-            "Enter your choice: "
-        };
-        
-        ui_print_menu("Doctor Management", menu_items, 8, UI_SIZE);
-        choice = utils_get_int();
-        
-        switch (choice) {
-            case 1:
-                doctor_add();
-                doctor_save_to_file();
-                break;
-            case 2:
-                doctor_view();
-                break;
-            case 3:
-                doctor_view_discharged();
-                break;
-            case 4:
-                doctor_search_by();
-                break;
-            case 5:
-                doctor_update_using_id();
-                doctor_save_to_file();
-                break;
-            case 6:
-                doctor_discharge();
-                doctor_save_to_file();
-                break;
-            case 7:
-                ui_print_info("Returning to main menu...");
-                ui_pause();
-                break;
-            default:
-                ui_print_error("Invalid choice! Please try again.");
-                ui_pause();
-        }
-    } while (choice != 7);
 }

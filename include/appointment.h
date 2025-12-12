@@ -40,12 +40,6 @@
  void appointment_view_by_doctor(int doctor_id);
 
 /**
- * Views all appointments for a specific patient.
- * @param patient_id The patient's ID.
- */
- void appointment_view_by_patient(int patient_id);
-
-/**
  * Updates appointment status.
  * @param appt_id The appointment ID.
  * @param status The new status.

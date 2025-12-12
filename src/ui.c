@@ -139,51 +139,6 @@ void ui_print_menu
     printf(BOLD SOFT_GREEN "%s" RESET, items[item_count - 1]);
 }
 
-void ui_print_menu_unnumbered(const char *title, const char *items[], int item_count, int box_width){
-    unsigned char h = 205;  // ═
-    unsigned char v = 186;  // ║
-    unsigned char tl = 201; // ╔
-    unsigned char tr = 187; // ╗
-    unsigned char bl = 200; // ╚
-    unsigned char br = 188; // ╝
-    
-    printf(BRIGHT_BLACK "%c", tl);
-    for (int i = 0; i < box_width; i++) printf("%c", h);
-    printf("%c" RESET "\n", tr);
-
-    char title_upper[100];
-    strncpy(title_upper, title, sizeof(title_upper) - 1);
-    title_upper[sizeof(title_upper) - 1] = '\0';
-    utils_str_to_upper(title_upper);
-    
-    int title_len = strlen(title_upper) + 4;
-    int title_padding = (box_width - title_len) / 2;
-    printf(BRIGHT_BLACK "%c" RESET, v);
-    for (int i = 0; i < title_padding; i++) printf(" ");
-    ui_print_header(title_upper);
-    for (int i = 0; i < box_width - title_padding - title_len; i++) printf(" ");
-    printf(BRIGHT_BLACK "%c" RESET "\n", v);
-    
-    printf(BRIGHT_BLACK "%c" RESET, v);
-    for (int i = 0; i < box_width; i++) printf(" ");
-    printf(BRIGHT_BLACK "%c" RESET "\n", v);
-    
-    for (int i = 0; i < item_count; i++) {
-        int item_len = strlen(items[i]);
-        printf(BRIGHT_BLACK "%c" RESET "  " SOFT_YELLOW BOLD "%s" RESET, v, items[i]);
-        for (int j = 0; j < box_width - item_len - 5; j++) printf(" ");
-        printf(BRIGHT_BLACK "%c" RESET "\n", v);
-    }
-    
-    printf(BRIGHT_BLACK "%c" RESET, v);
-    for (int i = 0; i < box_width; i++) printf(" ");
-    printf(BRIGHT_BLACK "%c" RESET "\n", v);
-    printf(BRIGHT_BLACK "%c", bl);
-    for (int i = 0; i < box_width; i++) printf("%c", h);
-    printf("%c" RESET "\n\n", br);
-
-}
-
 void ui_print_patient(Patient patient, int index) {
 
     char id_line[ID_LINE_SIZE];

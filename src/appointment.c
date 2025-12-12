@@ -19,9 +19,11 @@ int appointment_save_to_file(void) {
     if (file == NULL) {
         return -1;
     }
-    fwrite(&appointment_count, sizeof(int), 1, file);
-    fwrite(appointments, sizeof(Appointment), appointment_count, file);
-    
+    if (fwrite(&appointment_count, sizeof(int), 1, file) != 1 ||
+        fwrite(appointments, sizeof(Appointment), appointment_count, file) != (size_t)appointment_count) {
+        fclose(file);
+        return -1;
+    }
     fclose(file);
     return 0;
 }
@@ -31,9 +33,20 @@ int appointment_load_from_file(void) {
     if (file == NULL) {
         return -1;
     }
-    fread(&appointment_count, sizeof(int), 1, file);
-    fread(appointments, sizeof(Appointment), appointment_count, file);
-
+    if (fread(&appointment_count, sizeof(int), 1, file) != 1) {
+        fclose(file);
+        return -1;
+    }
+    if (appointment_count < 0 || appointment_count > MAX_APPOINTMENTS) {
+        fclose(file);
+        appointment_count = 0;
+        return -1;
+    }
+    if (fread(appointments, sizeof(Appointment), appointment_count, file) != (size_t)appointment_count) {
+        fclose(file);
+        appointment_count = 0;
+        return -1;
+    }
     fclose(file);
     return 0;
 }
@@ -271,24 +284,6 @@ void appointment_view_by_doctor(int doctor_id) {
     if (count == 0) {
         const char* menu_items[] = {"No appointments found!"};
         ui_print_menu("My Appointments", menu_items, 1, UI_SIZE);
-    }
-    ui_pause();
-}
-
-void appointment_view_by_patient(int patient_id) {
-    int count = 0;
-    ui_clear_screen();
-    ui_print_banner();
-    
-    for (int i = 0; i < appointment_count; i++) {
-        if (appointments[i].patient_id == patient_id) {
-            ui_print_appointment(appointments[i], count++);
-        }
-    }
-    
-    if (count == 0) {
-        const char* menu_items[] = {"No appointments found!"};
-        ui_print_menu("Patient Appointments", menu_items, 1, UI_SIZE);
     }
     ui_pause();
 }

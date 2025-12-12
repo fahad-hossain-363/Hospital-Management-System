@@ -209,14 +209,13 @@ void doctor_portal_update_availability(int doctor_id) {
              doctors[idx].is_available ? "Available" : "Unavailable");
     
     const char* menu_items[] = {
-        "Set Available",
-        "Set Unavailable",
-        "Cancel",
+        "Set availability (1 for available, 2 for unavailable): ",
         current_status,
+        "Back",
         ">> "
     };
     
-    ui_print_menu("Update Availability", menu_items, 5, UI_SIZE);
+    ui_print_menu("Update Availability", menu_items, 4, UI_SIZE);
     int choice = utils_get_int();
     
     switch (choice) {
@@ -274,7 +273,7 @@ void doctor_portal_menu(int doctor_id, const char* doctor_name) {
             "Update My Availability",
             "View My Profile",
             "Logout",
-            "Enter your choice: "
+            ">> "
         };
         
         ui_print_menu(title, menu_items, 9, UI_SIZE);

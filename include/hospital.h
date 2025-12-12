@@ -30,6 +30,7 @@
 #define ADDRESS_SIZE    100
 #define SPEC_SIZE       30      /* Specialization */
 #define BLOOD_SIZE      5       /* Blood group */
+#define AGE_SIZE        5       /* Age */
 #define USERNAME_SIZE   30
 #define PASSWORD_SIZE   50
 #define GENDER_SIZE     10
@@ -165,5 +166,15 @@ extern int appointment_count;
 
 /* Current user */
 extern User* current_user;
+
+/**
+ * Initialize the hospital system by loading all data.
+ */
+void hospital_init(void);
+
+/**
+ * Display about information.
+ */
+void show_about(void);
 
 #endif

@@ -17,10 +17,12 @@ int patient_save_to_file(void) {
     if (file == NULL) {
         return -1;
     }
-    fwrite(&patient_count, sizeof(int), 1, file);
-    fwrite(&patient_available, sizeof(int), 1, file);
-    fwrite(patients, sizeof(Patient), patient_count, file);
-    
+    if (fwrite(&patient_count, sizeof(int), 1, file) != 1 ||
+        fwrite(&patient_available, sizeof(int), 1, file) != 1 ||
+        fwrite(patients, sizeof(Patient), patient_count, file) != (size_t)patient_count) {
+        fclose(file);
+        return -1;
+    }
     fclose(file);
     return 0;
 }
@@ -30,10 +32,21 @@ int patient_load_from_file(void) {
     if (file == NULL) {
         return -1;
     }
-    fread(&patient_count, sizeof(int), 1, file);
-    fread(&patient_available, sizeof(int), 1, file);
-    fread(patients, sizeof(Patient), patient_count, file);
-
+    if (fread(&patient_count, sizeof(int), 1, file) != 1 ||
+        fread(&patient_available, sizeof(int), 1, file) != 1) {
+        fclose(file);
+        return -1;
+    }
+    if (patient_count < 0 || patient_count > MAX_PATIENTS) {
+        fclose(file);
+        patient_count = 0;
+        return -1;
+    }
+    if (fread(patients, sizeof(Patient), patient_count, file) != (size_t)patient_count) {
+        fclose(file);
+        patient_count = 0;
+        return -1;
+    }
     fclose(file);
     return 0;
 }
@@ -398,7 +411,7 @@ void patient_search_by(void) {
             "Search by patient name",
             "Search by patient phone",
             "Back to Patient Menu",
-            "Enter your choice: "
+            ">> "
         };
         
         ui_print_menu("Search Patient", menu_items, 5, UI_SIZE);
@@ -638,7 +651,7 @@ void patient_update_using_id() {
         blood_group_line,
         gender_line,
         "Go back",
-        "Enter which field to update: "
+        ">> "
     };
     
     char title[50];
@@ -755,58 +768,4 @@ void patient_view_discharged(void) {
         }
     }
     ui_pause();
-}
-
-void patient_receptionist_menu(void) {
-    int choice;
-    
-    do {
-        ui_clear_screen();
-        ui_print_banner();
-        
-        const char* menu_items[] = {
-            "Add Patient",
-            "View Active Patients",
-            "View Discharged Patients",
-            "Search Patient",
-            "Update Patient",
-            "Discharge Patient",
-            "Back to Main Menu",
-            "Enter your choice: "
-        };
-        
-        ui_print_menu("Receptionist Menu", menu_items, 8, UI_SIZE);
-        choice = utils_get_int();
-        
-        switch (choice) {
-            case 1:
-                patient_add();
-                patient_save_to_file();
-                break;
-            case 2:
-                patient_view();
-                break;
-            case 3:
-                patient_view_discharged();
-                break;
-            case 4:
-                patient_search_by();
-                break;
-            case 5:
-                patient_update_using_id();
-                patient_save_to_file();
-                break;
-            case 6:
-                patient_discharge();
-                patient_save_to_file();
-                break;
-            case 7:
-                ui_print_info("Returning to main menu...");
-                ui_pause();
-                break;
-            default:
-                ui_print_error("Invalid choice! Please try again.");
-                ui_pause();
-        }
-    } while (choice != 7);
 }

@@ -28,7 +28,7 @@ void receptionist_patient_menu(void) {
             "Update Patient",
             "Discharge Patient",
             "Back",
-            "Enter your choice: "
+            ">> "
         };
         
         ui_print_menu("Patient Management", menu_items, 8, UI_SIZE);
@@ -78,7 +78,7 @@ void receptionist_appointment_menu(void) {
             "Create Appointment",
             "View All Appointments",
             "Back",
-            "Enter your choice: "
+            ">> "
         };
         
         ui_print_menu("Appointment Management", menu_items, 4, UI_SIZE);
@@ -122,7 +122,7 @@ void receptionist_menu(void) {
             "Patient Management",
             "Appointment Management",
             "Logout",
-            "Enter your choice: "
+            ">> "
         };
         
         ui_print_menu("Receptionist Portal", menu_items, 4, UI_SIZE);

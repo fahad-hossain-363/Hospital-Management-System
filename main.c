@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "include/utils.h"
 #include "include/ui.h"
@@ -11,244 +12,45 @@
 #include "include/doctor_portal.h"
 #include "include/auth.h"
 
-void hospital_init(void) {
-    patient_load_from_file();
-    doctor_load_from_file();
-    appointment_load_from_file();
-    auth_load_from_file();
-    auth_init_default_admin();
-}
+#define VERSION "1.0.0"
 
-void admin_main_menu(void) {
-    int choice;
-    
-    do {
-        ui_clear_screen();
-        ui_print_banner();
-        
-        const char* menu_items[] = {
-            "Patient Management",
-            "Doctor Management",
-            "User Management",
-            "Logout",
-            "Enter your choice: "
-        };
-        
-        ui_print_menu("Admin Portal", menu_items, 5, UI_SIZE);
-        choice = utils_get_int();
-        
-        switch (choice) {
-            case 1:
-                admin_patient_menu();
-                break;
-            case 2:
-                admin_doctor_menu();
-                break;
-            case 3:
-                auth_user_menu();
-                break;
-            case 4:
-                ui_print_info("Logging out...");
-                ui_pause();
-                break;
-            default:
-                ui_print_error("Invalid choice!");
-                ui_pause();
+void print_help(const char* program_name);
+void print_version(void);
+
+int main(int argc, char* argv[]) {
+    if (argc > 1) {
+        if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0) {
+            print_help(argv[0]);
+            return 0;
         }
-    } while (choice != 4);
-}
-
-void show_about(void) {
-    ui_clear_screen();
-    ui_print_banner();
-    
-    const char* about_items[] = {
-        "Healthcare Management System (HMS)",
-        "Version: 1.0",
-        "Developed for efficient hospital management",
-        "including patient, doctor, and appointment",
-        "tracking with role-based access control.",
-        "Roles: Admin, Receptionist, Doctor",
-        ""
-    };
-    
-    ui_print_menu_unnumbered("About HMS", about_items, 7, UI_SIZE);
-    ui_pause();
-}
-
-void doctor_login(void) {
-    char username[USERNAME_SIZE];
-    char password[PASSWORD_SIZE];
-    
-    ui_clear_screen();
-    ui_print_banner();
-    
-    const char* menu_items[] = {
-        "Username:",
-        ">> "
-    };
-    ui_print_menu("Doctor Login", menu_items, 2, UI_SIZE);
-    utils_get_string(username, USERNAME_SIZE);
-    
-    ui_clear_screen();
-    ui_print_banner();
-    
-    char user_line[80];
-    snprintf(user_line, sizeof(user_line), "Username: %s", username);
-    const char* pass_items[] = {
-        user_line,
-        "Password:",
-        ">> "
-    };
-    ui_print_menu("Doctor Login", pass_items, 3, UI_SIZE);
-    utils_get_string(password, PASSWORD_SIZE);
-    
-    for (int i = 0; i < user_count; i++) {
-        if (strcmp(users[i].username, username) == 0 &&
-            strcmp(users[i].password, password) == 0 &&
-            users[i].is_active &&
-            users[i].role == ROLE_DOCTOR) {
-            current_user = &users[i];
-            doctor_portal_menu(users[i].id, username);
-            current_user = NULL;
-            return;
+        else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
+            print_version();
+            return 0;
         }
     }
     
-    ui_print_error("Invalid credentials or not a doctor!");
-    ui_pause();
-}
-
-void receptionist_login(void) {
-    char username[USERNAME_SIZE];
-    char password[PASSWORD_SIZE];
-    
-    ui_clear_screen();
-    ui_print_banner();
-    
-    const char* menu_items[] = {
-        "Username:",
-        ">> "
-    };
-    ui_print_menu("Receptionist Login", menu_items, 2, UI_SIZE);
-    utils_get_string(username, USERNAME_SIZE);
-    
-    ui_clear_screen();
-    ui_print_banner();
-    
-    char user_line[80];
-    snprintf(user_line, sizeof(user_line), "Username: %s", username);
-    const char* pass_items[] = {
-        user_line,
-        "Password:",
-        ">> "
-    };
-    ui_print_menu("Receptionist Login", pass_items, 3, UI_SIZE);
-    utils_get_string(password, PASSWORD_SIZE);
-    
-    // Find user
-    for (int i = 0; i < user_count; i++) {
-        if (strcmp(users[i].username, username) == 0 &&
-            strcmp(users[i].password, password) == 0 &&
-            users[i].is_active &&
-            users[i].role == ROLE_RECEPTIONIST) {
-            current_user = &users[i];
-            receptionist_menu();
-            current_user = NULL;
-            return;
-        }
-    }
-    
-    ui_print_error("Invalid credentials or not a receptionist!");
-    ui_pause();
-}
-
-void admin_login(void) {
-    char username[USERNAME_SIZE];
-    char password[PASSWORD_SIZE];
-    
-    ui_clear_screen();
-    ui_print_banner();
-    
-    const char* menu_items[] = {
-        "Username:",
-        ">> "
-    };
-    ui_print_menu("Admin Login", menu_items, 2, UI_SIZE);
-    utils_get_string(username, USERNAME_SIZE);
-    
-    ui_clear_screen();
-    ui_print_banner();
-    
-    char user_line[80];
-    snprintf(user_line, sizeof(user_line), "Username: %s", username);
-    const char* pass_items[] = {
-        user_line,
-        "Password:",
-        ">> "
-    };
-    ui_print_menu("Admin Login", pass_items, 3, UI_SIZE);
-    utils_get_string(password, PASSWORD_SIZE);
-    
-    // Find user
-    for (int i = 0; i < user_count; i++) {
-        if (strcmp(users[i].username, username) == 0 &&
-            strcmp(users[i].password, password) == 0 &&
-            users[i].is_active &&
-            users[i].role == ROLE_ADMIN) {
-            current_user = &users[i];
-            admin_main_menu();
-            current_user = NULL;
-            return;
-        }
-    }
-    
-    ui_print_error("Invalid credentials or not an admin!");
-    ui_pause();
-}
-
-void login_menu(void) {
-    int choice;
-    
-    do {
-        ui_clear_screen();
-        ui_print_banner();
-        
-        const char* menu_items[] = {
-            "Admin Login",
-            "Receptionist Login",
-            "Doctor Login",
-            "Back",
-            "Enter your choice: "
-        };
-        
-        ui_print_menu("Login", menu_items, 5, UI_SIZE);
-        choice = utils_get_int();
-        
-        switch (choice) {
-            case 1:
-                admin_login();
-                break;
-            case 2:
-                receptionist_login();
-                break;
-            case 3:
-                doctor_login();
-                break;
-            case 4:
-                return;
-            default:
-                ui_print_error("Invalid choice!");
-                ui_pause();
-        }
-    } while (choice != 4);
-}
-
-int main() {
+    // Initialize the system
     hospital_init();
     
+    if (argc > 1) {
+        if (strcmp(argv[1], "-a") == 0 || strcmp(argv[1], "--about") == 0) {
+            show_about();
+            ui_clear_screen();
+            return 0;
+        } 
+        else if (strcmp(argv[1], "-l") == 0 || strcmp(argv[1], "--login") == 0) {
+            login_menu();
+            return 0;
+        }
+        else {
+            ui_print_error("Invalid option!");
+            ui_pause();
+            return 1;
+        }
+    }
+    
     int choice;
-
+    
     do {
         ui_clear_screen();
         ui_print_banner();
@@ -257,7 +59,7 @@ int main() {
             "Login",
             "About",
             "Exit",
-            "Enter your choice: "
+            ">> "
         };
         
         ui_print_menu("Main Menu", menu_items, 4, UI_SIZE);
@@ -266,19 +68,39 @@ int main() {
         switch (choice) {
             case 1:
                 login_menu();
-                break;
+            break;
             case 2:
                 show_about();
-                break;
+            break;
             case 3:
                 ui_print_success("Goodbye!");
                 ui_pause();
+                ui_clear_screen();
                 break;
             default:
                 ui_print_error("Invalid choice!");
                 ui_pause();
         }
     } while (choice != 3);
-
+    
     return 0;
+}
+
+void print_help(const char* program_name) {
+    printf("\n" BOLD BRIGHT_RED "Healthcare Management System" RESET BOLD SOFT_GREEN " v%s" RESET "\n\n", VERSION);
+    printf(SOFT_YELLOW "Usage:" RESET " %s [option] or ./hms.exe [option] for windows\n", program_name);
+    printf(SOFT_YELLOW "Usage:" RESET " ./hms.out [option] for linux\n\n");
+    printf(SOFT_YELLOW "Options:" RESET "\n");
+    printf("  -h, --help      Show this help message\n");
+    printf("  -v, --version   Show version information\n");
+    printf("  -a, --about     Show about information\n");
+    printf("  -l, --login     Go directly to login menu\n");
+    printf("\n");
+    printf("If no options are provided, the interactive menu will start.\n\n");
+}
+
+void print_version(void) {
+    printf("\n" BOLD "Healthcare Management System" RESET "\n");
+    printf("Version: " SOFT_GREEN "%s" RESET "\n", VERSION);
+    printf("Built with C\n\n");
 }
