@@ -16,6 +16,7 @@
 
 void print_help(const char* program_name);
 void print_version(void);
+void ensure_data_dir(void);
 
 int main(int argc, char* argv[]) {
     if (argc > 1) {
@@ -31,6 +32,7 @@ int main(int argc, char* argv[]) {
     
     // Initialize the system
     hospital_init();
+    ensure_data_dir();
     
     if (argc > 1) {
         if (strcmp(argv[1], "-a") == 0 || strcmp(argv[1], "--about") == 0) {
@@ -40,6 +42,7 @@ int main(int argc, char* argv[]) {
         } 
         else if (strcmp(argv[1], "-l") == 0 || strcmp(argv[1], "--login") == 0) {
             login_menu();
+            ui_clear_screen();
             return 0;
         }
         else {
@@ -103,4 +106,15 @@ void print_version(void) {
     printf("\n" BOLD "Healthcare Management System" RESET "\n");
     printf("Version: " SOFT_GREEN "%s" RESET "\n", VERSION);
     printf("Built with C\n\n");
+}
+
+void ensure_data_dir(void) {
+
+    FILE* file = fopen(PATIENTS_FILE, "rb");
+    if (file == NULL) {
+        system("mkdir data 2>nul"); // 2>nul for already existing folder
+    } else {
+        fclose(file);
+    }
+
 }
