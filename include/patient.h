@@ -64,11 +64,6 @@
  void patient_discharge(void);
 
 /**
- * Displays the patient management menu and handles user input.
- */
- void patient_receptionist_menu(void);
-
-/**
  * Displays all patients in the system.
  */
  void patient_view_all(void);

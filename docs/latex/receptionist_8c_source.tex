@@ -1,0 +1,305 @@
+\doxysection{receptionist.\+c}
+\hypertarget{receptionist_8c_source}{}\label{receptionist_8c_source}\index{src/receptionist.c@{src/receptionist.c}}
+\mbox{\hyperlink{receptionist_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{receptionist_8h}{../include/receptionist.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{patient_8h}{../include/patient.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{doctor_8h}{../include/doctor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{appointment_8h}{../include/appointment.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8h}{../include/utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ui_8h}{../include/ui.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hospital_8h}{../include/hospital.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00016}\mbox{\hyperlink{receptionist_8c_ad105c84dc508cfc9bf8e1ed72e7945cd}{00016}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{receptionist_8c_ad105c84dc508cfc9bf8e1ed72e7945cd}{receptionist\_patient\_menu}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{int}\ choice;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00018}00018\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Add\ Patient"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}View\ Active\ Patients"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}View\ Discharged\ Patients"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Search\ Patient"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Update\ Patient"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Discharge\ Patient"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Back"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Patient\ Management"{}},\ menu\_items,\ 8,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ choice\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (choice)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_a8a949d5343931985e0a652bf4fbc01c4}{patient\_add}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_a01ddfa3e34d15548d5f6e296f4b4e8a7}{patient\_save\_to\_file}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_a2caf574b57047c224b680bd7e5904090}{patient\_view\_all}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_a441fbd1ac3dff87a3c2f390719ac7435}{patient\_view\_discharged}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_a452dfb186e3bef58fd380f2609e4ab53}{patient\_search\_by}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_a77260a6ac6154390bdaf8072b9833ed1}{patient\_update\_using\_id}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_a01ddfa3e34d15548d5f6e296f4b4e8a7}{patient\_save\_to\_file}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_af276616d076f4493b0e8125dfb8a817b}{patient\_discharge}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{patient_8c_a01ddfa3e34d15548d5f6e296f4b4e8a7}{patient\_save\_to\_file}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 7:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Returning\ to\ receptionist\ menu..."{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ choice!"{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00067}00067\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 7);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00070}\mbox{\hyperlink{receptionist_8c_a0e702eb62dedc4cfbf73255fe6fe3aee}{00070}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{receptionist_8c_a0e702eb62dedc4cfbf73255fe6fe3aee}{receptionist\_appointment\_menu}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{int}\ choice;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00072}00072\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Create\ Appointment"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}View\ All\ Appointments"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Back"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Appointment\ Management"{}},\ menu\_items,\ 4,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ choice\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (choice)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{appointment_8c_a925af679def80ab6bf044b2808d628f6}{appointment\_create}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{appointment_8c_a16926ba92085d786240e315eff119133}{ui\_print\_appointment}}(\mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}}[i],\ i);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ no\_appt[]\ =\ \{\textcolor{stringliteral}{"{}No\ appointments\ found!"{}}\};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}All\ Appointments"{}},\ no\_appt,\ 1,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Returning\ to\ receptionist\ menu..."{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ choice!"{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00111}00111\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 3);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00114}\mbox{\hyperlink{receptionist_8c_a20c4230393b62fbc79b093ff30527fb6}{00114}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{receptionist_8c_a20c4230393b62fbc79b093ff30527fb6}{receptionist\_menu}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00115}00115\ \ \ \ \ \textcolor{keywordtype}{int}\ choice;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00116}00116\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Patient\ Management"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Appointment\ Management"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Logout"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Receptionist\ Portal"{}},\ menu\_items,\ 4,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ choice\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (choice)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{receptionist_8c_ad105c84dc508cfc9bf8e1ed72e7945cd}{receptionist\_patient\_menu}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{receptionist_8c_a0e702eb62dedc4cfbf73255fe6fe3aee}{receptionist\_appointment\_menu}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Logging\ out..."{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ choice!"{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00146}00146\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 3);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00147}00147\ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00149}00149\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00150}00150\ \textcolor{comment}{\ *==========================================================================}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00151}00151\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RECEPTIONIST\ DATA\ FUNCTIONS}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00152}00152\ \textcolor{comment}{\ *==========================================================================}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00153}00153\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00155}\mbox{\hyperlink{receptionist_8c_aec30b0aad06229ad63ec6361d8fe0894}{00155}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{receptionist_8c_aec30b0aad06229ad63ec6361d8fe0894}{receptionist\_save\_to\_file}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00156}00156\ \ \ \ \ FILE*\ file\ =\ fopen(\mbox{\hyperlink{hospital_8h_a7a95503c6691aaee218e83a8ff388ad5}{RECEPTIONISTS\_FILE}},\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00159}00159\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{if}\ (fwrite(\&\mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1\ ||}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ fwrite(\&\mbox{\hyperlink{hospital_8c_a5fd7e56f9d71f3ffe638e1f7ffd701b3}{receptionist\_available}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1\ ||}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ fwrite(\mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_receptionist}{Receptionist}}),\ \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}},\ file)\ !=\ (\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00166}00166\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00168}00168\ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00170}\mbox{\hyperlink{receptionist_8c_a18566822ed227853f7904193777b2853}{00170}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{receptionist_8c_a18566822ed227853f7904193777b2853}{receptionist\_load\_from\_file}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00171}00171\ \ \ \ \ FILE*\ file\ =\ fopen(\mbox{\hyperlink{hospital_8h_a7a95503c6691aaee218e83a8ff388ad5}{RECEPTIONISTS\_FILE}},\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00172}00172\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00175}00175\ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(\&\mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1\ ||}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ fread(\&\mbox{\hyperlink{hospital_8c_a5fd7e56f9d71f3ffe638e1f7ffd701b3}{receptionist\_available}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00179}00179\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count\ <\ 0\ ||\ receptionist\_count\ >}}\ \mbox{\hyperlink{hospital_8h_aaf04893c2643204cdadd385d4a9eed58}{MAX\_RECEPTIONISTS}})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00184}00184\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00185}00185\ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(\mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_receptionist}{Receptionist}}),\ \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}},\ file)\ !=\ (\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00190}00190\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00192}00192\ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00194}\mbox{\hyperlink{receptionist_8c_aff69f99121bc3fa9fac8680b83e098f2}{00194}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{receptionist_8c_aff69f99121bc3fa9fac8680b83e098f2}{receptionist\_search\_id}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00195}00195\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}}[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00200}00200\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00201}00201\ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00203}\mbox{\hyperlink{receptionist_8c_a01afbb1e4c6e54ec2c58fbe941491756}{00203}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{receptionist_8c_a01afbb1e4c6e54ec2c58fbe941491756}{receptionist\_view\_all}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00204}00204\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00205}00205\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00206}00206\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00208}00208\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a5fd7e56f9d71f3ffe638e1f7ffd701b3}{receptionist\_available}}\ ==\ 0\ ||\ \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{\textcolor{stringliteral}{"{}No\ receptionists\ found!"{}}\};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}View\ All\ Receptionists"{}},\ menu\_items,\ 1,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00215}00215\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}}[i].is\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a7aa89aa1d99d0ffd3cb5e6a1bd188d81}{ui\_print\_receptionist}}(\mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}}[i],\ count++);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00220}00220\ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00221}00221\ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00223}\mbox{\hyperlink{receptionist_8c_a2f9ec4f52a7891044705b8520a650e85}{00223}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{receptionist_8c_a2f9ec4f52a7891044705b8520a650e85}{receptionist\_view\_discharged}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00224}00224\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00225}00225\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00226}00226\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00228}00228\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_ad7f79c22c18645256de4eb7a5a264500}{receptionist\_unavailable}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{\textcolor{stringliteral}{"{}No\ inactive\ receptionists\ found!"{}}\};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Inactive\ Receptionists"{}},\ menu\_items,\ 1,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00233}00233\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00235}00235\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}}[i].is\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a7aa89aa1d99d0ffd3cb5e6a1bd188d81}{ui\_print\_receptionist}}(\mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}}[i],\ count++);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00239}00239\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00240}00240\ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00241}00241\ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00243}\mbox{\hyperlink{receptionist_8c_aa7183974c38826f3eb07e245b9c0df20}{00243}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{receptionist_8c_aa7183974c38826f3eb07e245b9c0df20}{receptionist\_discharge}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00244}00244\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00245}00245\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ enter\_id\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ receptionist\ ID\ (0\ to\ cancel):\ "{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Deactivate\ Receptionist"{}},\ enter\_id\_items,\ 2,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Cancelled."{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ae196c1358637951d0c2712c09f7a13f8}{utils\_is\_valid\_id}}(\textcolor{keywordtype}{id},\ \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775acdede7bafec134c7b28075c1bf6c238f}{ROLE\_RECEPTIONIST}}))\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ ID!"{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00269}00269\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00271}00271\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{receptionist_8c_aff69f99121bc3fa9fac8680b83e098f2}{receptionist\_search\_id}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00272}00272\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Receptionist\ not\ found!"{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00276}00276\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00278}00278\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00279}00279\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00280}00280\ \ \ \ \ \mbox{\hyperlink{ui_8c_a7aa89aa1d99d0ffd3cb5e6a1bd188d81}{ui\_print\_receptionist}}(\mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}}[index],\ index);}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00281}00281\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00282}00282\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Confirm\ Deactivate"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Cancel"{}},}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00286}00286\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00287}00287\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00288}00288\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Deactivate\ Receptionist"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00289}00289\ \ \ \ \ \textcolor{keywordtype}{int}\ input\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00291}00291\ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}}[index].is\_active\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00293}00293\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_aeb1cbcd8d3daa215fbfc9d03a93d28f5}{ui\_print\_success}}(\textcolor{stringliteral}{"{}Receptionist\ deactivated\ successfully!"{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a5fd7e56f9d71f3ffe638e1f7ffd701b3}{receptionist\_available}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_ad7f79c22c18645256de4eb7a5a264500}{receptionist\_unavailable}}++;}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00296}00296\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{receptionist_8c_aec30b0aad06229ad63ec6361d8fe0894}{receptionist\_save\_to\_file}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00297}00297\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00298}00298\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00299}00299\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Deactivation\ cancelled."{}});}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00301}00301\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receptionist_8c_source_l00302}00302\ \}}
+
+\end{DoxyCode}

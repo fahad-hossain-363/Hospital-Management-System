@@ -1,0 +1,194 @@
+\doxysection{include/appointment.h File Reference}
+\hypertarget{appointment_8h}{}\label{appointment_8h}\index{include/appointment.h@{include/appointment.h}}
+
+
+\doxylink{struct_appointment}{Appointment} management functions for Healthcare Management System.  
+
+
+{\ttfamily \#include "{}hospital.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{appointment_8h_a5b3244b7d8608e69315674fe0d3a1cdc}{appointment\+\_\+save\+\_\+to\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{appointment_8h_a52fb65f1894f0c8eec6e7148fc83981a}{appointment\+\_\+load\+\_\+from\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{appointment_8h_a7ac164171db419ee6567dd2dfaab157c}{appointment\+\_\+generate\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{appointment_8h_a925af679def80ab6bf044b2808d628f6}{appointment\+\_\+create}} (void)
+\item 
+void \mbox{\hyperlink{appointment_8h_ad4a466304e81b92d308c4167025cee19}{appointment\+\_\+view\+\_\+by\+\_\+doctor}} (int doctor\+\_\+id)
+\item 
+void \mbox{\hyperlink{appointment_8h_a85c1b73ccfba44db01f91da31fec5b15}{appointment\+\_\+update\+\_\+status}} (int appt\+\_\+id, \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}{Appointment\+Status}} status)
+\item 
+void \mbox{\hyperlink{appointment_8h_ae3b8a7a7f6bb454c9abdcfe1656e1015}{appointment\+\_\+cancel}} (int appt\+\_\+id)
+\item 
+int \mbox{\hyperlink{appointment_8h_ad29d0df1a0d5a2eb7e5bcb1384c0f94c}{appointment\+\_\+search\+\_\+id}} (int id)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{appointment_8h_a5892e39a2c1345181b40163296f9c7f2}{appointment\+\_\+status\+\_\+str}} (\mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}{Appointment\+Status}} status)
+\item 
+void \mbox{\hyperlink{appointment_8h_a16926ba92085d786240e315eff119133}{ui\+\_\+print\+\_\+appointment}} (\mbox{\hyperlink{struct_appointment}{Appointment}} appt, int index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_appointment}{Appointment} management functions for Healthcare Management System. 
+
+This header declares appointment-\/related CRUD operations. 
+
+Definition in file \mbox{\hyperlink{appointment_8h_source}{appointment.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{appointment_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{appointment_8h_ae3b8a7a7f6bb454c9abdcfe1656e1015}\index{appointment.h@{appointment.h}!appointment\_cancel@{appointment\_cancel}}
+\index{appointment\_cancel@{appointment\_cancel}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_cancel()}{appointment\_cancel()}}
+{\footnotesize\ttfamily \label{appointment_8h_ae3b8a7a7f6bb454c9abdcfe1656e1015} 
+void appointment\+\_\+cancel (\begin{DoxyParamCaption}\item[{int}]{appt\+\_\+id}{}\end{DoxyParamCaption})}
+
+Cancels an appointment. 
+\begin{DoxyParams}{Parameters}
+{\em appt\+\_\+id} & The appointment ID. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00305}{305}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_a925af679def80ab6bf044b2808d628f6}\index{appointment.h@{appointment.h}!appointment\_create@{appointment\_create}}
+\index{appointment\_create@{appointment\_create}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_create()}{appointment\_create()}}
+{\footnotesize\ttfamily \label{appointment_8h_a925af679def80ab6bf044b2808d628f6} 
+void appointment\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Creates a new appointment (called by receptionist). 
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00077}{77}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_a7ac164171db419ee6567dd2dfaab157c}\index{appointment.h@{appointment.h}!appointment\_generate\_id@{appointment\_generate\_id}}
+\index{appointment\_generate\_id@{appointment\_generate\_id}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_generate\_id()}{appointment\_generate\_id()}}
+{\footnotesize\ttfamily \label{appointment_8h_a7ac164171db419ee6567dd2dfaab157c} 
+int appointment\+\_\+generate\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Generates a unique appointment ID. \begin{DoxyReturn}{Returns}
+The generated appointment ID. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00054}{54}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_a52fb65f1894f0c8eec6e7148fc83981a}\index{appointment.h@{appointment.h}!appointment\_load\_from\_file@{appointment\_load\_from\_file}}
+\index{appointment\_load\_from\_file@{appointment\_load\_from\_file}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_load\_from\_file()}{appointment\_load\_from\_file()}}
+{\footnotesize\ttfamily \label{appointment_8h_a52fb65f1894f0c8eec6e7148fc83981a} 
+int appointment\+\_\+load\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Loads all appointments from binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 if file doesn\textquotesingle{}t exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00031}{31}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_a5b3244b7d8608e69315674fe0d3a1cdc}\index{appointment.h@{appointment.h}!appointment\_save\_to\_file@{appointment\_save\_to\_file}}
+\index{appointment\_save\_to\_file@{appointment\_save\_to\_file}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_save\_to\_file()}{appointment\_save\_to\_file()}}
+{\footnotesize\ttfamily \label{appointment_8h_a5b3244b7d8608e69315674fe0d3a1cdc} 
+int appointment\+\_\+save\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Saves all appointments to binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00017}{17}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_ad29d0df1a0d5a2eb7e5bcb1384c0f94c}\index{appointment.h@{appointment.h}!appointment\_search\_id@{appointment\_search\_id}}
+\index{appointment\_search\_id@{appointment\_search\_id}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_search\_id()}{appointment\_search\_id()}}
+{\footnotesize\ttfamily \label{appointment_8h_ad29d0df1a0d5a2eb7e5bcb1384c0f94c} 
+int appointment\+\_\+search\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+Finds appointment by ID. 
+\begin{DoxyParams}{Parameters}
+{\em id} & The appointment ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of appointment, or -\/1 if not found. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00068}{68}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_a5892e39a2c1345181b40163296f9c7f2}\index{appointment.h@{appointment.h}!appointment\_status\_str@{appointment\_status\_str}}
+\index{appointment\_status\_str@{appointment\_status\_str}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_status\_str()}{appointment\_status\_str()}}
+{\footnotesize\ttfamily \label{appointment_8h_a5892e39a2c1345181b40163296f9c7f2} 
+const char \texorpdfstring{$\ast$}{*} appointment\+\_\+status\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}{Appointment\+Status}}}]{status}{}\end{DoxyParamCaption})}
+
+Gets status string from enum. 
+\begin{DoxyParams}{Parameters}
+{\em status} & The appointment status. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String representation. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00058}{58}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_a85c1b73ccfba44db01f91da31fec5b15}\index{appointment.h@{appointment.h}!appointment\_update\_status@{appointment\_update\_status}}
+\index{appointment\_update\_status@{appointment\_update\_status}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_update\_status()}{appointment\_update\_status()}}
+{\footnotesize\ttfamily \label{appointment_8h_a85c1b73ccfba44db01f91da31fec5b15} 
+void appointment\+\_\+update\+\_\+status (\begin{DoxyParamCaption}\item[{int}]{appt\+\_\+id}{, }\item[{\mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}{Appointment\+Status}}}]{status}{}\end{DoxyParamCaption})}
+
+Updates appointment status. 
+\begin{DoxyParams}{Parameters}
+{\em appt\+\_\+id} & The appointment ID. \\
+\hline
+{\em status} & The new status. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00291}{291}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_ad4a466304e81b92d308c4167025cee19}\index{appointment.h@{appointment.h}!appointment\_view\_by\_doctor@{appointment\_view\_by\_doctor}}
+\index{appointment\_view\_by\_doctor@{appointment\_view\_by\_doctor}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_view\_by\_doctor()}{appointment\_view\_by\_doctor()}}
+{\footnotesize\ttfamily \label{appointment_8h_ad4a466304e81b92d308c4167025cee19} 
+void appointment\+\_\+view\+\_\+by\+\_\+doctor (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{}\end{DoxyParamCaption})}
+
+Views all appointments for a specific doctor. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00272}{272}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+
+\Hypertarget{appointment_8h_a16926ba92085d786240e315eff119133}\index{appointment.h@{appointment.h}!ui\_print\_appointment@{ui\_print\_appointment}}
+\index{ui\_print\_appointment@{ui\_print\_appointment}!appointment.h@{appointment.h}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_appointment()}{ui\_print\_appointment()}}
+{\footnotesize\ttfamily \label{appointment_8h_a16926ba92085d786240e315eff119133} 
+void ui\+\_\+print\+\_\+appointment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_appointment}{Appointment}}}]{appt}{, }\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+Prints an appointment in a formatted box. 
+\begin{DoxyParams}{Parameters}
+{\em appt} & The appointment to print. \\
+\hline
+{\em index} & The display index. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{appointment_8c_source_l00229}{229}} of file \mbox{\hyperlink{appointment_8c_source}{appointment.\+c}}.
+

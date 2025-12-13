@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['show_5fabout_0',['show_about',['../hospital_8c.html#ac2793234764f34a3505fcf01bbc7929b',1,'show_about(void):&#160;hospital.c'],['../hospital_8h.html#ac2793234764f34a3505fcf01bbc7929b',1,'show_about(void):&#160;hospital.c']]],
+  ['show_5fcursor_1',['SHOW_CURSOR',['../ui_8h.html#a09ec0b302bee7262f9959add53ccd0c4',1,'ui.h']]],
+  ['soft_5fblue_2',['SOFT_BLUE',['../ui_8h.html#a0a87193a04d5afa5e9ee486b9d66d864',1,'ui.h']]],
+  ['soft_5fcyan_3',['SOFT_CYAN',['../ui_8h.html#acccd95394a54114ca4434e97bacdc20d',1,'ui.h']]],
+  ['soft_5fgray_4',['SOFT_GRAY',['../ui_8h.html#a98969ef242c35f9cc923d496a27ebed5',1,'ui.h']]],
+  ['soft_5fgreen_5',['SOFT_GREEN',['../ui_8h.html#ace3b9834ad5473dbf3b800034f60975f',1,'ui.h']]],
+  ['soft_5fred_6',['SOFT_RED',['../ui_8h.html#a7b9e6fd6d774e5ac53a4e7bc17acfa61',1,'ui.h']]],
+  ['soft_5fteal_7',['SOFT_TEAL',['../ui_8h.html#a4f5702c771b92af20adc77a6c7531a5a',1,'ui.h']]],
+  ['soft_5fyellow_8',['SOFT_YELLOW',['../ui_8h.html#aa693767e30bb6ff6c6c34e276c233eef',1,'ui.h']]],
+  ['spec_5fline_5fsize_9',['SPEC_LINE_SIZE',['../hospital_8h.html#abbef1ea48e5df4f4fc13c05097c3b73b',1,'hospital.h']]],
+  ['spec_5fsize_10',['SPEC_SIZE',['../hospital_8h.html#a8789db78c9ad3ae09e5234d03ec9a639',1,'hospital.h']]],
+  ['specialization_11',['specialization',['../struct_doctor.html#aff2cb9808dbf0611b5540aeaf3e62993',1,'Doctor']]],
+  ['status_12',['status',['../struct_appointment.html#aa24711d79171a830352bca32e47c5a64',1,'Appointment']]],
+  ['status_5fbad_13',['STATUS_BAD',['../ui_8h.html#a8cab522a4e8ec6366a5577f4bcf83a4c',1,'ui.h']]],
+  ['status_5fgood_14',['STATUS_GOOD',['../ui_8h.html#a9911d5631f5619f8a07a0ea864799928',1,'ui.h']]],
+  ['status_5finfo_15',['STATUS_INFO',['../ui_8h.html#a8f183e602652ed13b35966233ae9dd1c',1,'ui.h']]],
+  ['status_5fline_5fsize_16',['STATUS_LINE_SIZE',['../hospital_8h.html#a87fbe99bc9f9356d1994a56a69a7f721',1,'STATUS_LINE_SIZE:&#160;hospital.h'],['../hospital_8h.html#a6e0dd64d60194ec52667b97693ab5791',1,'STATUS_LINE_SIZE:&#160;hospital.h']]],
+  ['status_5fsize_17',['STATUS_SIZE',['../hospital_8h.html#a4a61b9aeb7e1d0a9268a03bf29aa62fa',1,'hospital.h']]],
+  ['status_5fwarn_18',['STATUS_WARN',['../ui_8h.html#a92d06b91e22b42a0dd1549d4f1b738b5',1,'ui.h']]]
+];

@@ -6,6 +6,7 @@
 *.so
 *.dll
 *.a
+*.exe.lnk
 
 # Data files (patient/doctor records)
 data/*.dat

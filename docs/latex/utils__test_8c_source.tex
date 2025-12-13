@@ -1,0 +1,185 @@
+\doxysection{utils\+\_\+test.\+c}
+\hypertarget{utils__test_8c_source}{}\label{utils__test_8c_source}\index{tests/utils\_test.c@{tests/utils\_test.c}}
+\mbox{\hyperlink{utils__test_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8h}{../include/utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00005}\mbox{\hyperlink{utils__test_8c_a14f0c72365484c7aca8990abd7825874}{00005}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_a14f0c72365484c7aca8990abd7825874}{test\_utils\_get\_int}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00006}00006\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Enter\ an\ integer:\ "{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00007}00007\ \ \ \ \ \textcolor{keywordtype}{int}\ expected\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{int}\ actual\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{int}\ success\ =\ (actual\ ==\ expected);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00010}00010\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%d\(\backslash\)n"{}},\ expected);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00011}00011\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%d\(\backslash\)n"{}},\ actual);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00012}00012\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ success\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00013}00013\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00015}\mbox{\hyperlink{utils__test_8c_a66ed2ca7f32de527cc9b1c4673fc7274}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_a66ed2ca7f32de527cc9b1c4673fc7274}{test\_utils\_get\_char}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00016}00016\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Enter\ a\ character:\ "{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{char}\ expected\ =\ \textcolor{charliteral}{'c'};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{char}\ actual\ =\ \mbox{\hyperlink{utils_8c_a4266a1741f167eedeaadf572e153af41}{utils\_get\_char}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{int}\ success\ =\ (actual\ ==\ expected);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00020}00020\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%c\(\backslash\)n"{}},\ expected);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00021}00021\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%c\(\backslash\)n"{}},\ actual);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00022}00022\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ success\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00025}\mbox{\hyperlink{utils__test_8c_a3a3c22f0b24e2bf29665c763e5548627}{00025}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_a3a3c22f0b24e2bf29665c763e5548627}{test\_utils\_get\_float}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00026}00026\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Enter\ a\ float:\ "{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{float}\ expected\ =\ 3.14;}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{float}\ actual\ =\ \mbox{\hyperlink{utils_8c_ad39c008675c768f5429e675f21e71478}{utils\_get\_float}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{int}\ success\ =\ (actual\ >=\ 3.13\ \&\&\ actual\ <=\ 3.15);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00030}00030\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%.2f\(\backslash\)n"{}},\ expected);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00031}00031\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%.2f\(\backslash\)n"{}},\ actual);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00032}00032\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ success\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00035}\mbox{\hyperlink{utils__test_8c_a062f41071f7ba1ac679e860649d4eb4e}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_a062f41071f7ba1ac679e860649d4eb4e}{test\_utils\_get\_double}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00036}00036\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Enter\ a\ double:\ "{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{double}\ expected\ =\ 3.141593;}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{double}\ actual\ =\ \mbox{\hyperlink{utils_8c_ad408bc39c0efa3890653c37c0a6049ec}{utils\_get\_double}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{int}\ success\ =\ (actual\ >=\ 3.141592\ \&\&\ actual\ <=\ 3.141594);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00040}00040\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%.6f\(\backslash\)n"{}},\ expected);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00041}00041\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%.6f\(\backslash\)n"{}},\ actual);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00042}00042\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ success\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00045}\mbox{\hyperlink{utils__test_8c_aa0e3d8e495261a94b7da6d48882ea5b2}{00045}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_aa0e3d8e495261a94b7da6d48882ea5b2}{test\_utils\_get\_string}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00046}00046\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Enter\ a\ string:\ "{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{char}\ expected[]\ =\ \textcolor{stringliteral}{"{}happy\ birthday"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{char}\ actual[50];}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(actual,\ 50);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{int}\ success\ =\ (strcmp(actual,\ expected)\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00051}00051\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00052}00052\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00053}00053\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ success\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00056}\mbox{\hyperlink{utils__test_8c_a3f41d0276f223f4950257a4ede435a95}{00056}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_a3f41d0276f223f4950257a4ede435a95}{test\_utils\_is\_valid\_phone}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00057}00057\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Testing\ utils\_is\_valid\_phone():\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00058}00058\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{char}\ *phone1\ =\ \textcolor{stringliteral}{"{}01315648613"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{int}\ expected1\ =\ 1,\ actual1\ =\ \mbox{\hyperlink{utils_8c_ae232caa333263dac11243a80715c68fe}{utils\_is\_valid\_phone}}(phone1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00061}00061\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ phone1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00062}00062\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected1\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00063}00063\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual1\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00064}00064\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected1\ ==\ actual1)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00065}00065\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{char}\ *phone2\ =\ \textcolor{stringliteral}{"{}1234567890"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{int}\ expected2\ =\ 0,\ actual2\ =\ \mbox{\hyperlink{utils_8c_ae232caa333263dac11243a80715c68fe}{utils\_is\_valid\_phone}}(phone2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00068}00068\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ phone2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00069}00069\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected2\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00070}00070\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual2\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00071}00071\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected2\ ==\ actual2)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00074}\mbox{\hyperlink{utils__test_8c_a15675e4295fd6cf270da9be103db3583}{00074}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_a15675e4295fd6cf270da9be103db3583}{test\_utils\_is\_valid\_email}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00075}00075\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Testing\ utils\_is\_valid\_email():\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00076}00076\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{char}\ *email1\ =\ \textcolor{stringliteral}{"{}this.is.an.email@gmail.com"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{int}\ expected1\ =\ 1,\ actual1\ =\ \mbox{\hyperlink{utils_8c_abc5f7d4a1f14f8009f3d0ae80e892ee4}{utils\_is\_valid\_email}}(email1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00079}00079\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ email1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00080}00080\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected1\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00081}00081\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual1\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00082}00082\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected1\ ==\ actual1)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00083}00083\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{char}\ *email2\ =\ \textcolor{stringliteral}{"{}noatsign.com"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{int}\ expected2\ =\ 0,\ actual2\ =\ \mbox{\hyperlink{utils_8c_abc5f7d4a1f14f8009f3d0ae80e892ee4}{utils\_is\_valid\_email}}(email2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00086}00086\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ email2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00087}00087\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected2\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00088}00088\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual2\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00089}00089\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected2\ ==\ actual2)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00092}\mbox{\hyperlink{utils__test_8c_aa50da7beeeb22cd3fe8db2750831d65a}{00092}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_aa50da7beeeb22cd3fe8db2750831d65a}{test\_utils\_str\_to\_upper}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00093}00093\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Testing\ utils\_str\_to\_upper():\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00094}00094\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{char}\ input1[]\ =\ \textcolor{stringliteral}{"{}hello\ world"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{char}\ expected1[]\ =\ \textcolor{stringliteral}{"{}HELLO\ WORLD"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00097}00097\ \ \ \ \ \textcolor{keywordtype}{char}\ *actual1\ =\ \mbox{\hyperlink{utils_8c_a83367732e901f578c4373d4ba5a1d71a}{utils\_str\_to\_upper}}(input1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{int}\ success1\ =\ (strcmp(actual1,\ expected1)\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00099}00099\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ hello\ world\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00100}00100\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00101}00101\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00102}00102\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ success1\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00103}00103\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{char}\ input2[]\ =\ \textcolor{stringliteral}{"{}Test123"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00105}00105\ \ \ \ \ \textcolor{keywordtype}{char}\ expected2[]\ =\ \textcolor{stringliteral}{"{}TEST123"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{char}\ *actual2\ =\ \mbox{\hyperlink{utils_8c_a83367732e901f578c4373d4ba5a1d71a}{utils\_str\_to\_upper}}(input2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{int}\ success2\ =\ (strcmp(actual2,\ expected2)\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00108}00108\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ Test123\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00109}00109\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00110}00110\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00111}00111\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ success2\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00114}\mbox{\hyperlink{utils__test_8c_a068a73cd7be14ce674e00bc3b962cb5e}{00114}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_a068a73cd7be14ce674e00bc3b962cb5e}{test\_utils\_is\_valid\_blood\_group}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00115}00115\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Testing\ utils\_is\_valid\_blood\_group():\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00116}00116\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{char}\ *blood1\ =\ \textcolor{stringliteral}{"{}A+"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{int}\ expected1\ =\ 1,\ actual1\ =\ \mbox{\hyperlink{utils_8c_a914909d0803a5798382d441f44e8bda7}{utils\_is\_valid\_blood\_group}}(blood1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00119}00119\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ blood1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00120}00120\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected1\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00121}00121\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual1\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00122}00122\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected1\ ==\ actual1)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00123}00123\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00124}00124\ \ \ \ \ \textcolor{keywordtype}{char}\ *blood2\ =\ \textcolor{stringliteral}{"{}AB-\/"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00125}00125\ \ \ \ \ \textcolor{keywordtype}{int}\ expected2\ =\ 1,\ actual2\ =\ \mbox{\hyperlink{utils_8c_a914909d0803a5798382d441f44e8bda7}{utils\_is\_valid\_blood\_group}}(blood2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00126}00126\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ blood2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00127}00127\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected2\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00128}00128\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual2\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00129}00129\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected2\ ==\ actual2)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00130}00130\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{char}\ *blood3\ =\ \textcolor{stringliteral}{"{}X+"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00132}00132\ \ \ \ \ \textcolor{keywordtype}{int}\ expected3\ =\ 0,\ actual3\ =\ \mbox{\hyperlink{utils_8c_a914909d0803a5798382d441f44e8bda7}{utils\_is\_valid\_blood\_group}}(blood3);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00133}00133\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ blood3);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00134}00134\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected3\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00135}00135\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual3\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00136}00136\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected3\ ==\ actual3)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00137}00137\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00139}\mbox{\hyperlink{utils__test_8c_ab603ebe263e5664e2c42f2f9c0659990}{00139}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils__test_8c_ab603ebe263e5664e2c42f2f9c0659990}{test\_utils\_is\_valid\_address}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00140}00140\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Testing\ utils\_is\_valid\_address():\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00141}00141\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{char}\ *addr1\ =\ \textcolor{stringliteral}{"{}123\ Main\ Street,\ Dhaka"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00143}00143\ \ \ \ \ \textcolor{keywordtype}{int}\ expected1\ =\ 1,\ actual1\ =\ \mbox{\hyperlink{utils_8c_a98603b49e1c1ad848036174b2ee97a08}{utils\_is\_valid\_address}}(addr1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00144}00144\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ addr1);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00145}00145\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected1\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00146}00146\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual1\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00147}00147\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected1\ ==\ actual1)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00148}00148\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00149}00149\ \ \ \ \ \textcolor{keywordtype}{char}\ *addr2\ =\ \textcolor{stringliteral}{"{}Apt.\ 5,\ Block\ B"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00150}00150\ \ \ \ \ \textcolor{keywordtype}{int}\ expected2\ =\ 1,\ actual2\ =\ \mbox{\hyperlink{utils_8c_a98603b49e1c1ad848036174b2ee97a08}{utils\_is\_valid\_address}}(addr2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00151}00151\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ addr2);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00152}00152\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected2\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00153}00153\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual2\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00154}00154\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected2\ ==\ actual2)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00155}00155\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00156}00156\ \ \ \ \ \textcolor{keywordtype}{char}\ *addr3\ =\ \textcolor{stringliteral}{"{}Invalid@Address\#123"{}};}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00157}00157\ \ \ \ \ \textcolor{keywordtype}{int}\ expected3\ =\ 0,\ actual3\ =\ \mbox{\hyperlink{utils_8c_a98603b49e1c1ad848036174b2ee97a08}{utils\_is\_valid\_address}}(addr3);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00158}00158\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Input:\ \ \ \ \%s\(\backslash\)n"{}},\ addr3);}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00159}00159\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Expected:\ \%s\(\backslash\)n"{}},\ expected3\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00160}00160\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Actual:\ \ \ \%s\(\backslash\)n"{}},\ actual3\ ?\ \textcolor{stringliteral}{"{}Valid"{}}\ :\ \textcolor{stringliteral}{"{}Invalid"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00161}00161\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ \ Success:\ \ \%s\(\backslash\)n\(\backslash\)n"{}},\ (expected3\ ==\ actual3)\ ?\ \textcolor{stringliteral}{"{}Yes"{}}\ :\ \textcolor{stringliteral}{"{}No"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00162}00162\ \}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00164}\mbox{\hyperlink{utils__test_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{00164}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils__test_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00165}00165\ \ \ \ \ printf(\textcolor{stringliteral}{"{}===\ UTILITY\ FUNCTIONS\ TEST\ ===\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00166}00166\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00167}00167\ \ \ \ \ \textcolor{comment}{//\ test\_utils\_get\_int();}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00168}00168\ \ \ \ \ \textcolor{comment}{//\ test\_utils\_get\_char();}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//\ test\_utils\_get\_float();}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00170}00170\ \ \ \ \ \textcolor{comment}{//\ test\_utils\_get\_double();}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//\ test\_utils\_get\_string();}}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00172}00172\ \ \ \ \ \mbox{\hyperlink{utils__test_8c_a3f41d0276f223f4950257a4ede435a95}{test\_utils\_is\_valid\_phone}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00173}00173\ \ \ \ \ \mbox{\hyperlink{utils__test_8c_a15675e4295fd6cf270da9be103db3583}{test\_utils\_is\_valid\_email}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00174}00174\ \ \ \ \ \mbox{\hyperlink{utils__test_8c_aa50da7beeeb22cd3fe8db2750831d65a}{test\_utils\_str\_to\_upper}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00175}00175\ \ \ \ \ \mbox{\hyperlink{utils__test_8c_a068a73cd7be14ce674e00bc3b962cb5e}{test\_utils\_is\_valid\_blood\_group}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00176}00176\ \ \ \ \ \mbox{\hyperlink{utils__test_8c_ab603ebe263e5664e2c42f2f9c0659990}{test\_utils\_is\_valid\_address}}();}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00177}00177\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00178}00178\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{utils__test_8c_source_l00179}00179\ \}}
+
+\end{DoxyCode}

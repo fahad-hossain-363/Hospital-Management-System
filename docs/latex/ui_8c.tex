@@ -1,0 +1,260 @@
+\doxysection{src/ui.c File Reference}
+\hypertarget{ui_8c}{}\label{ui_8c}\index{src/ui.c@{src/ui.c}}
+
+
+\doxylink{struct_user}{User} interface functions for Healthcare Management System.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}../include/ui.\+h"{}}\newline
+{\ttfamily \#include "{}../include/utils.\+h"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\+\_\+clear\+\_\+screen}} (void)
+\item 
+void \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\+\_\+pause}} (void)
+\item 
+void \mbox{\hyperlink{ui_8c_a7e5acdb06b5bdeed643326e60bfc676a}{ui\+\_\+print\+\_\+header}} (const char \texorpdfstring{$\ast$}{*}title)
+\item 
+void \mbox{\hyperlink{ui_8c_aeb1cbcd8d3daa215fbfc9d03a93d28f5}{ui\+\_\+print\+\_\+success}} (const char \texorpdfstring{$\ast$}{*}message)
+\item 
+void \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\+\_\+print\+\_\+error}} (const char \texorpdfstring{$\ast$}{*}message)
+\item 
+void \mbox{\hyperlink{ui_8c_a9f2a4ea0f3175a179ea7df486592d9b2}{ui\+\_\+print\+\_\+warning}} (const char \texorpdfstring{$\ast$}{*}message)
+\item 
+void \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\+\_\+print\+\_\+info}} (const char \texorpdfstring{$\ast$}{*}message)
+\item 
+void \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\+\_\+print\+\_\+banner}} (void)
+\item 
+void \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\+\_\+print\+\_\+menu}} (const char \texorpdfstring{$\ast$}{*}title, const char \texorpdfstring{$\ast$}{*}items\mbox{[}$\,$\mbox{]}, int item\+\_\+count, int box\+\_\+width)
+\item 
+void \mbox{\hyperlink{ui_8c_a6a46964e56027df32c4145b061a71538}{ui\+\_\+print\+\_\+patient}} (\mbox{\hyperlink{struct_patient}{Patient}} patient, int index)
+\item 
+void \mbox{\hyperlink{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}{ui\+\_\+print\+\_\+doctor}} (\mbox{\hyperlink{struct_doctor}{Doctor}} doctor, int index)
+\item 
+void \mbox{\hyperlink{ui_8c_a7aa89aa1d99d0ffd3cb5e6a1bd188d81}{ui\+\_\+print\+\_\+receptionist}} (\mbox{\hyperlink{struct_receptionist}{Receptionist}} receptionist, int index)
+\item 
+void \mbox{\hyperlink{ui_8c_a8b7041e6aa287e33fe4b797653312fb1}{ui\+\_\+dummy\+\_\+loading}} (int time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_user}{User} interface functions for Healthcare Management System. 
+
+This file contains the implementation of user interface functions used throughout the HMS application. 
+
+Definition in file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{ui_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ui_8c_a49b48602f7bf01efc3ca32551fea8899}\index{ui.c@{ui.c}!ui\_clear\_screen@{ui\_clear\_screen}}
+\index{ui\_clear\_screen@{ui\_clear\_screen}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_clear\_screen()}{ui\_clear\_screen()}}
+{\footnotesize\ttfamily \label{ui_8c_a49b48602f7bf01efc3ca32551fea8899} 
+void ui\+\_\+clear\+\_\+screen (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Clears the console screen. 
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00022}{22}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a8b7041e6aa287e33fe4b797653312fb1}\index{ui.c@{ui.c}!ui\_dummy\_loading@{ui\_dummy\_loading}}
+\index{ui\_dummy\_loading@{ui\_dummy\_loading}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_dummy\_loading()}{ui\_dummy\_loading()}}
+{\footnotesize\ttfamily \label{ui_8c_a8b7041e6aa287e33fe4b797653312fb1} 
+void ui\+\_\+dummy\+\_\+loading (\begin{DoxyParamCaption}\item[{int}]{time}{}\end{DoxyParamCaption})}
+
+Prints a dummy loading animation. 
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00268}{268}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a058846624e566d807a86f306b701814e}\index{ui.c@{ui.c}!ui\_pause@{ui\_pause}}
+\index{ui\_pause@{ui\_pause}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_pause()}{ui\_pause()}}
+{\footnotesize\ttfamily \label{ui_8c_a058846624e566d807a86f306b701814e} 
+void ui\+\_\+pause (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Pauses the program execution until the user presses a key. 
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00030}{30}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}\index{ui.c@{ui.c}!ui\_print\_banner@{ui\_print\_banner}}
+\index{ui\_print\_banner@{ui\_print\_banner}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_banner()}{ui\_print\_banner()}}
+{\footnotesize\ttfamily \label{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f} 
+void ui\+\_\+print\+\_\+banner (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Prints the HMS banner. 
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00056}{56}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}\index{ui.c@{ui.c}!ui\_print\_doctor@{ui\_print\_doctor}}
+\index{ui\_print\_doctor@{ui\_print\_doctor}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_doctor()}{ui\_print\_doctor()}}
+{\footnotesize\ttfamily \label{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b} 
+void ui\+\_\+print\+\_\+doctor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_doctor}{Doctor}}}]{doctor}{, }\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+Prints a doctor in a box.
+
+
+\begin{DoxyParams}{Parameters}
+{\em doctor} & The doctor to print. \\
+\hline
+{\em index} & The display index. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00190}{190}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a15c962b6b6e63d94029c449e964b0d87}\index{ui.c@{ui.c}!ui\_print\_error@{ui\_print\_error}}
+\index{ui\_print\_error@{ui\_print\_error}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_error()}{ui\_print\_error()}}
+{\footnotesize\ttfamily \label{ui_8c_a15c962b6b6e63d94029c449e964b0d87} 
+void ui\+\_\+print\+\_\+error (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+Prints an error message in red.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The error message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00043}{43}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a7e5acdb06b5bdeed643326e60bfc676a}\index{ui.c@{ui.c}!ui\_print\_header@{ui\_print\_header}}
+\index{ui\_print\_header@{ui\_print\_header}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_header()}{ui\_print\_header()}}
+{\footnotesize\ttfamily \label{ui_8c_a7e5acdb06b5bdeed643326e60bfc676a} 
+void ui\+\_\+print\+\_\+header (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{title}{}\end{DoxyParamCaption})}
+
+Prints a formatted header with title.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title to display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00035}{35}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a4b056526193906edd1c4f282a2a2e008}\index{ui.c@{ui.c}!ui\_print\_info@{ui\_print\_info}}
+\index{ui\_print\_info@{ui\_print\_info}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_info()}{ui\_print\_info()}}
+{\footnotesize\ttfamily \label{ui_8c_a4b056526193906edd1c4f282a2a2e008} 
+void ui\+\_\+print\+\_\+info (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+Prints an info message in cyan.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The info message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00051}{51}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a0bc339a36783cd0e6422f3af351571a4}\index{ui.c@{ui.c}!ui\_print\_menu@{ui\_print\_menu}}
+\index{ui\_print\_menu@{ui\_print\_menu}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_menu()}{ui\_print\_menu()}}
+{\footnotesize\ttfamily \label{ui_8c_a0bc339a36783cd0e6422f3af351571a4} 
+void ui\+\_\+print\+\_\+menu (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{title}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{items}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{item\+\_\+count}{, }\item[{int}]{box\+\_\+width}{}\end{DoxyParamCaption})}
+
+Prints a menu in a box.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title of the menu. \\
+\hline
+{\em items} & The array of menu items. \\
+\hline
+{\em item\+\_\+count} & The number of menu items. \\
+\hline
+{\em box\+\_\+width} & The width of the box. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00095}{95}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a6a46964e56027df32c4145b061a71538}\index{ui.c@{ui.c}!ui\_print\_patient@{ui\_print\_patient}}
+\index{ui\_print\_patient@{ui\_print\_patient}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_patient()}{ui\_print\_patient()}}
+{\footnotesize\ttfamily \label{ui_8c_a6a46964e56027df32c4145b061a71538} 
+void ui\+\_\+print\+\_\+patient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_patient}{Patient}}}]{patient}{, }\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+Prints a patient in a box.
+
+
+\begin{DoxyParams}{Parameters}
+{\em patient} & The patient to print. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00147}{147}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a7aa89aa1d99d0ffd3cb5e6a1bd188d81}\index{ui.c@{ui.c}!ui\_print\_receptionist@{ui\_print\_receptionist}}
+\index{ui\_print\_receptionist@{ui\_print\_receptionist}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_receptionist()}{ui\_print\_receptionist()}}
+{\footnotesize\ttfamily \label{ui_8c_a7aa89aa1d99d0ffd3cb5e6a1bd188d81} 
+void ui\+\_\+print\+\_\+receptionist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_receptionist}{Receptionist}}}]{receptionist}{, }\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+Prints a receptionist in a box.
+
+
+\begin{DoxyParams}{Parameters}
+{\em receptionist} & The receptionist to print. \\
+\hline
+{\em index} & The display index. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00233}{233}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_aeb1cbcd8d3daa215fbfc9d03a93d28f5}\index{ui.c@{ui.c}!ui\_print\_success@{ui\_print\_success}}
+\index{ui\_print\_success@{ui\_print\_success}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_success()}{ui\_print\_success()}}
+{\footnotesize\ttfamily \label{ui_8c_aeb1cbcd8d3daa215fbfc9d03a93d28f5} 
+void ui\+\_\+print\+\_\+success (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+Prints a success message in green.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The success message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00039}{39}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+
+\Hypertarget{ui_8c_a9f2a4ea0f3175a179ea7df486592d9b2}\index{ui.c@{ui.c}!ui\_print\_warning@{ui\_print\_warning}}
+\index{ui\_print\_warning@{ui\_print\_warning}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{ui\_print\_warning()}{ui\_print\_warning()}}
+{\footnotesize\ttfamily \label{ui_8c_a9f2a4ea0f3175a179ea7df486592d9b2} 
+void ui\+\_\+print\+\_\+warning (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+Prints a warning message in yellow.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The warning message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ui_8c_source_l00047}{47}} of file \mbox{\hyperlink{ui_8c_source}{ui.\+c}}.
+

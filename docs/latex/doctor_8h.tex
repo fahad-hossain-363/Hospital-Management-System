@@ -1,0 +1,210 @@
+\doxysection{include/doctor.h File Reference}
+\hypertarget{doctor_8h}{}\label{doctor_8h}\index{include/doctor.h@{include/doctor.h}}
+
+
+\doxylink{struct_doctor}{Doctor} management functions for Healthcare Management System.  
+
+
+{\ttfamily \#include "{}hospital.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{doctor_8h_af95f6a88d5d6077272d963a2271f45b3}{doctor\+\_\+save\+\_\+to\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{doctor_8h_a6c38bf1e47f30796b53b56f0d6acfac1}{doctor\+\_\+load\+\_\+from\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{doctor_8h_a3138f2ce8bb8435bd7e352901421e920}{doctor\+\_\+generate\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_a8e240f42eae135f500588a89907e3568}{doctor\+\_\+view\+\_\+all}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_aa0bb4267284e4243e2bd71bf1acb0b50}{doctor\+\_\+view\+\_\+one}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_a2345649d730762a914ff8d5b399398dd}{doctor\+\_\+view}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_a87737148e71d82cc95cdcdacfe912821}{doctor\+\_\+search\+\_\+by\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_a01352ca9d04e1440179fcde4e833985d}{doctor\+\_\+search\+\_\+by\+\_\+name}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_a178bd123cab14cad0df2a94a3dd2d868}{doctor\+\_\+search\+\_\+by\+\_\+phone}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_ac7f1315adf7f34e5bb13b704bd06cea2}{doctor\+\_\+search\+\_\+by}} (void)
+\item 
+int \mbox{\hyperlink{doctor_8h_a521b99d6e9b11eba0f53bf9efbcaee24}{doctor\+\_\+search\+\_\+id}} (int id)
+\item 
+void \mbox{\hyperlink{doctor_8h_afe404983b861b9b765fbfe8ef1a391f3}{doctor\+\_\+update\+\_\+using\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_a8d1e8c613787bd7054f641ca70db4ffe}{doctor\+\_\+deactivate\+\_\+account}} (void)
+\item 
+void \mbox{\hyperlink{doctor_8h_a2af7239e2bdb481f279b23b4cf7e77b9}{doctor\+\_\+view\+\_\+discharged}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_doctor}{Doctor} management functions for Healthcare Management System. 
+
+This header declares all doctor-\/related CRUD operations. 
+
+Definition in file \mbox{\hyperlink{doctor_8h_source}{doctor.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{doctor_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{doctor_8h_a8d1e8c613787bd7054f641ca70db4ffe}\index{doctor.h@{doctor.h}!doctor\_deactivate\_account@{doctor\_deactivate\_account}}
+\index{doctor\_deactivate\_account@{doctor\_deactivate\_account}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_deactivate\_account()}{doctor\_deactivate\_account()}}
+{\footnotesize\ttfamily \label{doctor_8h_a8d1e8c613787bd7054f641ca70db4ffe} 
+void doctor\+\_\+deactivate\+\_\+account (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Deactivates a doctor by ID (sets is\+\_\+active to false). 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00563}{563}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a3138f2ce8bb8435bd7e352901421e920}\index{doctor.h@{doctor.h}!doctor\_generate\_id@{doctor\_generate\_id}}
+\index{doctor\_generate\_id@{doctor\_generate\_id}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_generate\_id()}{doctor\_generate\_id()}}
+{\footnotesize\ttfamily \label{doctor_8h_a3138f2ce8bb8435bd7e352901421e920} 
+int doctor\+\_\+generate\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Generates a unique doctor ID. \begin{DoxyReturn}{Returns}
+The generated doctor ID. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00054}{54}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a6c38bf1e47f30796b53b56f0d6acfac1}\index{doctor.h@{doctor.h}!doctor\_load\_from\_file@{doctor\_load\_from\_file}}
+\index{doctor\_load\_from\_file@{doctor\_load\_from\_file}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_load\_from\_file()}{doctor\_load\_from\_file()}}
+{\footnotesize\ttfamily \label{doctor_8h_a6c38bf1e47f30796b53b56f0d6acfac1} 
+int doctor\+\_\+load\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Loads all doctors from binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 if file doesn\textquotesingle{}t exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00030}{30}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_af95f6a88d5d6077272d963a2271f45b3}\index{doctor.h@{doctor.h}!doctor\_save\_to\_file@{doctor\_save\_to\_file}}
+\index{doctor\_save\_to\_file@{doctor\_save\_to\_file}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_save\_to\_file()}{doctor\_save\_to\_file()}}
+{\footnotesize\ttfamily \label{doctor_8h_af95f6a88d5d6077272d963a2271f45b3} 
+int doctor\+\_\+save\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Saves all doctors to binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00015}{15}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_ac7f1315adf7f34e5bb13b704bd06cea2}\index{doctor.h@{doctor.h}!doctor\_search\_by@{doctor\_search\_by}}
+\index{doctor\_search\_by@{doctor\_search\_by}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_search\_by()}{doctor\_search\_by()}}
+{\footnotesize\ttfamily \label{doctor_8h_ac7f1315adf7f34e5bb13b704bd06cea2} 
+void doctor\+\_\+search\+\_\+by (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Handles the search choice for doctor. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00249}{249}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a87737148e71d82cc95cdcdacfe912821}\index{doctor.h@{doctor.h}!doctor\_search\_by\_id@{doctor\_search\_by\_id}}
+\index{doctor\_search\_by\_id@{doctor\_search\_by\_id}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_search\_by\_id()}{doctor\_search\_by\_id()}}
+{\footnotesize\ttfamily \label{doctor_8h_a87737148e71d82cc95cdcdacfe912821} 
+void doctor\+\_\+search\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Searches for a doctor by ID. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00137}{137}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a01352ca9d04e1440179fcde4e833985d}\index{doctor.h@{doctor.h}!doctor\_search\_by\_name@{doctor\_search\_by\_name}}
+\index{doctor\_search\_by\_name@{doctor\_search\_by\_name}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_search\_by\_name()}{doctor\_search\_by\_name()}}
+{\footnotesize\ttfamily \label{doctor_8h_a01352ca9d04e1440179fcde4e833985d} 
+void doctor\+\_\+search\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Searches for a doctor by name. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00175}{175}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a178bd123cab14cad0df2a94a3dd2d868}\index{doctor.h@{doctor.h}!doctor\_search\_by\_phone@{doctor\_search\_by\_phone}}
+\index{doctor\_search\_by\_phone@{doctor\_search\_by\_phone}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_search\_by\_phone()}{doctor\_search\_by\_phone()}}
+{\footnotesize\ttfamily \label{doctor_8h_a178bd123cab14cad0df2a94a3dd2d868} 
+void doctor\+\_\+search\+\_\+by\+\_\+phone (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Searches for a doctor by phone number. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00213}{213}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a521b99d6e9b11eba0f53bf9efbcaee24}\index{doctor.h@{doctor.h}!doctor\_search\_id@{doctor\_search\_id}}
+\index{doctor\_search\_id@{doctor\_search\_id}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_search\_id()}{doctor\_search\_id()}}
+{\footnotesize\ttfamily \label{doctor_8h_a521b99d6e9b11eba0f53bf9efbcaee24} 
+int doctor\+\_\+search\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+Searches doctor by ID and returns index. 
+\begin{DoxyParams}{Parameters}
+{\em id} & The doctor ID to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of doctor in array, or -\/1 if not found. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00288}{288}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_afe404983b861b9b765fbfe8ef1a391f3}\index{doctor.h@{doctor.h}!doctor\_update\_using\_id@{doctor\_update\_using\_id}}
+\index{doctor\_update\_using\_id@{doctor\_update\_using\_id}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_update\_using\_id()}{doctor\_update\_using\_id()}}
+{\footnotesize\ttfamily \label{doctor_8h_afe404983b861b9b765fbfe8ef1a391f3} 
+void doctor\+\_\+update\+\_\+using\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Updates a doctor information by ID. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00459}{459}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a2345649d730762a914ff8d5b399398dd}\index{doctor.h@{doctor.h}!doctor\_view@{doctor\_view}}
+\index{doctor\_view@{doctor\_view}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_view()}{doctor\_view()}}
+{\footnotesize\ttfamily \label{doctor_8h_a2345649d730762a914ff8d5b399398dd} 
+void doctor\+\_\+view (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Handles the view choice for doctor. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00102}{102}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a8e240f42eae135f500588a89907e3568}\index{doctor.h@{doctor.h}!doctor\_view\_all@{doctor\_view\_all}}
+\index{doctor\_view\_all@{doctor\_view\_all}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_view\_all()}{doctor\_view\_all()}}
+{\footnotesize\ttfamily \label{doctor_8h_a8e240f42eae135f500588a89907e3568} 
+void doctor\+\_\+view\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Displays all doctors in the system. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00058}{58}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_a2af7239e2bdb481f279b23b4cf7e77b9}\index{doctor.h@{doctor.h}!doctor\_view\_discharged@{doctor\_view\_discharged}}
+\index{doctor\_view\_discharged@{doctor\_view\_discharged}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_view\_discharged()}{doctor\_view\_discharged()}}
+{\footnotesize\ttfamily \label{doctor_8h_a2af7239e2bdb481f279b23b4cf7e77b9} 
+void doctor\+\_\+view\+\_\+discharged (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Displays all inactive doctors in the system. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00623}{623}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+
+\Hypertarget{doctor_8h_aa0bb4267284e4243e2bd71bf1acb0b50}\index{doctor.h@{doctor.h}!doctor\_view\_one@{doctor\_view\_one}}
+\index{doctor\_view\_one@{doctor\_view\_one}!doctor.h@{doctor.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_view\_one()}{doctor\_view\_one()}}
+{\footnotesize\ttfamily \label{doctor_8h_aa0bb4267284e4243e2bd71bf1acb0b50} 
+void doctor\+\_\+view\+\_\+one (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Displays doctors one by one. 
+
+Definition at line \mbox{\hyperlink{doctor_8c_source_l00079}{79}} of file \mbox{\hyperlink{doctor_8c_source}{doctor.\+c}}.
+

@@ -1,0 +1,175 @@
+\doxysection{src/auth.c File Reference}
+\hypertarget{auth_8c}{}\label{auth_8c}\index{src/auth.c@{src/auth.c}}
+
+
+Authentication implementation for Healthcare Management System.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}../include/auth.\+h"{}}\newline
+{\ttfamily \#include "{}../include/utils.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ui.\+h"{}}\newline
+{\ttfamily \#include "{}../include/hospital.\+h"{}}\newline
+{\ttfamily \#include "{}../include/receptionist.\+h"{}}\newline
+{\ttfamily \#include "{}../include/admin.\+h"{}}\newline
+{\ttfamily \#include "{}../include/doctor\+\_\+portal.\+h"{}}\newline
+{\ttfamily \#include "{}../include/doctor.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{auth_8c_a85e644498a05f0cdb7a35b174ab13872}{auth\+\_\+save\+\_\+to\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{auth_8c_aea6c20129bc88d4783149efd1d1044a2}{auth\+\_\+load\+\_\+from\+\_\+file}} (void)
+\item 
+void \mbox{\hyperlink{auth_8c_ab5373972fed73a91703535cf8c7afc49}{auth\+\_\+init\+\_\+default\+\_\+admin}} (void)
+\item 
+void \mbox{\hyperlink{auth_8c_a45f5787132599024157630215e50ad30}{auth\+\_\+register\+\_\+user}} (void)
+\item 
+void \mbox{\hyperlink{auth_8c_abe1aa9317166195911851af6edb512dd}{auth\+\_\+view\+\_\+users}} (void)
+\item 
+void \mbox{\hyperlink{auth_8c_ac4acaade983d8dd7ce6d168375f779c3}{auth\+\_\+user\+\_\+menu}} (void)
+\item 
+void \mbox{\hyperlink{auth_8c_a8d2501bbcd8e8fdfc7846e2681979d80}{auth\+\_\+role\+\_\+login}} (\mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775}{User\+Role}} required\+\_\+role)
+\item 
+void \mbox{\hyperlink{auth_8c_a9f5254638f710c2b9960aa2355f3307b}{login\+\_\+menu}} (void)
+\item 
+void \mbox{\hyperlink{auth_8c_aa25c41c155861ac6ed5b60b587d2bb20}{encrypt}} (char \texorpdfstring{$\ast$}{*}password)
+\item 
+void \mbox{\hyperlink{auth_8c_a112a80c970b0d46159006882f95eee46}{decrypt}} (char \texorpdfstring{$\ast$}{*}password)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Authentication implementation for Healthcare Management System. 
+
+
+
+Definition in file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{auth_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{auth_8c_ab5373972fed73a91703535cf8c7afc49}\index{auth.c@{auth.c}!auth\_init\_default\_admin@{auth\_init\_default\_admin}}
+\index{auth\_init\_default\_admin@{auth\_init\_default\_admin}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{auth\_init\_default\_admin()}{auth\_init\_default\_admin()}}
+{\footnotesize\ttfamily \label{auth_8c_ab5373972fed73a91703535cf8c7afc49} 
+void auth\+\_\+init\+\_\+default\+\_\+admin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Creates default admin if no users exist. 
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00057}{57}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_aea6c20129bc88d4783149efd1d1044a2}\index{auth.c@{auth.c}!auth\_load\_from\_file@{auth\_load\_from\_file}}
+\index{auth\_load\_from\_file@{auth\_load\_from\_file}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{auth\_load\_from\_file()}{auth\_load\_from\_file()}}
+{\footnotesize\ttfamily \label{auth_8c_aea6c20129bc88d4783149efd1d1044a2} 
+int auth\+\_\+load\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Loads all users from binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 if file doesn\textquotesingle{}t exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00034}{34}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_a45f5787132599024157630215e50ad30}\index{auth.c@{auth.c}!auth\_register\_user@{auth\_register\_user}}
+\index{auth\_register\_user@{auth\_register\_user}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{auth\_register\_user()}{auth\_register\_user()}}
+{\footnotesize\ttfamily \label{auth_8c_a45f5787132599024157630215e50ad30} 
+void auth\+\_\+register\+\_\+user (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Registers a new user (admin only). 
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00070}{70}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_a8d2501bbcd8e8fdfc7846e2681979d80}\index{auth.c@{auth.c}!auth\_role\_login@{auth\_role\_login}}
+\index{auth\_role\_login@{auth\_role\_login}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{auth\_role\_login()}{auth\_role\_login()}}
+{\footnotesize\ttfamily \label{auth_8c_a8d2501bbcd8e8fdfc7846e2681979d80} 
+void auth\+\_\+role\+\_\+login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775}{User\+Role}}}]{required\+\_\+role}{}\end{DoxyParamCaption})}
+
+Login with role-\/based authentication. 
+\begin{DoxyParams}{Parameters}
+{\em required\+\_\+role} & The role to authenticate as. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00402}{402}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_a85e644498a05f0cdb7a35b174ab13872}\index{auth.c@{auth.c}!auth\_save\_to\_file@{auth\_save\_to\_file}}
+\index{auth\_save\_to\_file@{auth\_save\_to\_file}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{auth\_save\_to\_file()}{auth\_save\_to\_file()}}
+{\footnotesize\ttfamily \label{auth_8c_a85e644498a05f0cdb7a35b174ab13872} 
+int auth\+\_\+save\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Saves all users to binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00017}{17}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_ac4acaade983d8dd7ce6d168375f779c3}\index{auth.c@{auth.c}!auth\_user\_menu@{auth\_user\_menu}}
+\index{auth\_user\_menu@{auth\_user\_menu}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{auth\_user\_menu()}{auth\_user\_menu()}}
+{\footnotesize\ttfamily \label{auth_8c_ac4acaade983d8dd7ce6d168375f779c3} 
+void auth\+\_\+user\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\doxylink{struct_user}{User} management menu (admin only). 
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00367}{367}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_abe1aa9317166195911851af6edb512dd}\index{auth.c@{auth.c}!auth\_view\_users@{auth\_view\_users}}
+\index{auth\_view\_users@{auth\_view\_users}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{auth\_view\_users()}{auth\_view\_users()}}
+{\footnotesize\ttfamily \label{auth_8c_abe1aa9317166195911851af6edb512dd} 
+void auth\+\_\+view\+\_\+users (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Views all users (admin only). 
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00330}{330}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_a112a80c970b0d46159006882f95eee46}\index{auth.c@{auth.c}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily \label{auth_8c_a112a80c970b0d46159006882f95eee46} 
+void decrypt (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{password}{}\end{DoxyParamCaption})}
+
+Decrypts a password using XOR cipher. 
+\begin{DoxyParams}{Parameters}
+{\em password} & The password to decrypt. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00539}{539}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_aa25c41c155861ac6ed5b60b587d2bb20}\index{auth.c@{auth.c}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily \label{auth_8c_aa25c41c155861ac6ed5b60b587d2bb20} 
+void encrypt (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{password}{}\end{DoxyParamCaption})}
+
+Encrypts a password using XOR cipher. 
+\begin{DoxyParams}{Parameters}
+{\em password} & The password to encrypt. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00533}{533}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+
+\Hypertarget{auth_8c_a9f5254638f710c2b9960aa2355f3307b}\index{auth.c@{auth.c}!login\_menu@{login\_menu}}
+\index{login\_menu@{login\_menu}!auth.c@{auth.c}}
+\doxysubsubsection{\texorpdfstring{login\_menu()}{login\_menu()}}
+{\footnotesize\ttfamily \label{auth_8c_a9f5254638f710c2b9960aa2355f3307b} 
+void login\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Login menu with role selection. 
+
+Definition at line \mbox{\hyperlink{auth_8c_source_l00496}{496}} of file \mbox{\hyperlink{auth_8c_source}{auth.\+c}}.
+

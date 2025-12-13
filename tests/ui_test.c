@@ -2,6 +2,7 @@
 #include "../include/ui.h"
 #include "../include/utils.h"
 #include "../include/patient.h"
+#include "../include/receptionist.h"
 
 int main() {
     // ui_clear_screen();

@@ -1,0 +1,1010 @@
+\doxysection{include/hospital.h File Reference}
+\hypertarget{hospital_8h}{}\label{hospital_8h}\index{include/hospital.h@{include/hospital.h}}
+
+
+Core data structures and definitions for Healthcare Management System.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_patient}{Patient}}
+\item 
+struct \mbox{\hyperlink{struct_doctor}{Doctor}}
+\item 
+struct \mbox{\hyperlink{struct_user}{User}}
+\item 
+struct \mbox{\hyperlink{struct_appointment}{Appointment}}
+\item 
+struct \mbox{\hyperlink{struct_receptionist}{Receptionist}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\+\_\+\+SIZE}}~72
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a3af57ec17baa47f92233fe8a4eccf97e}{MAX\+\_\+\+PATIENTS}}~100
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a8c8324bd3e6e85bf227df5d6120bde11}{MAX\+\_\+\+DOCTORS}}~20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_aaf04893c2643204cdadd385d4a9eed58}{MAX\+\_\+\+RECEPTIONISTS}}~20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a2c2a303621f66761529e598758d7ef34}{MAX\+\_\+\+USERS}}~50
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a3470ad336e7d5c651fd6c7471f7f6f03}{MAX\+\_\+\+APPOINTMENTS}}~200
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a834e9a379307f869a10f4da078be5786}{NAME\+\_\+\+SIZE}}~50
+\item 
+\#define \mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\+\_\+\+SIZE}}~15
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a27b1a31d571f4266e4b3152eede9796c}{EMAIL\+\_\+\+SIZE}}~50
+\item 
+\#define \mbox{\hyperlink{hospital_8h_ac34ab37f5f69d07660e27a26e30ee861}{ADDRESS\+\_\+\+SIZE}}~100
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a8789db78c9ad3ae09e5234d03ec9a639}{SPEC\+\_\+\+SIZE}}~30      /\texorpdfstring{$\ast$}{*} Specialization \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hospital_8h_ab7834d38cdc724fd48f070bc27fa357b}{BLOOD\+\_\+\+SIZE}}~5       /\texorpdfstring{$\ast$}{*} Blood group \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hospital_8h_adec55bf47b84fcc1e62eba59da3cb1ed}{AGE\+\_\+\+SIZE}}~5       /\texorpdfstring{$\ast$}{*} Age \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hospital_8h_ac7a1d08f4c988420cc930468c7ee0967}{USERNAME\+\_\+\+SIZE}}~30
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a4beb8dccd4fdbe871c5ffe78ac63b0cb}{PASSWORD\+\_\+\+SIZE}}~50
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a6594b794bb314033051246c79c9061f7}{GENDER\+\_\+\+SIZE}}~10
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a4a61b9aeb7e1d0a9268a03bf29aa62fa}{STATUS\+\_\+\+SIZE}}~10
+\item 
+\#define \mbox{\hyperlink{hospital_8h_ad42928642b7d1c716340515278d1c7fa}{ROOM\+\_\+\+SIZE}}~10
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a135a81fcd575871939c82df5a64cbb42}{ID\+\_\+\+LINE\+\_\+\+SIZE}}~20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a5431e9ace83407a385b1cab453555022}{NAME\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_a834e9a379307f869a10f4da078be5786}{NAME\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a2bab793d2e633f6c73b8428db890010a}{PHONE\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_aeb3e3023e2cc84c1e39e6c9e46c4c522}{ADDRESS\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_ac34ab37f5f69d07660e27a26e30ee861}{ADDRESS\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a885e86f33bd013712e147e2e656e163b}{BLOOD\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_ab7834d38cdc724fd48f070bc27fa357b}{BLOOD\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a9529f5a6cc90dfbf2c31a3e7fee94b10}{GENDER\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_a6594b794bb314033051246c79c9061f7}{GENDER\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a87fbe99bc9f9356d1994a56a69a7f721}{STATUS\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_a4a61b9aeb7e1d0a9268a03bf29aa62fa}{STATUS\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_abbef1ea48e5df4f4fc13c05097c3b73b}{SPEC\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_a8789db78c9ad3ae09e5234d03ec9a639}{SPEC\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_aa0acb503ca4ef105939a942fbbd34068}{ROOM\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_ad42928642b7d1c716340515278d1c7fa}{ROOM\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_ad1e166a1f4e79574d24080dfb28d4bca}{AGE\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_adec55bf47b84fcc1e62eba59da3cb1ed}{AGE\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a3c2ebc83f6769256f58bcd5e9bede90d}{PHONE\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_aff1937551a28c250937fa28b8d1fd530}{EMAIL\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_a27b1a31d571f4266e4b3152eede9796c}{EMAIL\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a7e32b7efebfc204fb03895ec96f747ac}{BLOOD\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_ab7834d38cdc724fd48f070bc27fa357b}{BLOOD\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a6613961a25731da4e5bbbab3ffa81f33}{GENDER\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_a6594b794bb314033051246c79c9061f7}{GENDER\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a6e0dd64d60194ec52667b97693ab5791}{STATUS\+\_\+\+LINE\+\_\+\+SIZE}}~\mbox{\hyperlink{hospital_8h_a4a61b9aeb7e1d0a9268a03bf29aa62fa}{STATUS\+\_\+\+SIZE}} + 20
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a48cc0a91e8f54c62f3341c21c8cc74e8}{DATA\+\_\+\+DIR}}~"{}data/"{}
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a4d633addc79f97d8e7f4c8b48386785b}{PATIENTS\+\_\+\+FILE}}~"{}data/patients.\+dat"{}
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a14b4acd6e4a31c42c60c65d8147f8c83}{DOCTORS\+\_\+\+FILE}}~"{}data/doctors.\+dat"{}
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a7a95503c6691aaee218e83a8ff388ad5}{RECEPTIONISTS\+\_\+\+FILE}}~"{}data/receptionists.\+dat"{}
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a6e2470c8814ad71b7d8466cffd9dc072}{USERS\+\_\+\+FILE}}~"{}data/users.\+dat"{}
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a703e49b618f16ee85645bb0f901528a0}{APPOINTMENTS\+\_\+\+FILE}}~"{}data/appointments.\+dat"{}
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a66906c89660d05d2f69259914599ac91}{PATIENT\+\_\+\+ID\+\_\+\+START}}~1001
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a37b0c94b12025c2a0ae50d36b8c87e72}{DOCTOR\+\_\+\+ID\+\_\+\+START}}~2001
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a46f7d2264268ccb6ff9f755853fb4944}{ADMIN\+\_\+\+ID\+\_\+\+START}}~3001
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a21d726fd84052419e38dc69e606c5b41}{RECEPTIONIST\+\_\+\+ID\+\_\+\+START}}~4001
+\item 
+\#define \mbox{\hyperlink{hospital_8h_afd5411242876d4cf00d87221699cffe8}{APPOINTMENT\+\_\+\+ID\+\_\+\+START}}~5001
+\item 
+\#define \mbox{\hyperlink{hospital_8h_aed291d272118d337ee9cb29c11a82207}{REASON\+\_\+\+SIZE}}~100
+\item 
+\#define \mbox{\hyperlink{hospital_8h_ac1c7bc76dbfd8378fc96541a6243afd1}{TIME\+\_\+\+SIZE}}~10
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a100fc5fb18b39468906450a765234bd3}{DATE\+\_\+\+SIZE}}~15
+\item 
+\#define \mbox{\hyperlink{hospital_8h_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}}~"{}1.\+0.\+0"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775}{User\+Role}} \{ \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae4a86fdf0e228f87fc50f2f846c7ac41}{ROLE\+\_\+\+ADMIN}}
+, \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae6d2e4265c86d088fe587305c096da60}{ROLE\+\_\+\+DOCTOR}}
+, \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775acdede7bafec134c7b28075c1bf6c238f}{ROLE\+\_\+\+RECEPTIONIST}}
+, \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775a3d542442fcef05d3f9a3e7f9bc3c9007}{ROLE\+\_\+\+PATIENT}}
+ \}
+\item 
+enum \mbox{\hyperlink{hospital_8h_a3667e3c5ec056737c8789615a989324f}{Gender}} \{ \mbox{\hyperlink{hospital_8h_a3667e3c5ec056737c8789615a989324fa6e81fe1ef694726dd6f7246cfb42369f}{MALE}}
+, \mbox{\hyperlink{hospital_8h_a3667e3c5ec056737c8789615a989324fadebb817413857eea6331734b76793159}{FEMALE}}
+ \}
+\item 
+enum \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}{Appointment\+Status}} \{ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa56595e4ac5c0027865f2d0aba28e420d}{APPT\+\_\+\+PENDING}}
+, \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa8775ab0492ab6ebf913d79e6599225c2}{APPT\+\_\+\+CONFIRMED}}
+, \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaac3a2ce447dc6d7b9c8b89b1924d55f8f}{APPT\+\_\+\+COMPLETED}}
+, \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa138b6993c85e2a0c1405fe7579118b30}{APPT\+\_\+\+CANCELLED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hospital_8h_a3e286a53087cd53bedf0e7602d5beb6b}{hospital\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{hospital_8h_ac2793234764f34a3505fcf01bbc7929b}{show\+\_\+about}} (void)
+\item 
+void \mbox{\hyperlink{hospital_8h_ae5d62d86e562ee295d1566f9ad74b73c}{print\+\_\+help}} (const char \texorpdfstring{$\ast$}{*}program\+\_\+name)
+\item 
+void \mbox{\hyperlink{hospital_8h_ac6230d495fc909bb61195c45f703d492}{print\+\_\+version}} (void)
+\item 
+void \mbox{\hyperlink{hospital_8h_a3138652a2eefda30205ad05d07e3a39f}{ensure\+\_\+data\+\_\+dir}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_patient}{Patient}} \mbox{\hyperlink{hospital_8h_a3caa5423980f287dc9ac2a4f18accfae}{patients}} \mbox{[}100\mbox{]}
+\item 
+\mbox{\hyperlink{struct_doctor}{Doctor}} \mbox{\hyperlink{hospital_8h_a67bfc76cc71fe880c284c96205444fab}{doctors}} \mbox{[}20\mbox{]}
+\item 
+\mbox{\hyperlink{struct_receptionist}{Receptionist}} \mbox{\hyperlink{hospital_8h_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}} \mbox{[}20\mbox{]}
+\item 
+\mbox{\hyperlink{struct_user}{User}} \mbox{\hyperlink{hospital_8h_a2554ce10eb3d295ac9d1368d20cf1e0c}{users}} \mbox{[}50\mbox{]}
+\item 
+\mbox{\hyperlink{struct_appointment}{Appointment}} \mbox{\hyperlink{hospital_8h_a98ec0aa887cb60c310f70571d8f2646d}{appointments}} \mbox{[}200\mbox{]}
+\item 
+int \mbox{\hyperlink{hospital_8h_a3093d5e98b2236eef700a5bc9ed1f622}{patient\+\_\+count}}
+\item 
+int \mbox{\hyperlink{hospital_8h_ad99c90b87dadff47fd0da61344796113}{doctor\+\_\+count}}
+\item 
+int \mbox{\hyperlink{hospital_8h_a5547a07227bc5df132481199eef94f8c}{receptionist\+\_\+count}}
+\item 
+int \mbox{\hyperlink{hospital_8h_ad0472cbf83a6ecb87e8a07cb3110ef9e}{user\+\_\+count}}
+\item 
+int \mbox{\hyperlink{hospital_8h_acd51bfe3eea63e29c8ea66e07980478a}{patient\+\_\+available}}
+\item 
+int \mbox{\hyperlink{hospital_8h_a7a0d9e04ba1e63a0813340cb7bc9d8d2}{patient\+\_\+unavailable}}
+\item 
+int \mbox{\hyperlink{hospital_8h_ab74106f1c2b12d99efaa0efd870f16eb}{doctor\+\_\+available}}
+\item 
+int \mbox{\hyperlink{hospital_8h_a60b930da5102df130b4cccc6c2b96d3c}{doctor\+\_\+unavailable}}
+\item 
+int \mbox{\hyperlink{hospital_8h_a5fd7e56f9d71f3ffe638e1f7ffd701b3}{receptionist\+\_\+available}}
+\item 
+int \mbox{\hyperlink{hospital_8h_ad7f79c22c18645256de4eb7a5a264500}{receptionist\+\_\+unavailable}}
+\item 
+int \mbox{\hyperlink{hospital_8h_a817cc6fb0b3a46991a85d06b751f56fc}{user\+\_\+available}}
+\item 
+int \mbox{\hyperlink{hospital_8h_ae6bc0c15556b087fe8896ff1f7c6d823}{user\+\_\+unavailable}}
+\item 
+int \mbox{\hyperlink{hospital_8h_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\+\_\+count}}
+\item 
+\mbox{\hyperlink{struct_user}{User}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hospital_8h_ab09949a042d92a2a6484981e7d2e25ad}{current\+\_\+user}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core data structures and definitions for Healthcare Management System. 
+
+This header defines all shared structures, enumerations, and constants used throughout the HMS application. 
+
+Definition in file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+
+
+\label{doc-define-members}
+\Hypertarget{hospital_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{hospital_8h_aeb3e3023e2cc84c1e39e6c9e46c4c522}\index{hospital.h@{hospital.h}!ADDRESS\_LINE\_SIZE@{ADDRESS\_LINE\_SIZE}}
+\index{ADDRESS\_LINE\_SIZE@{ADDRESS\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{ADDRESS\_LINE\_SIZE}{ADDRESS\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_aeb3e3023e2cc84c1e39e6c9e46c4c522} 
+\#define ADDRESS\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_ac34ab37f5f69d07660e27a26e30ee861}{ADDRESS\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00044}{44}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_ac34ab37f5f69d07660e27a26e30ee861}\index{hospital.h@{hospital.h}!ADDRESS\_SIZE@{ADDRESS\_SIZE}}
+\index{ADDRESS\_SIZE@{ADDRESS\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{ADDRESS\_SIZE}{ADDRESS\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_ac34ab37f5f69d07660e27a26e30ee861} 
+\#define ADDRESS\+\_\+\+SIZE~100}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00031}{31}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a46f7d2264268ccb6ff9f755853fb4944}\index{hospital.h@{hospital.h}!ADMIN\_ID\_START@{ADMIN\_ID\_START}}
+\index{ADMIN\_ID\_START@{ADMIN\_ID\_START}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{ADMIN\_ID\_START}{ADMIN\_ID\_START}}
+{\footnotesize\ttfamily \label{hospital_8h_a46f7d2264268ccb6ff9f755853fb4944} 
+\#define ADMIN\+\_\+\+ID\+\_\+\+START~3001}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00066}{66}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_ad1e166a1f4e79574d24080dfb28d4bca}\index{hospital.h@{hospital.h}!AGE\_LINE\_SIZE@{AGE\_LINE\_SIZE}}
+\index{AGE\_LINE\_SIZE@{AGE\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{AGE\_LINE\_SIZE}{AGE\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_ad1e166a1f4e79574d24080dfb28d4bca} 
+\#define AGE\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_adec55bf47b84fcc1e62eba59da3cb1ed}{AGE\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00050}{50}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_adec55bf47b84fcc1e62eba59da3cb1ed}\index{hospital.h@{hospital.h}!AGE\_SIZE@{AGE\_SIZE}}
+\index{AGE\_SIZE@{AGE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{AGE\_SIZE}{AGE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_adec55bf47b84fcc1e62eba59da3cb1ed} 
+\#define AGE\+\_\+\+SIZE~5       /\texorpdfstring{$\ast$}{*} Age \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00034}{34}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_afd5411242876d4cf00d87221699cffe8}\index{hospital.h@{hospital.h}!APPOINTMENT\_ID\_START@{APPOINTMENT\_ID\_START}}
+\index{APPOINTMENT\_ID\_START@{APPOINTMENT\_ID\_START}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{APPOINTMENT\_ID\_START}{APPOINTMENT\_ID\_START}}
+{\footnotesize\ttfamily \label{hospital_8h_afd5411242876d4cf00d87221699cffe8} 
+\#define APPOINTMENT\+\_\+\+ID\+\_\+\+START~5001}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00068}{68}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a703e49b618f16ee85645bb0f901528a0}\index{hospital.h@{hospital.h}!APPOINTMENTS\_FILE@{APPOINTMENTS\_FILE}}
+\index{APPOINTMENTS\_FILE@{APPOINTMENTS\_FILE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{APPOINTMENTS\_FILE}{APPOINTMENTS\_FILE}}
+{\footnotesize\ttfamily \label{hospital_8h_a703e49b618f16ee85645bb0f901528a0} 
+\#define APPOINTMENTS\+\_\+\+FILE~"{}data/appointments.\+dat"{}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00062}{62}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a7e32b7efebfc204fb03895ec96f747ac}\index{hospital.h@{hospital.h}!BLOOD\_LINE\_SIZE@{BLOOD\_LINE\_SIZE}}
+\index{BLOOD\_LINE\_SIZE@{BLOOD\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{BLOOD\_LINE\_SIZE}{BLOOD\_LINE\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{hospital_8h_a7e32b7efebfc204fb03895ec96f747ac} 
+\#define BLOOD\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_ab7834d38cdc724fd48f070bc27fa357b}{BLOOD\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00045}{45}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a885e86f33bd013712e147e2e656e163b}\index{hospital.h@{hospital.h}!BLOOD\_LINE\_SIZE@{BLOOD\_LINE\_SIZE}}
+\index{BLOOD\_LINE\_SIZE@{BLOOD\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{BLOOD\_LINE\_SIZE}{BLOOD\_LINE\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{hospital_8h_a885e86f33bd013712e147e2e656e163b} 
+\#define BLOOD\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_ab7834d38cdc724fd48f070bc27fa357b}{BLOOD\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00045}{45}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_ab7834d38cdc724fd48f070bc27fa357b}\index{hospital.h@{hospital.h}!BLOOD\_SIZE@{BLOOD\_SIZE}}
+\index{BLOOD\_SIZE@{BLOOD\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{BLOOD\_SIZE}{BLOOD\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_ab7834d38cdc724fd48f070bc27fa357b} 
+\#define BLOOD\+\_\+\+SIZE~5       /\texorpdfstring{$\ast$}{*} Blood group \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00033}{33}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a48cc0a91e8f54c62f3341c21c8cc74e8}\index{hospital.h@{hospital.h}!DATA\_DIR@{DATA\_DIR}}
+\index{DATA\_DIR@{DATA\_DIR}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{DATA\_DIR}{DATA\_DIR}}
+{\footnotesize\ttfamily \label{hospital_8h_a48cc0a91e8f54c62f3341c21c8cc74e8} 
+\#define DATA\+\_\+\+DIR~"{}data/"{}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00057}{57}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a100fc5fb18b39468906450a765234bd3}\index{hospital.h@{hospital.h}!DATE\_SIZE@{DATE\_SIZE}}
+\index{DATE\_SIZE@{DATE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{DATE\_SIZE}{DATE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a100fc5fb18b39468906450a765234bd3} 
+\#define DATE\+\_\+\+SIZE~15}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00072}{72}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a37b0c94b12025c2a0ae50d36b8c87e72}\index{hospital.h@{hospital.h}!DOCTOR\_ID\_START@{DOCTOR\_ID\_START}}
+\index{DOCTOR\_ID\_START@{DOCTOR\_ID\_START}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{DOCTOR\_ID\_START}{DOCTOR\_ID\_START}}
+{\footnotesize\ttfamily \label{hospital_8h_a37b0c94b12025c2a0ae50d36b8c87e72} 
+\#define DOCTOR\+\_\+\+ID\+\_\+\+START~2001}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00065}{65}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a14b4acd6e4a31c42c60c65d8147f8c83}\index{hospital.h@{hospital.h}!DOCTORS\_FILE@{DOCTORS\_FILE}}
+\index{DOCTORS\_FILE@{DOCTORS\_FILE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{DOCTORS\_FILE}{DOCTORS\_FILE}}
+{\footnotesize\ttfamily \label{hospital_8h_a14b4acd6e4a31c42c60c65d8147f8c83} 
+\#define DOCTORS\+\_\+\+FILE~"{}data/doctors.\+dat"{}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00059}{59}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_aff1937551a28c250937fa28b8d1fd530}\index{hospital.h@{hospital.h}!EMAIL\_LINE\_SIZE@{EMAIL\_LINE\_SIZE}}
+\index{EMAIL\_LINE\_SIZE@{EMAIL\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{EMAIL\_LINE\_SIZE}{EMAIL\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_aff1937551a28c250937fa28b8d1fd530} 
+\#define EMAIL\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_a27b1a31d571f4266e4b3152eede9796c}{EMAIL\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00052}{52}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a27b1a31d571f4266e4b3152eede9796c}\index{hospital.h@{hospital.h}!EMAIL\_SIZE@{EMAIL\_SIZE}}
+\index{EMAIL\_SIZE@{EMAIL\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{EMAIL\_SIZE}{EMAIL\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a27b1a31d571f4266e4b3152eede9796c} 
+\#define EMAIL\+\_\+\+SIZE~50}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00030}{30}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a6613961a25731da4e5bbbab3ffa81f33}\index{hospital.h@{hospital.h}!GENDER\_LINE\_SIZE@{GENDER\_LINE\_SIZE}}
+\index{GENDER\_LINE\_SIZE@{GENDER\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{GENDER\_LINE\_SIZE}{GENDER\_LINE\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{hospital_8h_a6613961a25731da4e5bbbab3ffa81f33} 
+\#define GENDER\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_a6594b794bb314033051246c79c9061f7}{GENDER\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00046}{46}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a9529f5a6cc90dfbf2c31a3e7fee94b10}\index{hospital.h@{hospital.h}!GENDER\_LINE\_SIZE@{GENDER\_LINE\_SIZE}}
+\index{GENDER\_LINE\_SIZE@{GENDER\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{GENDER\_LINE\_SIZE}{GENDER\_LINE\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{hospital_8h_a9529f5a6cc90dfbf2c31a3e7fee94b10} 
+\#define GENDER\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_a6594b794bb314033051246c79c9061f7}{GENDER\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00046}{46}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a6594b794bb314033051246c79c9061f7}\index{hospital.h@{hospital.h}!GENDER\_SIZE@{GENDER\_SIZE}}
+\index{GENDER\_SIZE@{GENDER\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{GENDER\_SIZE}{GENDER\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a6594b794bb314033051246c79c9061f7} 
+\#define GENDER\+\_\+\+SIZE~10}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00037}{37}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a135a81fcd575871939c82df5a64cbb42}\index{hospital.h@{hospital.h}!ID\_LINE\_SIZE@{ID\_LINE\_SIZE}}
+\index{ID\_LINE\_SIZE@{ID\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{ID\_LINE\_SIZE}{ID\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a135a81fcd575871939c82df5a64cbb42} 
+\#define ID\+\_\+\+LINE\+\_\+\+SIZE~20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00041}{41}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a3470ad336e7d5c651fd6c7471f7f6f03}\index{hospital.h@{hospital.h}!MAX\_APPOINTMENTS@{MAX\_APPOINTMENTS}}
+\index{MAX\_APPOINTMENTS@{MAX\_APPOINTMENTS}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_APPOINTMENTS}{MAX\_APPOINTMENTS}}
+{\footnotesize\ttfamily \label{hospital_8h_a3470ad336e7d5c651fd6c7471f7f6f03} 
+\#define MAX\+\_\+\+APPOINTMENTS~200}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00026}{26}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a8c8324bd3e6e85bf227df5d6120bde11}\index{hospital.h@{hospital.h}!MAX\_DOCTORS@{MAX\_DOCTORS}}
+\index{MAX\_DOCTORS@{MAX\_DOCTORS}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_DOCTORS}{MAX\_DOCTORS}}
+{\footnotesize\ttfamily \label{hospital_8h_a8c8324bd3e6e85bf227df5d6120bde11} 
+\#define MAX\+\_\+\+DOCTORS~20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00023}{23}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a3af57ec17baa47f92233fe8a4eccf97e}\index{hospital.h@{hospital.h}!MAX\_PATIENTS@{MAX\_PATIENTS}}
+\index{MAX\_PATIENTS@{MAX\_PATIENTS}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PATIENTS}{MAX\_PATIENTS}}
+{\footnotesize\ttfamily \label{hospital_8h_a3af57ec17baa47f92233fe8a4eccf97e} 
+\#define MAX\+\_\+\+PATIENTS~100}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00022}{22}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_aaf04893c2643204cdadd385d4a9eed58}\index{hospital.h@{hospital.h}!MAX\_RECEPTIONISTS@{MAX\_RECEPTIONISTS}}
+\index{MAX\_RECEPTIONISTS@{MAX\_RECEPTIONISTS}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_RECEPTIONISTS}{MAX\_RECEPTIONISTS}}
+{\footnotesize\ttfamily \label{hospital_8h_aaf04893c2643204cdadd385d4a9eed58} 
+\#define MAX\+\_\+\+RECEPTIONISTS~20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00024}{24}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a2c2a303621f66761529e598758d7ef34}\index{hospital.h@{hospital.h}!MAX\_USERS@{MAX\_USERS}}
+\index{MAX\_USERS@{MAX\_USERS}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_USERS}{MAX\_USERS}}
+{\footnotesize\ttfamily \label{hospital_8h_a2c2a303621f66761529e598758d7ef34} 
+\#define MAX\+\_\+\+USERS~50}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00025}{25}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a5431e9ace83407a385b1cab453555022}\index{hospital.h@{hospital.h}!NAME\_LINE\_SIZE@{NAME\_LINE\_SIZE}}
+\index{NAME\_LINE\_SIZE@{NAME\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{NAME\_LINE\_SIZE}{NAME\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a5431e9ace83407a385b1cab453555022} 
+\#define NAME\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_a834e9a379307f869a10f4da078be5786}{NAME\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00042}{42}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a834e9a379307f869a10f4da078be5786}\index{hospital.h@{hospital.h}!NAME\_SIZE@{NAME\_SIZE}}
+\index{NAME\_SIZE@{NAME\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{NAME\_SIZE}{NAME\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a834e9a379307f869a10f4da078be5786} 
+\#define NAME\+\_\+\+SIZE~50}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00028}{28}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a4beb8dccd4fdbe871c5ffe78ac63b0cb}\index{hospital.h@{hospital.h}!PASSWORD\_SIZE@{PASSWORD\_SIZE}}
+\index{PASSWORD\_SIZE@{PASSWORD\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{PASSWORD\_SIZE}{PASSWORD\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a4beb8dccd4fdbe871c5ffe78ac63b0cb} 
+\#define PASSWORD\+\_\+\+SIZE~50}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00036}{36}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a66906c89660d05d2f69259914599ac91}\index{hospital.h@{hospital.h}!PATIENT\_ID\_START@{PATIENT\_ID\_START}}
+\index{PATIENT\_ID\_START@{PATIENT\_ID\_START}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{PATIENT\_ID\_START}{PATIENT\_ID\_START}}
+{\footnotesize\ttfamily \label{hospital_8h_a66906c89660d05d2f69259914599ac91} 
+\#define PATIENT\+\_\+\+ID\+\_\+\+START~1001}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00064}{64}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a4d633addc79f97d8e7f4c8b48386785b}\index{hospital.h@{hospital.h}!PATIENTS\_FILE@{PATIENTS\_FILE}}
+\index{PATIENTS\_FILE@{PATIENTS\_FILE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{PATIENTS\_FILE}{PATIENTS\_FILE}}
+{\footnotesize\ttfamily \label{hospital_8h_a4d633addc79f97d8e7f4c8b48386785b} 
+\#define PATIENTS\+\_\+\+FILE~"{}data/patients.\+dat"{}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00058}{58}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a3c2ebc83f6769256f58bcd5e9bede90d}\index{hospital.h@{hospital.h}!PHONE\_LINE\_SIZE@{PHONE\_LINE\_SIZE}}
+\index{PHONE\_LINE\_SIZE@{PHONE\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{PHONE\_LINE\_SIZE}{PHONE\_LINE\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{hospital_8h_a3c2ebc83f6769256f58bcd5e9bede90d} 
+\#define PHONE\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00043}{43}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a2bab793d2e633f6c73b8428db890010a}\index{hospital.h@{hospital.h}!PHONE\_LINE\_SIZE@{PHONE\_LINE\_SIZE}}
+\index{PHONE\_LINE\_SIZE@{PHONE\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{PHONE\_LINE\_SIZE}{PHONE\_LINE\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{hospital_8h_a2bab793d2e633f6c73b8428db890010a} 
+\#define PHONE\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00043}{43}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}\index{hospital.h@{hospital.h}!PHONE\_SIZE@{PHONE\_SIZE}}
+\index{PHONE\_SIZE@{PHONE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{PHONE\_SIZE}{PHONE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_aa501b6830aa4ef92aa91c308dc330669} 
+\#define PHONE\+\_\+\+SIZE~15}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00029}{29}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_aed291d272118d337ee9cb29c11a82207}\index{hospital.h@{hospital.h}!REASON\_SIZE@{REASON\_SIZE}}
+\index{REASON\_SIZE@{REASON\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{REASON\_SIZE}{REASON\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_aed291d272118d337ee9cb29c11a82207} 
+\#define REASON\+\_\+\+SIZE~100}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00070}{70}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a21d726fd84052419e38dc69e606c5b41}\index{hospital.h@{hospital.h}!RECEPTIONIST\_ID\_START@{RECEPTIONIST\_ID\_START}}
+\index{RECEPTIONIST\_ID\_START@{RECEPTIONIST\_ID\_START}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{RECEPTIONIST\_ID\_START}{RECEPTIONIST\_ID\_START}}
+{\footnotesize\ttfamily \label{hospital_8h_a21d726fd84052419e38dc69e606c5b41} 
+\#define RECEPTIONIST\+\_\+\+ID\+\_\+\+START~4001}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00067}{67}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a7a95503c6691aaee218e83a8ff388ad5}\index{hospital.h@{hospital.h}!RECEPTIONISTS\_FILE@{RECEPTIONISTS\_FILE}}
+\index{RECEPTIONISTS\_FILE@{RECEPTIONISTS\_FILE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{RECEPTIONISTS\_FILE}{RECEPTIONISTS\_FILE}}
+{\footnotesize\ttfamily \label{hospital_8h_a7a95503c6691aaee218e83a8ff388ad5} 
+\#define RECEPTIONISTS\+\_\+\+FILE~"{}data/receptionists.\+dat"{}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00060}{60}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_aa0acb503ca4ef105939a942fbbd34068}\index{hospital.h@{hospital.h}!ROOM\_LINE\_SIZE@{ROOM\_LINE\_SIZE}}
+\index{ROOM\_LINE\_SIZE@{ROOM\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{ROOM\_LINE\_SIZE}{ROOM\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_aa0acb503ca4ef105939a942fbbd34068} 
+\#define ROOM\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_ad42928642b7d1c716340515278d1c7fa}{ROOM\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00049}{49}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_ad42928642b7d1c716340515278d1c7fa}\index{hospital.h@{hospital.h}!ROOM\_SIZE@{ROOM\_SIZE}}
+\index{ROOM\_SIZE@{ROOM\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{ROOM\_SIZE}{ROOM\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_ad42928642b7d1c716340515278d1c7fa} 
+\#define ROOM\+\_\+\+SIZE~10}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00039}{39}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_abbef1ea48e5df4f4fc13c05097c3b73b}\index{hospital.h@{hospital.h}!SPEC\_LINE\_SIZE@{SPEC\_LINE\_SIZE}}
+\index{SPEC\_LINE\_SIZE@{SPEC\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{SPEC\_LINE\_SIZE}{SPEC\_LINE\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_abbef1ea48e5df4f4fc13c05097c3b73b} 
+\#define SPEC\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_a8789db78c9ad3ae09e5234d03ec9a639}{SPEC\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00048}{48}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a8789db78c9ad3ae09e5234d03ec9a639}\index{hospital.h@{hospital.h}!SPEC\_SIZE@{SPEC\_SIZE}}
+\index{SPEC\_SIZE@{SPEC\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{SPEC\_SIZE}{SPEC\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a8789db78c9ad3ae09e5234d03ec9a639} 
+\#define SPEC\+\_\+\+SIZE~30      /\texorpdfstring{$\ast$}{*} Specialization \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00032}{32}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a6e0dd64d60194ec52667b97693ab5791}\index{hospital.h@{hospital.h}!STATUS\_LINE\_SIZE@{STATUS\_LINE\_SIZE}}
+\index{STATUS\_LINE\_SIZE@{STATUS\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_LINE\_SIZE}{STATUS\_LINE\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{hospital_8h_a6e0dd64d60194ec52667b97693ab5791} 
+\#define STATUS\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_a4a61b9aeb7e1d0a9268a03bf29aa62fa}{STATUS\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00047}{47}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a87fbe99bc9f9356d1994a56a69a7f721}\index{hospital.h@{hospital.h}!STATUS\_LINE\_SIZE@{STATUS\_LINE\_SIZE}}
+\index{STATUS\_LINE\_SIZE@{STATUS\_LINE\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_LINE\_SIZE}{STATUS\_LINE\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{hospital_8h_a87fbe99bc9f9356d1994a56a69a7f721} 
+\#define STATUS\+\_\+\+LINE\+\_\+\+SIZE~\mbox{\hyperlink{hospital_8h_a4a61b9aeb7e1d0a9268a03bf29aa62fa}{STATUS\+\_\+\+SIZE}} + 20}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00047}{47}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a4a61b9aeb7e1d0a9268a03bf29aa62fa}\index{hospital.h@{hospital.h}!STATUS\_SIZE@{STATUS\_SIZE}}
+\index{STATUS\_SIZE@{STATUS\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_SIZE}{STATUS\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a4a61b9aeb7e1d0a9268a03bf29aa62fa} 
+\#define STATUS\+\_\+\+SIZE~10}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00038}{38}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_ac1c7bc76dbfd8378fc96541a6243afd1}\index{hospital.h@{hospital.h}!TIME\_SIZE@{TIME\_SIZE}}
+\index{TIME\_SIZE@{TIME\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{TIME\_SIZE}{TIME\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_ac1c7bc76dbfd8378fc96541a6243afd1} 
+\#define TIME\+\_\+\+SIZE~10}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00071}{71}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}\index{hospital.h@{hospital.h}!UI\_SIZE@{UI\_SIZE}}
+\index{UI\_SIZE@{UI\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{UI\_SIZE}{UI\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0} 
+\#define UI\+\_\+\+SIZE~72}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00020}{20}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_ac7a1d08f4c988420cc930468c7ee0967}\index{hospital.h@{hospital.h}!USERNAME\_SIZE@{USERNAME\_SIZE}}
+\index{USERNAME\_SIZE@{USERNAME\_SIZE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{USERNAME\_SIZE}{USERNAME\_SIZE}}
+{\footnotesize\ttfamily \label{hospital_8h_ac7a1d08f4c988420cc930468c7ee0967} 
+\#define USERNAME\+\_\+\+SIZE~30}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00035}{35}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a6e2470c8814ad71b7d8466cffd9dc072}\index{hospital.h@{hospital.h}!USERS\_FILE@{USERS\_FILE}}
+\index{USERS\_FILE@{USERS\_FILE}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{USERS\_FILE}{USERS\_FILE}}
+{\footnotesize\ttfamily \label{hospital_8h_a6e2470c8814ad71b7d8466cffd9dc072} 
+\#define USERS\+\_\+\+FILE~"{}data/users.\+dat"{}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00061}{61}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a1c6d5de492ac61ad29aec7aa9a436bbf}\index{hospital.h@{hospital.h}!VERSION@{VERSION}}
+\index{VERSION@{VERSION}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{VERSION}{VERSION}}
+{\footnotesize\ttfamily \label{hospital_8h_a1c6d5de492ac61ad29aec7aa9a436bbf} 
+\#define VERSION~"{}1.\+0.\+0"{}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00075}{75}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{hospital_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}\index{hospital.h@{hospital.h}!AppointmentStatus@{AppointmentStatus}}
+\index{AppointmentStatus@{AppointmentStatus}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{AppointmentStatus}{AppointmentStatus}}
+{\footnotesize\ttfamily \label{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa} 
+enum \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}{Appointment\+Status}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{APPT\_PENDING@{APPT\_PENDING}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!APPT\_PENDING@{APPT\_PENDING}}}\Hypertarget{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa56595e4ac5c0027865f2d0aba28e420d}\label{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa56595e4ac5c0027865f2d0aba28e420d} 
+APPT\+\_\+\+PENDING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{APPT\_CONFIRMED@{APPT\_CONFIRMED}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!APPT\_CONFIRMED@{APPT\_CONFIRMED}}}\Hypertarget{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa8775ab0492ab6ebf913d79e6599225c2}\label{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa8775ab0492ab6ebf913d79e6599225c2} 
+APPT\+\_\+\+CONFIRMED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{APPT\_COMPLETED@{APPT\_COMPLETED}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!APPT\_COMPLETED@{APPT\_COMPLETED}}}\Hypertarget{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaac3a2ce447dc6d7b9c8b89b1924d55f8f}\label{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaac3a2ce447dc6d7b9c8b89b1924d55f8f} 
+APPT\+\_\+\+COMPLETED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{APPT\_CANCELLED@{APPT\_CANCELLED}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!APPT\_CANCELLED@{APPT\_CANCELLED}}}\Hypertarget{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa138b6993c85e2a0c1405fe7579118b30}\label{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa138b6993c85e2a0c1405fe7579118b30} 
+APPT\+\_\+\+CANCELLED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00095}{95}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a3667e3c5ec056737c8789615a989324f}\index{hospital.h@{hospital.h}!Gender@{Gender}}
+\index{Gender@{Gender}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{Gender}{Gender}}
+{\footnotesize\ttfamily \label{hospital_8h_a3667e3c5ec056737c8789615a989324f} 
+enum \mbox{\hyperlink{hospital_8h_a3667e3c5ec056737c8789615a989324f}{Gender}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MALE@{MALE}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!MALE@{MALE}}}\Hypertarget{hospital_8h_a3667e3c5ec056737c8789615a989324fa6e81fe1ef694726dd6f7246cfb42369f}\label{hospital_8h_a3667e3c5ec056737c8789615a989324fa6e81fe1ef694726dd6f7246cfb42369f} 
+MALE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FEMALE@{FEMALE}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!FEMALE@{FEMALE}}}\Hypertarget{hospital_8h_a3667e3c5ec056737c8789615a989324fadebb817413857eea6331734b76793159}\label{hospital_8h_a3667e3c5ec056737c8789615a989324fadebb817413857eea6331734b76793159} 
+FEMALE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00090}{90}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+\Hypertarget{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775}\index{hospital.h@{hospital.h}!UserRole@{UserRole}}
+\index{UserRole@{UserRole}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{UserRole}{UserRole}}
+{\footnotesize\ttfamily \label{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775} 
+enum \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775}{User\+Role}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROLE\_ADMIN@{ROLE\_ADMIN}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!ROLE\_ADMIN@{ROLE\_ADMIN}}}\Hypertarget{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae4a86fdf0e228f87fc50f2f846c7ac41}\label{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae4a86fdf0e228f87fc50f2f846c7ac41} 
+ROLE\+\_\+\+ADMIN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROLE\_DOCTOR@{ROLE\_DOCTOR}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!ROLE\_DOCTOR@{ROLE\_DOCTOR}}}\Hypertarget{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae6d2e4265c86d088fe587305c096da60}\label{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae6d2e4265c86d088fe587305c096da60} 
+ROLE\+\_\+\+DOCTOR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROLE\_RECEPTIONIST@{ROLE\_RECEPTIONIST}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!ROLE\_RECEPTIONIST@{ROLE\_RECEPTIONIST}}}\Hypertarget{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775acdede7bafec134c7b28075c1bf6c238f}\label{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775acdede7bafec134c7b28075c1bf6c238f} 
+ROLE\+\_\+\+RECEPTIONIST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROLE\_PATIENT@{ROLE\_PATIENT}!hospital.h@{hospital.h}}\index{hospital.h@{hospital.h}!ROLE\_PATIENT@{ROLE\_PATIENT}}}\Hypertarget{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775a3d542442fcef05d3f9a3e7f9bc3c9007}\label{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775a3d542442fcef05d3f9a3e7f9bc3c9007} 
+ROLE\+\_\+\+PATIENT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{hospital_8h_source_l00083}{83}} of file \mbox{\hyperlink{hospital_8h_source}{hospital.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{hospital_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{hospital_8h_a3138652a2eefda30205ad05d07e3a39f}\index{hospital.h@{hospital.h}!ensure\_data\_dir@{ensure\_data\_dir}}
+\index{ensure\_data\_dir@{ensure\_data\_dir}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{ensure\_data\_dir()}{ensure\_data\_dir()}}
+{\footnotesize\ttfamily \label{hospital_8h_a3138652a2eefda30205ad05d07e3a39f} 
+void ensure\+\_\+data\+\_\+dir (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Ensure data directory exists. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00092}{92}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a3e286a53087cd53bedf0e7602d5beb6b}\index{hospital.h@{hospital.h}!hospital\_init@{hospital\_init}}
+\index{hospital\_init@{hospital\_init}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{hospital\_init()}{hospital\_init()}}
+{\footnotesize\ttfamily \label{hospital_8h_a3e286a53087cd53bedf0e7602d5beb6b} 
+void hospital\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize the hospital system by loading all data. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00047}{47}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_ae5d62d86e562ee295d1566f9ad74b73c}\index{hospital.h@{hospital.h}!print\_help@{print\_help}}
+\index{print\_help@{print\_help}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{print\_help()}{print\_help()}}
+{\footnotesize\ttfamily \label{hospital_8h_ae5d62d86e562ee295d1566f9ad74b73c} 
+void print\+\_\+help (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{program\+\_\+name}{}\end{DoxyParamCaption})}
+
+Display help information. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00073}{73}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_ac6230d495fc909bb61195c45f703d492}\index{hospital.h@{hospital.h}!print\_version@{print\_version}}
+\index{print\_version@{print\_version}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{print\_version()}{print\_version()}}
+{\footnotesize\ttfamily \label{hospital_8h_ac6230d495fc909bb61195c45f703d492} 
+void print\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Display version information. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00086}{86}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_ac2793234764f34a3505fcf01bbc7929b}\index{hospital.h@{hospital.h}!show\_about@{show\_about}}
+\index{show\_about@{show\_about}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{show\_about()}{show\_about()}}
+{\footnotesize\ttfamily \label{hospital_8h_ac2793234764f34a3505fcf01bbc7929b} 
+void show\+\_\+about (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Display about information. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00055}{55}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{hospital_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{hospital_8h_a604fa8fe8670650b0f8e916eafb53bc4}\index{hospital.h@{hospital.h}!appointment\_count@{appointment\_count}}
+\index{appointment\_count@{appointment\_count}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{appointment\_count}{appointment\_count}}
+{\footnotesize\ttfamily \label{hospital_8h_a604fa8fe8670650b0f8e916eafb53bc4} 
+int appointment\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00043}{43}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a98ec0aa887cb60c310f70571d8f2646d}\index{hospital.h@{hospital.h}!appointments@{appointments}}
+\index{appointments@{appointments}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{appointments}{appointments}}
+{\footnotesize\ttfamily \label{hospital_8h_a98ec0aa887cb60c310f70571d8f2646d} 
+\mbox{\hyperlink{struct_appointment}{Appointment}} appointments\mbox{[}200\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00031}{31}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_ab09949a042d92a2a6484981e7d2e25ad}\index{hospital.h@{hospital.h}!current\_user@{current\_user}}
+\index{current\_user@{current\_user}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{current\_user}{current\_user}}
+{\footnotesize\ttfamily \label{hospital_8h_ab09949a042d92a2a6484981e7d2e25ad} 
+\mbox{\hyperlink{struct_user}{User}}\texorpdfstring{$\ast$}{*} current\+\_\+user\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00045}{45}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_ab74106f1c2b12d99efaa0efd870f16eb}\index{hospital.h@{hospital.h}!doctor\_available@{doctor\_available}}
+\index{doctor\_available@{doctor\_available}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_available}{doctor\_available}}
+{\footnotesize\ttfamily \label{hospital_8h_ab74106f1c2b12d99efaa0efd870f16eb} 
+int doctor\+\_\+available\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00037}{37}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_ad99c90b87dadff47fd0da61344796113}\index{hospital.h@{hospital.h}!doctor\_count@{doctor\_count}}
+\index{doctor\_count@{doctor\_count}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_count}{doctor\_count}}
+{\footnotesize\ttfamily \label{hospital_8h_ad99c90b87dadff47fd0da61344796113} 
+int doctor\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00036}{36}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a60b930da5102df130b4cccc6c2b96d3c}\index{hospital.h@{hospital.h}!doctor\_unavailable@{doctor\_unavailable}}
+\index{doctor\_unavailable@{doctor\_unavailable}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_unavailable}{doctor\_unavailable}}
+{\footnotesize\ttfamily \label{hospital_8h_a60b930da5102df130b4cccc6c2b96d3c} 
+int doctor\+\_\+unavailable\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00038}{38}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a67bfc76cc71fe880c284c96205444fab}\index{hospital.h@{hospital.h}!doctors@{doctors}}
+\index{doctors@{doctors}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{doctors}{doctors}}
+{\footnotesize\ttfamily \label{hospital_8h_a67bfc76cc71fe880c284c96205444fab} 
+\mbox{\hyperlink{struct_doctor}{Doctor}} doctors\mbox{[}20\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00028}{28}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_acd51bfe3eea63e29c8ea66e07980478a}\index{hospital.h@{hospital.h}!patient\_available@{patient\_available}}
+\index{patient\_available@{patient\_available}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{patient\_available}{patient\_available}}
+{\footnotesize\ttfamily \label{hospital_8h_acd51bfe3eea63e29c8ea66e07980478a} 
+int patient\+\_\+available\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00034}{34}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a3093d5e98b2236eef700a5bc9ed1f622}\index{hospital.h@{hospital.h}!patient\_count@{patient\_count}}
+\index{patient\_count@{patient\_count}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{patient\_count}{patient\_count}}
+{\footnotesize\ttfamily \label{hospital_8h_a3093d5e98b2236eef700a5bc9ed1f622} 
+int patient\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00033}{33}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a7a0d9e04ba1e63a0813340cb7bc9d8d2}\index{hospital.h@{hospital.h}!patient\_unavailable@{patient\_unavailable}}
+\index{patient\_unavailable@{patient\_unavailable}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{patient\_unavailable}{patient\_unavailable}}
+{\footnotesize\ttfamily \label{hospital_8h_a7a0d9e04ba1e63a0813340cb7bc9d8d2} 
+int patient\+\_\+unavailable\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00035}{35}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a3caa5423980f287dc9ac2a4f18accfae}\index{hospital.h@{hospital.h}!patients@{patients}}
+\index{patients@{patients}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{patients}{patients}}
+{\footnotesize\ttfamily \label{hospital_8h_a3caa5423980f287dc9ac2a4f18accfae} 
+\mbox{\hyperlink{struct_patient}{Patient}} patients\mbox{[}100\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00027}{27}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a5fd7e56f9d71f3ffe638e1f7ffd701b3}\index{hospital.h@{hospital.h}!receptionist\_available@{receptionist\_available}}
+\index{receptionist\_available@{receptionist\_available}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{receptionist\_available}{receptionist\_available}}
+{\footnotesize\ttfamily \label{hospital_8h_a5fd7e56f9d71f3ffe638e1f7ffd701b3} 
+int receptionist\+\_\+available\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00040}{40}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a5547a07227bc5df132481199eef94f8c}\index{hospital.h@{hospital.h}!receptionist\_count@{receptionist\_count}}
+\index{receptionist\_count@{receptionist\_count}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{receptionist\_count}{receptionist\_count}}
+{\footnotesize\ttfamily \label{hospital_8h_a5547a07227bc5df132481199eef94f8c} 
+int receptionist\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00039}{39}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_ad7f79c22c18645256de4eb7a5a264500}\index{hospital.h@{hospital.h}!receptionist\_unavailable@{receptionist\_unavailable}}
+\index{receptionist\_unavailable@{receptionist\_unavailable}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{receptionist\_unavailable}{receptionist\_unavailable}}
+{\footnotesize\ttfamily \label{hospital_8h_ad7f79c22c18645256de4eb7a5a264500} 
+int receptionist\+\_\+unavailable\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00041}{41}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_afd2e0ffb4334642c1461f6d378dddc04}\index{hospital.h@{hospital.h}!receptionists@{receptionists}}
+\index{receptionists@{receptionists}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{receptionists}{receptionists}}
+{\footnotesize\ttfamily \label{hospital_8h_afd2e0ffb4334642c1461f6d378dddc04} 
+\mbox{\hyperlink{struct_receptionist}{Receptionist}} receptionists\mbox{[}20\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00029}{29}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_a817cc6fb0b3a46991a85d06b751f56fc}\index{hospital.h@{hospital.h}!user\_available@{user\_available}}
+\index{user\_available@{user\_available}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{user\_available}{user\_available}}
+{\footnotesize\ttfamily \label{hospital_8h_a817cc6fb0b3a46991a85d06b751f56fc} 
+int user\+\_\+available\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{hospital_8h_ad0472cbf83a6ecb87e8a07cb3110ef9e}\index{hospital.h@{hospital.h}!user\_count@{user\_count}}
+\index{user\_count@{user\_count}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{user\_count}{user\_count}}
+{\footnotesize\ttfamily \label{hospital_8h_ad0472cbf83a6ecb87e8a07cb3110ef9e} 
+int user\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00042}{42}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8h_ae6bc0c15556b087fe8896ff1f7c6d823}\index{hospital.h@{hospital.h}!user\_unavailable@{user\_unavailable}}
+\index{user\_unavailable@{user\_unavailable}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{user\_unavailable}{user\_unavailable}}
+{\footnotesize\ttfamily \label{hospital_8h_ae6bc0c15556b087fe8896ff1f7c6d823} 
+int user\+\_\+unavailable\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{hospital_8h_a2554ce10eb3d295ac9d1368d20cf1e0c}\index{hospital.h@{hospital.h}!users@{users}}
+\index{users@{users}!hospital.h@{hospital.h}}
+\doxysubsubsection{\texorpdfstring{users}{users}}
+{\footnotesize\ttfamily \label{hospital_8h_a2554ce10eb3d295ac9d1368d20cf1e0c} 
+\mbox{\hyperlink{struct_user}{User}} users\mbox{[}50\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00030}{30}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+

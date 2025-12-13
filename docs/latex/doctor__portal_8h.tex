@@ -1,0 +1,177 @@
+\doxysection{include/doctor\+\_\+portal.h File Reference}
+\hypertarget{doctor__portal_8h}{}\label{doctor__portal_8h}\index{include/doctor\_portal.h@{include/doctor\_portal.h}}
+
+
+\doxylink{struct_doctor}{Doctor} portal functions for Healthcare Management System.  
+
+
+{\ttfamily \#include "{}hospital.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_ae81594398efe1968915176f2d85fef49}{doctor\+\_\+portal\+\_\+view\+\_\+appointments}} (int doctor\+\_\+id)
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_a393bd13eb0dcfc2f8f408c700d5f126d}{doctor\+\_\+portal\+\_\+view\+\_\+pending}} (int doctor\+\_\+id)
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_a0d3bf342290dc04e79dfcffc3d271e94}{doctor\+\_\+portal\+\_\+view\+\_\+today}} (int doctor\+\_\+id, const char \texorpdfstring{$\ast$}{*}today\+\_\+date)
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_a126a8d395726d3cb75fc079ac036ad90}{doctor\+\_\+portal\+\_\+view\+\_\+patient}} (void)
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_a028c53b119228663b7edff4559e0810a}{doctor\+\_\+portal\+\_\+complete\+\_\+appointment}} (int doctor\+\_\+id)
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_a5c8468b972dbdf32f2a3e43d9b95d8a8}{doctor\+\_\+portal\+\_\+cancel\+\_\+appointment}} (int doctor\+\_\+id)
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_a3a9c8b125bd6ce85eabf7fc234c6e3cc}{doctor\+\_\+portal\+\_\+update\+\_\+availability}} (int doctor\+\_\+id)
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_a3d34d60c81e9060b0182d58b38e21dac}{doctor\+\_\+portal\+\_\+view\+\_\+profile}} (int doctor\+\_\+id)
+\item 
+void \mbox{\hyperlink{doctor__portal_8h_aa11c2ab6c4d8e07d63ca8612a90617ae}{doctor\+\_\+portal\+\_\+menu}} (int doctor\+\_\+id, const char \texorpdfstring{$\ast$}{*}doctor\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_doctor}{Doctor} portal functions for Healthcare Management System. 
+
+This header declares doctor-\/specific portal operations. 
+
+Definition in file \mbox{\hyperlink{doctor__portal_8h_source}{doctor\+\_\+portal.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{doctor__portal_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{doctor__portal_8h_a5c8468b972dbdf32f2a3e43d9b95d8a8}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_cancel\_appointment@{doctor\_portal\_cancel\_appointment}}
+\index{doctor\_portal\_cancel\_appointment@{doctor\_portal\_cancel\_appointment}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_cancel\_appointment()}{doctor\_portal\_cancel\_appointment()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_a5c8468b972dbdf32f2a3e43d9b95d8a8} 
+void doctor\+\_\+portal\+\_\+cancel\+\_\+appointment (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{}\end{DoxyParamCaption})}
+
+Cancels an appointment. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00146}{146}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+
+\Hypertarget{doctor__portal_8h_a028c53b119228663b7edff4559e0810a}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_complete\_appointment@{doctor\_portal\_complete\_appointment}}
+\index{doctor\_portal\_complete\_appointment@{doctor\_portal\_complete\_appointment}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_complete\_appointment()}{doctor\_portal\_complete\_appointment()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_a028c53b119228663b7edff4559e0810a} 
+void doctor\+\_\+portal\+\_\+complete\+\_\+appointment (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{}\end{DoxyParamCaption})}
+
+Marks an appointment as completed. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00095}{95}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+
+\Hypertarget{doctor__portal_8h_aa11c2ab6c4d8e07d63ca8612a90617ae}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_menu@{doctor\_portal\_menu}}
+\index{doctor\_portal\_menu@{doctor\_portal\_menu}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_menu()}{doctor\_portal\_menu()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_aa11c2ab6c4d8e07d63ca8612a90617ae} 
+void doctor\+\_\+portal\+\_\+menu (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{doctor\+\_\+name}{}\end{DoxyParamCaption})}
+
+Main doctor portal menu. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+{\em doctor\+\_\+name} & The doctor\textquotesingle{}s name for display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00256}{256}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+
+\Hypertarget{doctor__portal_8h_a3a9c8b125bd6ce85eabf7fc234c6e3cc}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_update\_availability@{doctor\_portal\_update\_availability}}
+\index{doctor\_portal\_update\_availability@{doctor\_portal\_update\_availability}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_update\_availability()}{doctor\_portal\_update\_availability()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_a3a9c8b125bd6ce85eabf7fc234c6e3cc} 
+void doctor\+\_\+portal\+\_\+update\+\_\+availability (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{}\end{DoxyParamCaption})}
+
+Updates doctor\textquotesingle{}s availability status. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00196}{196}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+
+\Hypertarget{doctor__portal_8h_ae81594398efe1968915176f2d85fef49}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_view\_appointments@{doctor\_portal\_view\_appointments}}
+\index{doctor\_portal\_view\_appointments@{doctor\_portal\_view\_appointments}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_view\_appointments()}{doctor\_portal\_view\_appointments()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_ae81594398efe1968915176f2d85fef49} 
+void doctor\+\_\+portal\+\_\+view\+\_\+appointments (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{}\end{DoxyParamCaption})}
+
+Views all appointments for current doctor. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00019}{19}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+
+\Hypertarget{doctor__portal_8h_a126a8d395726d3cb75fc079ac036ad90}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_view\_patient@{doctor\_portal\_view\_patient}}
+\index{doctor\_portal\_view\_patient@{doctor\_portal\_view\_patient}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_view\_patient()}{doctor\_portal\_view\_patient()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_a126a8d395726d3cb75fc079ac036ad90} 
+void doctor\+\_\+portal\+\_\+view\+\_\+patient (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Views patient details for a given patient ID. 
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00062}{62}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+
+\Hypertarget{doctor__portal_8h_a393bd13eb0dcfc2f8f408c700d5f126d}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_view\_pending@{doctor\_portal\_view\_pending}}
+\index{doctor\_portal\_view\_pending@{doctor\_portal\_view\_pending}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_view\_pending()}{doctor\_portal\_view\_pending()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_a393bd13eb0dcfc2f8f408c700d5f126d} 
+void doctor\+\_\+portal\+\_\+view\+\_\+pending (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{}\end{DoxyParamCaption})}
+
+Views pending appointments for current doctor. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00023}{23}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+
+\Hypertarget{doctor__portal_8h_a3d34d60c81e9060b0182d58b38e21dac}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_view\_profile@{doctor\_portal\_view\_profile}}
+\index{doctor\_portal\_view\_profile@{doctor\_portal\_view\_profile}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_view\_profile()}{doctor\_portal\_view\_profile()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_a3d34d60c81e9060b0182d58b38e21dac} 
+void doctor\+\_\+portal\+\_\+view\+\_\+profile (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{}\end{DoxyParamCaption})}
+
+Views doctor\textquotesingle{}s own profile. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00242}{242}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+
+\Hypertarget{doctor__portal_8h_a0d3bf342290dc04e79dfcffc3d271e94}\index{doctor\_portal.h@{doctor\_portal.h}!doctor\_portal\_view\_today@{doctor\_portal\_view\_today}}
+\index{doctor\_portal\_view\_today@{doctor\_portal\_view\_today}!doctor\_portal.h@{doctor\_portal.h}}
+\doxysubsubsection{\texorpdfstring{doctor\_portal\_view\_today()}{doctor\_portal\_view\_today()}}
+{\footnotesize\ttfamily \label{doctor__portal_8h_a0d3bf342290dc04e79dfcffc3d271e94} 
+void doctor\+\_\+portal\+\_\+view\+\_\+today (\begin{DoxyParamCaption}\item[{int}]{doctor\+\_\+id}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{today\+\_\+date}{}\end{DoxyParamCaption})}
+
+Views today\textquotesingle{}s appointments for current doctor. 
+\begin{DoxyParams}{Parameters}
+{\em doctor\+\_\+id} & The doctor\textquotesingle{}s ID. \\
+\hline
+{\em today\+\_\+date} & Today\textquotesingle{}s date string. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{doctor__portal_8c_source_l00042}{42}} of file \mbox{\hyperlink{doctor__portal_8c_source}{doctor\+\_\+portal.\+c}}.
+

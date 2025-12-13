@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['bg_5fblack_0',['BG_BLACK',['../ui_8h.html#a0e5ebbe291d95cf1b8f1661252722fe0',1,'ui.h']]],
+  ['bg_5fbright_5fblack_1',['BG_BRIGHT_BLACK',['../ui_8h.html#abf64f144805762887d4dd5088da13fe3',1,'ui.h']]],
+  ['bg_5fbright_5fgreen_2',['BG_BRIGHT_GREEN',['../ui_8h.html#a4103712b2070442d6a1718a46553b604',1,'ui.h']]],
+  ['bg_5fbright_5fred_3',['BG_BRIGHT_RED',['../ui_8h.html#a929901cfe8e70ed7bf5cf0096a81d79a',1,'ui.h']]],
+  ['bg_5fbright_5fyellow_4',['BG_BRIGHT_YELLOW',['../ui_8h.html#ad38f9abc9a16f356ea46b289086c3468',1,'ui.h']]],
+  ['bg_5fneon_5fpurple_5',['BG_NEON_PURPLE',['../ui_8h.html#aac812fd4e3f430daa06e557e22c013f0',1,'ui.h']]],
+  ['bg_5fneon_5fteal_6',['BG_NEON_TEAL',['../ui_8h.html#ab8bf3bd836871393037a8d6b340f588b',1,'ui.h']]],
+  ['bg_5fwhite_7',['BG_WHITE',['../ui_8h.html#a6beded3f171517df3902c52f79f6fea2',1,'ui.h']]],
+  ['black_8',['BLACK',['../ui_8h.html#a7b3b25cba33b07c303f3060fe41887f6',1,'ui.h']]],
+  ['blood_5fgroup_9',['blood_group',['../struct_patient.html#a790b7678b80fc08bc5da3e6779ddd65d',1,'Patient']]],
+  ['blood_5fline_5fsize_10',['BLOOD_LINE_SIZE',['../hospital_8h.html#a885e86f33bd013712e147e2e656e163b',1,'BLOOD_LINE_SIZE:&#160;hospital.h'],['../hospital_8h.html#a7e32b7efebfc204fb03895ec96f747ac',1,'BLOOD_LINE_SIZE:&#160;hospital.h']]],
+  ['blood_5fsize_11',['BLOOD_SIZE',['../hospital_8h.html#ab7834d38cdc724fd48f070bc27fa357b',1,'hospital.h']]],
+  ['blue_12',['BLUE',['../ui_8h.html#a79d10e672abb49ad63eeaa8aaef57c38',1,'ui.h']]],
+  ['bold_13',['BOLD',['../ui_8h.html#a26cdbb1a00213c810caccf21cd33a631',1,'ui.h']]],
+  ['bright_5fblack_14',['BRIGHT_BLACK',['../ui_8h.html#afce71f5570264c87a00330f7e6ad0fa2',1,'ui.h']]],
+  ['bright_5fblue_15',['BRIGHT_BLUE',['../ui_8h.html#a23028f4aec597f9d81b07ae258833d92',1,'ui.h']]],
+  ['bright_5fcyan_16',['BRIGHT_CYAN',['../ui_8h.html#a56f6579e22e05c95127e079ee929d09a',1,'ui.h']]],
+  ['bright_5fgreen_17',['BRIGHT_GREEN',['../ui_8h.html#a74c0a6124f05f261352d13d64b9f9a55',1,'ui.h']]],
+  ['bright_5fmagenta_18',['BRIGHT_MAGENTA',['../ui_8h.html#aa7ab92145ef258c9462345e9cc81c05c',1,'ui.h']]],
+  ['bright_5fred_19',['BRIGHT_RED',['../ui_8h.html#a458d388b2fc60518af3517f52f9e7e2a',1,'ui.h']]],
+  ['bright_5fwhite_20',['BRIGHT_WHITE',['../ui_8h.html#af478e6814032d56fa4e923e38cc39833',1,'ui.h']]],
+  ['bright_5fyellow_21',['BRIGHT_YELLOW',['../ui_8h.html#aa983c839c2c77525a1372ffcd0f36451',1,'ui.h']]]
+];

@@ -11,7 +11,57 @@ A console-based Hospital Management System built in C. User-friendly interface.
 
 ## Build & Run
 
-In testing phase now.
+### Windows
+
+First clone the project repository:
+
+```bash
+git clone https://github.com/AmiValoHoteChai/Hospital-Management-System.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd Hospital-Management-System
+```
+
+To build the project, run the following command:
+
+```bash
+gcc -o hms.exe main.c src/admin.c src/appointment.c src/auth.c src/doctor.c src/doctor_portal.c src/hospital.c src/patient.c src/receptionist.c src/ui.c src/utils.c
+```
+
+To run the project, run the following command:
+
+```bash
+.\hms.exe
+```
+
+### Linux/Mac
+
+First clone the project repository:
+
+```bash
+git clone https://github.com/AmiValoHoteChai/Hospital-Management-System.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd Hospital-Management-System
+```
+
+To build the project, run the following command:
+
+```bash
+gcc -o hms.out main.c src/admin.c src/appointment.c src/auth.c src/doctor.c src/doctor_portal.c src/hospital.c src/patient.c src/receptionist.c src/ui.c src/utils.c
+```
+
+To run the project, run the following command:
+
+```bash
+./hms.out
+```
 
 ## Project Structure
 

@@ -1,0 +1,312 @@
+\doxysection{src/utils.c File Reference}
+\hypertarget{utils_8c}{}\label{utils_8c}\index{src/utils.c@{src/utils.c}}
+
+
+Utility functions for Healthcare Management System.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include "{}../include/utils.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{utils_8c_abe624d366210d18e51761ef24d594dd2}{utils\+\_\+clear\+\_\+input\+\_\+buffer}} (void)
+\item 
+void \mbox{\hyperlink{utils_8c_a652e4e6125df91e843aad87697f19753}{utils\+\_\+pause}} (void)
+\item 
+int \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\+\_\+get\+\_\+int}} (void)
+\item 
+float \mbox{\hyperlink{utils_8c_ad39c008675c768f5429e675f21e71478}{utils\+\_\+get\+\_\+float}} (void)
+\item 
+double \mbox{\hyperlink{utils_8c_ad408bc39c0efa3890653c37c0a6049ec}{utils\+\_\+get\+\_\+double}} (void)
+\item 
+char \mbox{\hyperlink{utils_8c_a4266a1741f167eedeaadf572e153af41}{utils\+\_\+get\+\_\+char}} (void)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\+\_\+get\+\_\+string}} (char \texorpdfstring{$\ast$}{*}str, size\+\_\+t size)
+\item 
+bool \mbox{\hyperlink{utils_8c_ae232caa333263dac11243a80715c68fe}{utils\+\_\+is\+\_\+valid\+\_\+phone}} (const char \texorpdfstring{$\ast$}{*}phone)
+\item 
+bool \mbox{\hyperlink{utils_8c_abc5f7d4a1f14f8009f3d0ae80e892ee4}{utils\+\_\+is\+\_\+valid\+\_\+email}} (const char \texorpdfstring{$\ast$}{*}email)
+\item 
+bool \mbox{\hyperlink{utils_8c_ad28a4b490f8bae0fcbfeadc8262c5cc6}{utils\+\_\+is\+\_\+valid\+\_\+name}} (const char \texorpdfstring{$\ast$}{*}name)
+\item 
+bool \mbox{\hyperlink{utils_8c_ae196c1358637951d0c2712c09f7a13f8}{utils\+\_\+is\+\_\+valid\+\_\+id}} (int id, \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775}{User\+Role}} role)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8c_a83367732e901f578c4373d4ba5a1d71a}{utils\+\_\+str\+\_\+to\+\_\+upper}} (char \texorpdfstring{$\ast$}{*}str)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8c_a7002bb1a299e81b7f7fd93fc885418cf}{utils\+\_\+fix\+\_\+name}} (char \texorpdfstring{$\ast$}{*}name)
+\item 
+bool \mbox{\hyperlink{utils_8c_a914909d0803a5798382d441f44e8bda7}{utils\+\_\+is\+\_\+valid\+\_\+blood\+\_\+group}} (const char \texorpdfstring{$\ast$}{*}blood\+\_\+group)
+\item 
+bool \mbox{\hyperlink{utils_8c_a98603b49e1c1ad848036174b2ee97a08}{utils\+\_\+is\+\_\+valid\+\_\+address}} (const char \texorpdfstring{$\ast$}{*}address)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility functions for Healthcare Management System. 
+
+This file contains the implementation of utility functions used throughout the HMS application. 
+
+Definition in file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{utils_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8c_abe624d366210d18e51761ef24d594dd2}\index{utils.c@{utils.c}!utils\_clear\_input\_buffer@{utils\_clear\_input\_buffer}}
+\index{utils\_clear\_input\_buffer@{utils\_clear\_input\_buffer}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_clear\_input\_buffer()}{utils\_clear\_input\_buffer()}}
+{\footnotesize\ttfamily \label{utils_8c_abe624d366210d18e51761ef24d594dd2} 
+void utils\+\_\+clear\+\_\+input\+\_\+buffer (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Clears the input buffer to prevent leftover characters. 
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00014}{14}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_a7002bb1a299e81b7f7fd93fc885418cf}\index{utils.c@{utils.c}!utils\_fix\_name@{utils\_fix\_name}}
+\index{utils\_fix\_name@{utils\_fix\_name}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_fix\_name()}{utils\_fix\_name()}}
+{\footnotesize\ttfamily \label{utils_8c_a7002bb1a299e81b7f7fd93fc885418cf} 
+char \texorpdfstring{$\ast$}{*} utils\+\_\+fix\+\_\+name (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+Fixes name to Title Case (first letter of each word uppercase, rest lowercase). Example\+: "{}j\+OHN d\+OE"{} -\/\texorpdfstring{$>$}{>} "{}\+John Doe"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name string to fix (modified in-\/place).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The fixed name string. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00169}{169}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_a4266a1741f167eedeaadf572e153af41}\index{utils.c@{utils.c}!utils\_get\_char@{utils\_get\_char}}
+\index{utils\_get\_char@{utils\_get\_char}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_get\_char()}{utils\_get\_char()}}
+{\footnotesize\ttfamily \label{utils_8c_a4266a1741f167eedeaadf572e153af41} 
+char utils\+\_\+get\+\_\+char (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Scans a char value from the user.
+
+\begin{DoxyReturn}{Returns}
+The valid char entered by the user. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00054}{54}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_ad408bc39c0efa3890653c37c0a6049ec}\index{utils.c@{utils.c}!utils\_get\_double@{utils\_get\_double}}
+\index{utils\_get\_double@{utils\_get\_double}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_get\_double()}{utils\_get\_double()}}
+{\footnotesize\ttfamily \label{utils_8c_ad408bc39c0efa3890653c37c0a6049ec} 
+double utils\+\_\+get\+\_\+double (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Scans a double value from the user with validation.
+
+\begin{DoxyReturn}{Returns}
+The valid double entered by the user. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00044}{44}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_ad39c008675c768f5429e675f21e71478}\index{utils.c@{utils.c}!utils\_get\_float@{utils\_get\_float}}
+\index{utils\_get\_float@{utils\_get\_float}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_get\_float()}{utils\_get\_float()}}
+{\footnotesize\ttfamily \label{utils_8c_ad39c008675c768f5429e675f21e71478} 
+float utils\+\_\+get\+\_\+float (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Scans a float value from the user with validation.
+
+\begin{DoxyReturn}{Returns}
+The valid float entered by the user. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00034}{34}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_a6a610238a412adf932dfc472b1cca54f}\index{utils.c@{utils.c}!utils\_get\_int@{utils\_get\_int}}
+\index{utils\_get\_int@{utils\_get\_int}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_get\_int()}{utils\_get\_int()}}
+{\footnotesize\ttfamily \label{utils_8c_a6a610238a412adf932dfc472b1cca54f} 
+int utils\+\_\+get\+\_\+int (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Scans an integer value from the user with validation.
+
+\begin{DoxyReturn}{Returns}
+The valid integer entered by the user. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00024}{24}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_a6edfffafca652b82c67997e09f7ee416}\index{utils.c@{utils.c}!utils\_get\_string@{utils\_get\_string}}
+\index{utils\_get\_string@{utils\_get\_string}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_get\_string()}{utils\_get\_string()}}
+{\footnotesize\ttfamily \label{utils_8c_a6edfffafca652b82c67997e09f7ee416} 
+char \texorpdfstring{$\ast$}{*} utils\+\_\+get\+\_\+string (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+Scans a string value from the user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The buffer to store the string. \\
+\hline
+{\em size} & The maximum number of characters to read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to string on success, NULL on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00061}{61}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_a98603b49e1c1ad848036174b2ee97a08}\index{utils.c@{utils.c}!utils\_is\_valid\_address@{utils\_is\_valid\_address}}
+\index{utils\_is\_valid\_address@{utils\_is\_valid\_address}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_is\_valid\_address()}{utils\_is\_valid\_address()}}
+{\footnotesize\ttfamily \label{utils_8c_a98603b49e1c1ad848036174b2ee97a08} 
+bool utils\+\_\+is\+\_\+valid\+\_\+address (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{address}{}\end{DoxyParamCaption})}
+
+Validates if an address contains only valid characters. Allowed\+: letters, digits, spaces, commas, periods.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address string to validate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00204}{204}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_a914909d0803a5798382d441f44e8bda7}\index{utils.c@{utils.c}!utils\_is\_valid\_blood\_group@{utils\_is\_valid\_blood\_group}}
+\index{utils\_is\_valid\_blood\_group@{utils\_is\_valid\_blood\_group}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_is\_valid\_blood\_group()}{utils\_is\_valid\_blood\_group()}}
+{\footnotesize\ttfamily \label{utils_8c_a914909d0803a5798382d441f44e8bda7} 
+bool utils\+\_\+is\+\_\+valid\+\_\+blood\+\_\+group (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{blood\+\_\+group}{}\end{DoxyParamCaption})}
+
+Validates if a blood group is in correct format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em blood\+\_\+group} & The blood group string to validate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00186}{186}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_abc5f7d4a1f14f8009f3d0ae80e892ee4}\index{utils.c@{utils.c}!utils\_is\_valid\_email@{utils\_is\_valid\_email}}
+\index{utils\_is\_valid\_email@{utils\_is\_valid\_email}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_is\_valid\_email()}{utils\_is\_valid\_email()}}
+{\footnotesize\ttfamily \label{utils_8c_abc5f7d4a1f14f8009f3d0ae80e892ee4} 
+bool utils\+\_\+is\+\_\+valid\+\_\+email (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{email}{}\end{DoxyParamCaption})}
+
+Validates if an email contains @ and .
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email string to validate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00097}{97}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_ae196c1358637951d0c2712c09f7a13f8}\index{utils.c@{utils.c}!utils\_is\_valid\_id@{utils\_is\_valid\_id}}
+\index{utils\_is\_valid\_id@{utils\_is\_valid\_id}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_is\_valid\_id()}{utils\_is\_valid\_id()}}
+{\footnotesize\ttfamily \label{utils_8c_ae196c1358637951d0c2712c09f7a13f8} 
+bool utils\+\_\+is\+\_\+valid\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{\mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775}{User\+Role}}}]{role}{}\end{DoxyParamCaption})}
+
+Validates if an ID is in correct format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID to validate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid ID, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00140}{140}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_ad28a4b490f8bae0fcbfeadc8262c5cc6}\index{utils.c@{utils.c}!utils\_is\_valid\_name@{utils\_is\_valid\_name}}
+\index{utils\_is\_valid\_name@{utils\_is\_valid\_name}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_is\_valid\_name()}{utils\_is\_valid\_name()}}
+{\footnotesize\ttfamily \label{utils_8c_ad28a4b490f8bae0fcbfeadc8262c5cc6} 
+bool utils\+\_\+is\+\_\+valid\+\_\+name (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+Validates if a name contains only letters and spaces.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to validate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid name, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00128}{128}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_ae232caa333263dac11243a80715c68fe}\index{utils.c@{utils.c}!utils\_is\_valid\_phone@{utils\_is\_valid\_phone}}
+\index{utils\_is\_valid\_phone@{utils\_is\_valid\_phone}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_is\_valid\_phone()}{utils\_is\_valid\_phone()}}
+{\footnotesize\ttfamily \label{utils_8c_ae232caa333263dac11243a80715c68fe} 
+bool utils\+\_\+is\+\_\+valid\+\_\+phone (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{phone}{}\end{DoxyParamCaption})}
+
+\DoxyHorRuler{0}
+ \hypertarget{utils_8c_autotoc_md1}{}\doxysubsection{\texorpdfstring{Validity Functions}{Validity Functions}}\label{utils_8c_autotoc_md1}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00081}{81}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_a652e4e6125df91e843aad87697f19753}\index{utils.c@{utils.c}!utils\_pause@{utils\_pause}}
+\index{utils\_pause@{utils\_pause}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_pause()}{utils\_pause()}}
+{\footnotesize\ttfamily \label{utils_8c_a652e4e6125df91e843aad87697f19753} 
+void utils\+\_\+pause (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00019}{19}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8c_a83367732e901f578c4373d4ba5a1d71a}\index{utils.c@{utils.c}!utils\_str\_to\_upper@{utils\_str\_to\_upper}}
+\index{utils\_str\_to\_upper@{utils\_str\_to\_upper}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{utils\_str\_to\_upper()}{utils\_str\_to\_upper()}}
+{\footnotesize\ttfamily \label{utils_8c_a83367732e901f578c4373d4ba5a1d71a} 
+char \texorpdfstring{$\ast$}{*} utils\+\_\+str\+\_\+to\+\_\+upper (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str}{}\end{DoxyParamCaption})}
+
+Converts a string to uppercase in-\/place.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to convert.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The uppercase string. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00161}{161}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+

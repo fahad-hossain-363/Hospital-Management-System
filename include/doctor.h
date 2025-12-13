@@ -29,11 +29,6 @@
  int doctor_generate_id(void);
 
 /**
- * Adds a new doctor to the system.
- */
- void doctor_add(void);
-
-/**
  * Displays all doctors in the system.
  */
  void doctor_view_all(void);
@@ -81,17 +76,12 @@
  void doctor_update_using_id(void);
 
 /**
- * Discharges a doctor by ID (sets is_active to false).
+ * Deactivates a doctor by ID (sets is_active to false).
  */
- void doctor_discharge(void);
+ void doctor_deactivate_account(void);
 
 /**
- * Displays the doctor management menu and handles user input.
- */
- void doctor_menu(void);
-
-/**
- * Displays all discharged doctors in the system.
+ * Displays all inactive doctors in the system.
  */
  void doctor_view_discharged(void);
 

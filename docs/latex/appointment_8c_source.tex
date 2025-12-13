@@ -1,0 +1,308 @@
+\doxysection{appointment.\+c}
+\hypertarget{appointment_8c_source}{}\label{appointment_8c_source}\index{src/appointment.c@{src/appointment.c}}
+\mbox{\hyperlink{appointment_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{appointment_8h}{../include/appointment.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{patient_8h}{../include/patient.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{doctor_8h}{../include/doctor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8h}{../include/utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ui_8h}{../include/ui.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hospital_8h}{../include/hospital.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00017}\mbox{\hyperlink{appointment_8c_a5b3244b7d8608e69315674fe0d3a1cdc}{00017}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{appointment_8c_a5b3244b7d8608e69315674fe0d3a1cdc}{appointment\_save\_to\_file}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00018}00018\ \ \ \ \ FILE*\ file\ =\ fopen(\mbox{\hyperlink{hospital_8h_a703e49b618f16ee85645bb0f901528a0}{APPOINTMENTS\_FILE}},\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (fwrite(\&\mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1\ ||}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ fwrite(\mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_appointment}{Appointment}}),\ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}},\ file)\ !=\ (\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00027}00027\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00031}\mbox{\hyperlink{appointment_8c_a52fb65f1894f0c8eec6e7148fc83981a}{00031}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{appointment_8c_a52fb65f1894f0c8eec6e7148fc83981a}{appointment\_load\_from\_file}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00032}00032\ \ \ \ \ FILE*\ file\ =\ fopen(\mbox{\hyperlink{hospital_8h_a703e49b618f16ee85645bb0f901528a0}{APPOINTMENTS\_FILE}},\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(\&\mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count\ <\ 0\ ||\ appointment\_count\ >}}\ \mbox{\hyperlink{hospital_8h_a3470ad336e7d5c651fd6c7471f7f6f03}{MAX\_APPOINTMENTS}})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(\mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_appointment}{Appointment}}),\ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}},\ file)\ !=\ (\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00050}00050\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00054}\mbox{\hyperlink{appointment_8c_a7ac164171db419ee6567dd2dfaab157c}{00054}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{appointment_8c_a7ac164171db419ee6567dd2dfaab157c}{appointment\_generate\_id}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{hospital_8h_afd5411242876d4cf00d87221699cffe8}{APPOINTMENT\_ID\_START}}\ +\ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00058}\mbox{\hyperlink{appointment_8c_a5892e39a2c1345181b40163296f9c7f2}{00058}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{appointment_8c_a5892e39a2c1345181b40163296f9c7f2}{appointment\_status\_str}}(\mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}{AppointmentStatus}}\ status)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{switch}\ (status)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa56595e4ac5c0027865f2d0aba28e420d}{APPT\_PENDING}}:\ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Pending"{}};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa8775ab0492ab6ebf913d79e6599225c2}{APPT\_CONFIRMED}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Confirmed"{}};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaac3a2ce447dc6d7b9c8b89b1924d55f8f}{APPT\_COMPLETED}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Completed"{}};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa138b6993c85e2a0c1405fe7579118b30}{APPT\_CANCELLED}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Cancelled"{}};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Unknown"{}};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00068}\mbox{\hyperlink{appointment_8c_ad29d0df1a0d5a2eb7e5bcb1384c0f94c}{00068}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{appointment_8c_ad29d0df1a0d5a2eb7e5bcb1384c0f94c}{appointment\_search\_id}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}}[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00077}\mbox{\hyperlink{appointment_8c_a925af679def80ab6bf044b2808d628f6}{00077}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{appointment_8c_a925af679def80ab6bf044b2808d628f6}{appointment\_create}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}}\ >=\ \mbox{\hyperlink{hospital_8h_a3470ad336e7d5c651fd6c7471f7f6f03}{MAX\_APPOINTMENTS}})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Error:\ Maximum\ appointment\ limit\ reached!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00083}00083\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{struct_appointment}{Appointment}}\ new\_appt;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00085}00085\ \ \ \ \ new\_appt.\mbox{\hyperlink{struct_appointment_a622d99ad9a2d78f94373eb43047029d3}{id}}\ =\ \mbox{\hyperlink{appointment_8c_a7ac164171db419ee6567dd2dfaab157c}{appointment\_generate\_id}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00086}00086\ \ \ \ \ new\_appt.\mbox{\hyperlink{struct_appointment_aa24711d79171a830352bca32e47c5a64}{status}}\ =\ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa56595e4ac5c0027865f2d0aba28e420d}{APPT\_PENDING}};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00087}00087\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{char}\ patient\_line[70],\ doctor\_line[70],\ date\_line[70],\ time\_line[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ Step\ 1:\ Get\ Patient\ ID}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ step1[]\ =\ \{\textcolor{stringliteral}{"{}Patient\ ID:"{}},\ \textcolor{stringliteral}{"{}>>\ "{}}\};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Create\ Appointment"{}},\ step1,\ 2,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ new\_appt.\mbox{\hyperlink{struct_appointment_a1a174282cc3d923dd939a795feae1d47}{patient\_id}}\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ae196c1358637951d0c2712c09f7a13f8}{utils\_is\_valid\_id}}(new\_appt.\mbox{\hyperlink{struct_appointment_a1a174282cc3d923dd939a795feae1d47}{patient\_id}},\ \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775a3d542442fcef05d3f9a3e7f9bc3c9007}{ROLE\_PATIENT}}))\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ patient\ ID!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{patient_8c_af84ac4f837ddb300084bb55bc1395a70}{patient\_search\_id}}(new\_appt.\mbox{\hyperlink{struct_appointment_a1a174282cc3d923dd939a795feae1d47}{patient\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ ==\ -\/1\ ||\ !\mbox{\hyperlink{hospital_8c_a3caa5423980f287dc9ac2a4f18accfae}{patients}}[idx].is\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Patient\ not\ found\ or\ inactive!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ snprintf(patient\_line,\ \textcolor{keyword}{sizeof}(patient\_line),\ \textcolor{stringliteral}{"{}Patient:\ \%s\ (ID:\ \%d)"{}},\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a3caa5423980f287dc9ac2a4f18accfae}{patients}}[idx].name,\ new\_appt.\mbox{\hyperlink{struct_appointment_a1a174282cc3d923dd939a795feae1d47}{patient\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00114}00114\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//\ Step\ 2:\ Get\ Doctor\ ID}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ step2[]\ =\ \{patient\_line,\ \textcolor{stringliteral}{"{}Doctor\ ID:"{}},\ \textcolor{stringliteral}{"{}>>\ "{}}\};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Create\ Appointment"{}},\ step2,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ new\_appt.\mbox{\hyperlink{struct_appointment_a58b334cf40c281967ae8b3435af72ac1}{doctor\_id}}\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ae196c1358637951d0c2712c09f7a13f8}{utils\_is\_valid\_id}}(new\_appt.\mbox{\hyperlink{struct_appointment_a58b334cf40c281967ae8b3435af72ac1}{doctor\_id}},\ \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae6d2e4265c86d088fe587305c096da60}{ROLE\_DOCTOR}}))\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ doctor\ ID!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{doctor_8c_a521b99d6e9b11eba0f53bf9efbcaee24}{doctor\_search\_id}}(new\_appt.\mbox{\hyperlink{struct_appointment_a58b334cf40c281967ae8b3435af72ac1}{doctor\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ ==\ -\/1\ ||\ !\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[idx].is\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Doctor\ not\ found\ or\ inactive!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[idx].is\_available)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a9f2a4ea0f3175a179ea7df486592d9b2}{ui\_print\_warning}}(\textcolor{stringliteral}{"{}Warning:\ Doctor\ is\ marked\ as\ unavailable."{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ snprintf(doctor\_line,\ \textcolor{keyword}{sizeof}(doctor\_line),\ \textcolor{stringliteral}{"{}Doctor:\ Dr.\ \%s\ (ID:\ \%d)"{}},\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[idx].name,\ new\_appt.\mbox{\hyperlink{struct_appointment_a58b334cf40c281967ae8b3435af72ac1}{doctor\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00142}00142\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00143}00143\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00144}00144\ \ \ \ \ \textcolor{comment}{//\ Step\ 3:\ Get\ Date}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00145}00145\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ step3[]\ =\ \{patient\_line,\ doctor\_line,\ \textcolor{stringliteral}{"{}Date\ (DD-\/MM-\/YYYY):"{}},\ \textcolor{stringliteral}{"{}>>\ "{}}\};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Create\ Appointment"{}},\ step3,\ 4,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(new\_appt.\mbox{\hyperlink{struct_appointment_ac070feb0251c794cac9a3e04573e3c24}{date}},\ \mbox{\hyperlink{hospital_8h_a100fc5fb18b39468906450a765234bd3}{DATE\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(new\_appt.\mbox{\hyperlink{struct_appointment_ac070feb0251c794cac9a3e04573e3c24}{date}})\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ snprintf(date\_line,\ \textcolor{keyword}{sizeof}(date\_line),\ \textcolor{stringliteral}{"{}Date:\ \%s"{}},\ new\_appt.\mbox{\hyperlink{struct_appointment_ac070feb0251c794cac9a3e04573e3c24}{date}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Date\ cannot\ be\ empty!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00158}00158\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00159}00159\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00160}00160\ \ \ \ \ \textcolor{comment}{//\ Step\ 4:\ Get\ Time\ Slot}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00161}00161\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ step4[]\ =\ \{patient\_line,\ doctor\_line,\ date\_line,\ \textcolor{stringliteral}{"{}Time\ (e.g.\ 10:00\ AM):"{}},\ \textcolor{stringliteral}{"{}>>\ "{}}\};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Create\ Appointment"{}},\ step4,\ 5,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(new\_appt.\mbox{\hyperlink{struct_appointment_aa7523e777b1481e86849de5a7de9edd2}{time\_slot}},\ \mbox{\hyperlink{hospital_8h_ac1c7bc76dbfd8378fc96541a6243afd1}{TIME\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(new\_appt.\mbox{\hyperlink{struct_appointment_aa7523e777b1481e86849de5a7de9edd2}{time\_slot}})\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ snprintf(time\_line,\ \textcolor{keyword}{sizeof}(time\_line),\ \textcolor{stringliteral}{"{}Time:\ \%s"{}},\ new\_appt.\mbox{\hyperlink{struct_appointment_aa7523e777b1481e86849de5a7de9edd2}{time\_slot}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Time\ cannot\ be\ empty!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00175}00175\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00176}00176\ \ \ \ \ \textcolor{comment}{//\ Step\ 5:\ Get\ Reason}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ step5[]\ =\ \{patient\_line,\ doctor\_line,\ date\_line,\ time\_line,\ \textcolor{stringliteral}{"{}Reason\ for\ visit:"{}},\ \textcolor{stringliteral}{"{}>>\ "{}}\};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Create\ Appointment"{}},\ step5,\ 6,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(new\_appt.\mbox{\hyperlink{struct_appointment_a3fddd93ee5525641cd54b7c58e2a9d58}{reason}},\ \mbox{\hyperlink{hospital_8h_aed291d272118d337ee9cb29c11a82207}{REASON\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(new\_appt.\mbox{\hyperlink{struct_appointment_a3fddd93ee5525641cd54b7c58e2a9d58}{reason}})\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Reason\ cannot\ be\ empty!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00190}00190\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00191}00191\ \ \ \ \ \textcolor{comment}{//\ Step\ 6:\ Confirm}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00192}00192\ \ \ \ \ \textcolor{keywordtype}{char}\ reason\_line[120];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00193}00193\ \ \ \ \ snprintf(reason\_line,\ \textcolor{keyword}{sizeof}(reason\_line),\ \textcolor{stringliteral}{"{}Reason:\ \%s"{}},\ new\_appt.\mbox{\hyperlink{struct_appointment_a3fddd93ee5525641cd54b7c58e2a9d58}{reason}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00194}00194\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ step6[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ patient\_line,\ doctor\_line,\ date\_line,\ time\_line,\ reason\_line,}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Confirm\ (Y/N):"{}},\ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00197}00197\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00198}00198\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00199}00199\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00200}00200\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Create\ Appointment"{}},\ step6,\ 7,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00201}00201\ \ \ \ \ \textcolor{keywordtype}{char}\ confirm\ =\ \mbox{\hyperlink{utils_8c_a4266a1741f167eedeaadf572e153af41}{utils\_get\_char}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00202}00202\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00203}00203\ \ \ \ \ \textcolor{keywordflow}{if}\ (confirm\ !=\ \textcolor{charliteral}{'Y'}\ \&\&\ confirm\ !=\ \textcolor{charliteral}{'y'})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Appointment\ creation\ cancelled."{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00207}00207\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00208}00208\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00209}00209\ \ \ \ \ \textcolor{comment}{//\ Add\ to\ array}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00210}00210\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}}[\mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}}]\ =\ new\_appt;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00211}00211\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}}++;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00212}00212\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00213}00213\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00214}00214\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00215}00215\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordtype}{char}\ id\_line[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00217}00217\ \ \ \ \ snprintf(id\_line,\ \textcolor{keyword}{sizeof}(id\_line),\ \textcolor{stringliteral}{"{}Appointment\ ID:\ \%d"{}},\ new\_appt.\mbox{\hyperlink{struct_appointment_a622d99ad9a2d78f94373eb43047029d3}{id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00218}00218\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ success\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ id\_line,\ patient\_line,\ doctor\_line,\ date\_line,\ time\_line,}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Status:\ Pending"{}},}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Appointment\ created\ successfully!"{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00222}00222\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00223}00223\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Appointment\ Created"{}},\ success\_items,\ 7,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00224}00224\ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00225}00225\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00226}00226\ \ \ \ \ \mbox{\hyperlink{appointment_8c_a5b3244b7d8608e69315674fe0d3a1cdc}{appointment\_save\_to\_file}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00227}00227\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00229}\mbox{\hyperlink{appointment_8c_a16926ba92085d786240e315eff119133}{00229}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{appointment_8c_a16926ba92085d786240e315eff119133}{ui\_print\_appointment}}(\mbox{\hyperlink{struct_appointment}{Appointment}}\ appt,\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00230}00230\ \ \ \ \ \textcolor{keywordtype}{int}\ p\_idx\ =\ \mbox{\hyperlink{patient_8c_af84ac4f837ddb300084bb55bc1395a70}{patient\_search\_id}}(appt.\mbox{\hyperlink{struct_appointment_a1a174282cc3d923dd939a795feae1d47}{patient\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00231}00231\ \ \ \ \ \textcolor{keywordtype}{int}\ d\_idx\ =\ \mbox{\hyperlink{doctor_8c_a521b99d6e9b11eba0f53bf9efbcaee24}{doctor\_search\_id}}(appt.\mbox{\hyperlink{struct_appointment_a58b334cf40c281967ae8b3435af72ac1}{doctor\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00232}00232\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00233}00233\ \ \ \ \ \textcolor{keywordtype}{char}\ id\_line[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00234}00234\ \ \ \ \ snprintf(id\_line,\ \textcolor{keyword}{sizeof}(id\_line),\ \textcolor{stringliteral}{"{}Appointment\ ID:\ \%d"{}},\ appt.\mbox{\hyperlink{struct_appointment_a622d99ad9a2d78f94373eb43047029d3}{id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00235}00235\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00236}00236\ \ \ \ \ \textcolor{keywordtype}{char}\ patient\_line[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00237}00237\ \ \ \ \ \textcolor{keywordflow}{if}\ (p\_idx\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ snprintf(patient\_line,\ \textcolor{keyword}{sizeof}(patient\_line),\ \textcolor{stringliteral}{"{}Patient:\ \%s\ (ID:\ \%d)"{}},\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a3caa5423980f287dc9ac2a4f18accfae}{patients}}[p\_idx].name,\ appt.\mbox{\hyperlink{struct_appointment_a1a174282cc3d923dd939a795feae1d47}{patient\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00240}00240\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ snprintf(patient\_line,\ \textcolor{keyword}{sizeof}(patient\_line),\ \textcolor{stringliteral}{"{}Patient\ ID:\ \%d"{}},\ appt.\mbox{\hyperlink{struct_appointment_a1a174282cc3d923dd939a795feae1d47}{patient\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00242}00242\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00243}00243\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00244}00244\ \ \ \ \ \textcolor{keywordtype}{char}\ doctor\_line[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00245}00245\ \ \ \ \ \textcolor{keywordflow}{if}\ (d\_idx\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ snprintf(doctor\_line,\ \textcolor{keyword}{sizeof}(doctor\_line),\ \textcolor{stringliteral}{"{}Doctor:\ Dr.\ \%s"{}},\ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[d\_idx].name);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00247}00247\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ snprintf(doctor\_line,\ \textcolor{keyword}{sizeof}(doctor\_line),\ \textcolor{stringliteral}{"{}Doctor\ ID:\ \%d"{}},\ appt.\mbox{\hyperlink{struct_appointment_a58b334cf40c281967ae8b3435af72ac1}{doctor\_id}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00249}00249\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00250}00250\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00251}00251\ \ \ \ \ \textcolor{keywordtype}{char}\ date\_line[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00252}00252\ \ \ \ \ snprintf(date\_line,\ \textcolor{keyword}{sizeof}(date\_line),\ \textcolor{stringliteral}{"{}Date:\ \%s"{}},\ appt.\mbox{\hyperlink{struct_appointment_ac070feb0251c794cac9a3e04573e3c24}{date}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00253}00253\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00254}00254\ \ \ \ \ \textcolor{keywordtype}{char}\ time\_line[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00255}00255\ \ \ \ \ snprintf(time\_line,\ \textcolor{keyword}{sizeof}(time\_line),\ \textcolor{stringliteral}{"{}Time:\ \%s"{}},\ appt.\mbox{\hyperlink{struct_appointment_aa7523e777b1481e86849de5a7de9edd2}{time\_slot}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00256}00256\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00257}00257\ \ \ \ \ \textcolor{keywordtype}{char}\ reason\_line[120];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00258}00258\ \ \ \ \ snprintf(reason\_line,\ \textcolor{keyword}{sizeof}(reason\_line),\ \textcolor{stringliteral}{"{}Reason:\ \%s"{}},\ appt.\mbox{\hyperlink{struct_appointment_a3fddd93ee5525641cd54b7c58e2a9d58}{reason}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00259}00259\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00260}00260\ \ \ \ \ \textcolor{keywordtype}{char}\ status\_line[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00261}00261\ \ \ \ \ snprintf(status\_line,\ \textcolor{keyword}{sizeof}(status\_line),\ \textcolor{stringliteral}{"{}Status:\ \%s"{}},\ \mbox{\hyperlink{appointment_8c_a5892e39a2c1345181b40163296f9c7f2}{appointment\_status\_str}}(appt.\mbox{\hyperlink{struct_appointment_aa24711d79171a830352bca32e47c5a64}{status}}));}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00262}00262\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00263}00263\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ id\_line,\ patient\_line,\ doctor\_line,\ date\_line,\ time\_line,\ reason\_line,\ status\_line,\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00265}00265\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00266}00266\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00267}00267\ \ \ \ \ \textcolor{keywordtype}{char}\ title[70];}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00268}00268\ \ \ \ \ snprintf(title,\ \textcolor{keyword}{sizeof}(title),\ \textcolor{stringliteral}{"{}Appointment\ \%d"{}},\ index\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00269}00269\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(title,\ items,\ 8,\ 72);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00270}00270\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00272}\mbox{\hyperlink{appointment_8c_ad4a466304e81b92d308c4167025cee19}{00272}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{appointment_8c_ad4a466304e81b92d308c4167025cee19}{appointment\_view\_by\_doctor}}(\textcolor{keywordtype}{int}\ doctor\_id)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00273}00273\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00274}00274\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00275}00275\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00276}00276\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00277}00277\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}}[i].doctor\_id\ ==\ doctor\_id\ \&\&\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}}[i].status\ !=\ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa138b6993c85e2a0c1405fe7579118b30}{APPT\_CANCELLED}})\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{appointment_8c_a16926ba92085d786240e315eff119133}{ui\_print\_appointment}}(\mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}}[i],\ count++);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00282}00282\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00283}00283\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00284}00284\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{\textcolor{stringliteral}{"{}No\ appointments\ found!"{}}\};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00286}00286\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}My\ Appointments"{}},\ menu\_items,\ 1,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00287}00287\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00288}00288\ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00289}00289\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00291}\mbox{\hyperlink{appointment_8c_a85c1b73ccfba44db01f91da31fec5b15}{00291}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{appointment_8c_a85c1b73ccfba44db01f91da31fec5b15}{appointment\_update\_status}}(\textcolor{keywordtype}{int}\ appt\_id,\ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aa}{AppointmentStatus}}\ status)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00292}00292\ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{appointment_8c_ad29d0df1a0d5a2eb7e5bcb1384c0f94c}{appointment\_search\_id}}(appt\_id);}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00293}00293\ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Appointment\ not\ found!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00297}00297\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00298}00298\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00299}00299\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}}[idx].status\ =\ status;}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00300}00300\ \ \ \ \ \mbox{\hyperlink{appointment_8c_a5b3244b7d8608e69315674fe0d3a1cdc}{appointment\_save\_to\_file}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00301}00301\ \ \ \ \ \mbox{\hyperlink{ui_8c_aeb1cbcd8d3daa215fbfc9d03a93d28f5}{ui\_print\_success}}(\textcolor{stringliteral}{"{}Appointment\ status\ updated!"{}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00302}00302\ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00303}00303\ \}}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00305}\mbox{\hyperlink{appointment_8c_ae3b8a7a7f6bb454c9abdcfe1656e1015}{00305}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{appointment_8c_ae3b8a7a7f6bb454c9abdcfe1656e1015}{appointment\_cancel}}(\textcolor{keywordtype}{int}\ appt\_id)\ \{}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00306}00306\ \ \ \ \ \mbox{\hyperlink{appointment_8c_a85c1b73ccfba44db01f91da31fec5b15}{appointment\_update\_status}}(appt\_id,\ \mbox{\hyperlink{hospital_8h_ad2ef5a2f66b07c7fd2ba5fef9d24a1aaa138b6993c85e2a0c1405fe7579118b30}{APPT\_CANCELLED}});}
+\DoxyCodeLine{\Hypertarget{appointment_8c_source_l00307}00307\ \}}
+
+\end{DoxyCode}

@@ -12,9 +12,9 @@
 #include "hospital.h"
 
 /* 
- *==========================================================================
+ *======================================================================
  *                         ANSI COLOR CODES                                  
- *==========================================================================
+ *======================================================================
  */
 
 /* Basic Foreground Colors */
@@ -82,10 +82,14 @@
 #define BOLD           "\033[1m"
 #define UNDERLINE      "\033[4m"
 
+/* Cursor */
+#define HIDE_CURSOR    "\033[?25l"
+#define SHOW_CURSOR    "\033[?25h"
+
 /* 
- *========================================================================== 
+ *=======================================================================
  *                         FUNCTION PROTOTYPES                                
- *========================================================================== 
+ *=======================================================================
  */
 
  
@@ -114,15 +118,11 @@
  */
  void ui_print_success(const char *message);
  
- void ui_print_success(const char *message);
- 
 /**
  * Prints an error message in red.
  * 
  * @param message The error message.
  */
- void ui_print_error(const char *message);
- 
  void ui_print_error(const char *message);
  
 /**
@@ -151,17 +151,6 @@
  * @param items The array of menu items.
  * @param item_count The number of menu items.
  * @param box_width The width of the box.
- * Prints the HMS banner.
- */
- void ui_print_banner(void);
- 
-/**
- * Prints a menu in a box.
- *
- * @param title The title of the menu.
- * @param items The array of menu items.
- * @param item_count The number of menu items.
- * @param box_width The width of the box.
  */
  void ui_print_menu(const char *title, const char *items[], int item_count, int box_width);
 
@@ -179,5 +168,18 @@
  * @param index The display index.
  */
  void ui_print_doctor(Doctor doctor, int index);
+
+/**
+ * Prints a receptionist in a box.
+ *
+ * @param receptionist The receptionist to print.
+ * @param index The display index.
+ */
+ void ui_print_receptionist(Receptionist receptionist, int index);
+
+/**
+ * Prints a dummy loading animation.
+ */
+ void ui_dummy_loading(int time);
  
  #endif

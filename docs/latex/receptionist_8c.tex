@@ -1,0 +1,155 @@
+\doxysection{src/receptionist.c File Reference}
+\hypertarget{receptionist_8c}{}\label{receptionist_8c}\index{src/receptionist.c@{src/receptionist.c}}
+
+
+\doxylink{struct_receptionist}{Receptionist} portal implementation for Healthcare Management System.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}../include/receptionist.\+h"{}}\newline
+{\ttfamily \#include "{}../include/patient.\+h"{}}\newline
+{\ttfamily \#include "{}../include/doctor.\+h"{}}\newline
+{\ttfamily \#include "{}../include/appointment.\+h"{}}\newline
+{\ttfamily \#include "{}../include/utils.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ui.\+h"{}}\newline
+{\ttfamily \#include "{}../include/hospital.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{receptionist_8c_ad105c84dc508cfc9bf8e1ed72e7945cd}{receptionist\+\_\+patient\+\_\+menu}} (void)
+\item 
+void \mbox{\hyperlink{receptionist_8c_a0e702eb62dedc4cfbf73255fe6fe3aee}{receptionist\+\_\+appointment\+\_\+menu}} (void)
+\item 
+void \mbox{\hyperlink{receptionist_8c_a20c4230393b62fbc79b093ff30527fb6}{receptionist\+\_\+menu}} (void)
+\item 
+int \mbox{\hyperlink{receptionist_8c_aec30b0aad06229ad63ec6361d8fe0894}{receptionist\+\_\+save\+\_\+to\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{receptionist_8c_a18566822ed227853f7904193777b2853}{receptionist\+\_\+load\+\_\+from\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{receptionist_8c_aff69f99121bc3fa9fac8680b83e098f2}{receptionist\+\_\+search\+\_\+id}} (int id)
+\item 
+void \mbox{\hyperlink{receptionist_8c_a01afbb1e4c6e54ec2c58fbe941491756}{receptionist\+\_\+view\+\_\+all}} (void)
+\item 
+void \mbox{\hyperlink{receptionist_8c_a2f9ec4f52a7891044705b8520a650e85}{receptionist\+\_\+view\+\_\+discharged}} (void)
+\item 
+void \mbox{\hyperlink{receptionist_8c_aa7183974c38826f3eb07e245b9c0df20}{receptionist\+\_\+discharge}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_receptionist}{Receptionist} portal implementation for Healthcare Management System. 
+
+
+
+Definition in file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{receptionist_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{receptionist_8c_a0e702eb62dedc4cfbf73255fe6fe3aee}\index{receptionist.c@{receptionist.c}!receptionist\_appointment\_menu@{receptionist\_appointment\_menu}}
+\index{receptionist\_appointment\_menu@{receptionist\_appointment\_menu}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_appointment\_menu()}{receptionist\_appointment\_menu()}}
+{\footnotesize\ttfamily \label{receptionist_8c_a0e702eb62dedc4cfbf73255fe6fe3aee} 
+void receptionist\+\_\+appointment\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\doxylink{struct_receptionist}{Receptionist} appointment menu. 
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00070}{70}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+\Hypertarget{receptionist_8c_aa7183974c38826f3eb07e245b9c0df20}\index{receptionist.c@{receptionist.c}!receptionist\_discharge@{receptionist\_discharge}}
+\index{receptionist\_discharge@{receptionist\_discharge}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_discharge()}{receptionist\_discharge()}}
+{\footnotesize\ttfamily \label{receptionist_8c_aa7183974c38826f3eb07e245b9c0df20} 
+void receptionist\+\_\+discharge (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Deactivates a receptionist. 
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00243}{243}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+\Hypertarget{receptionist_8c_a18566822ed227853f7904193777b2853}\index{receptionist.c@{receptionist.c}!receptionist\_load\_from\_file@{receptionist\_load\_from\_file}}
+\index{receptionist\_load\_from\_file@{receptionist\_load\_from\_file}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_load\_from\_file()}{receptionist\_load\_from\_file()}}
+{\footnotesize\ttfamily \label{receptionist_8c_a18566822ed227853f7904193777b2853} 
+int receptionist\+\_\+load\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Loads all receptionists from binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 if file doesn\textquotesingle{}t exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00170}{170}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+\Hypertarget{receptionist_8c_a20c4230393b62fbc79b093ff30527fb6}\index{receptionist.c@{receptionist.c}!receptionist\_menu@{receptionist\_menu}}
+\index{receptionist\_menu@{receptionist\_menu}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_menu()}{receptionist\_menu()}}
+{\footnotesize\ttfamily \label{receptionist_8c_a20c4230393b62fbc79b093ff30527fb6} 
+void receptionist\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main receptionist portal menu. 
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00114}{114}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+\Hypertarget{receptionist_8c_ad105c84dc508cfc9bf8e1ed72e7945cd}\index{receptionist.c@{receptionist.c}!receptionist\_patient\_menu@{receptionist\_patient\_menu}}
+\index{receptionist\_patient\_menu@{receptionist\_patient\_menu}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_patient\_menu()}{receptionist\_patient\_menu()}}
+{\footnotesize\ttfamily \label{receptionist_8c_ad105c84dc508cfc9bf8e1ed72e7945cd} 
+void receptionist\+\_\+patient\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\doxylink{struct_receptionist}{Receptionist} patient management menu. 
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00016}{16}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+\Hypertarget{receptionist_8c_aec30b0aad06229ad63ec6361d8fe0894}\index{receptionist.c@{receptionist.c}!receptionist\_save\_to\_file@{receptionist\_save\_to\_file}}
+\index{receptionist\_save\_to\_file@{receptionist\_save\_to\_file}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_save\_to\_file()}{receptionist\_save\_to\_file()}}
+{\footnotesize\ttfamily \label{receptionist_8c_aec30b0aad06229ad63ec6361d8fe0894} 
+int receptionist\+\_\+save\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Saves all receptionists to binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00155}{155}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+\Hypertarget{receptionist_8c_aff69f99121bc3fa9fac8680b83e098f2}\index{receptionist.c@{receptionist.c}!receptionist\_search\_id@{receptionist\_search\_id}}
+\index{receptionist\_search\_id@{receptionist\_search\_id}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_search\_id()}{receptionist\_search\_id()}}
+{\footnotesize\ttfamily \label{receptionist_8c_aff69f99121bc3fa9fac8680b83e098f2} 
+int receptionist\+\_\+search\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+Searches for a receptionist by ID. 
+\begin{DoxyParams}{Parameters}
+{\em id} & The receptionist ID to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of receptionist, or -\/1 if not found. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00194}{194}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+\Hypertarget{receptionist_8c_a01afbb1e4c6e54ec2c58fbe941491756}\index{receptionist.c@{receptionist.c}!receptionist\_view\_all@{receptionist\_view\_all}}
+\index{receptionist\_view\_all@{receptionist\_view\_all}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_view\_all()}{receptionist\_view\_all()}}
+{\footnotesize\ttfamily \label{receptionist_8c_a01afbb1e4c6e54ec2c58fbe941491756} 
+void receptionist\+\_\+view\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Views all active receptionists. 
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00203}{203}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+
+\Hypertarget{receptionist_8c_a2f9ec4f52a7891044705b8520a650e85}\index{receptionist.c@{receptionist.c}!receptionist\_view\_discharged@{receptionist\_view\_discharged}}
+\index{receptionist\_view\_discharged@{receptionist\_view\_discharged}!receptionist.c@{receptionist.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_view\_discharged()}{receptionist\_view\_discharged()}}
+{\footnotesize\ttfamily \label{receptionist_8c_a2f9ec4f52a7891044705b8520a650e85} 
+void receptionist\+\_\+view\+\_\+discharged (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Views all inactive receptionists. 
+
+Definition at line \mbox{\hyperlink{receptionist_8c_source_l00223}{223}} of file \mbox{\hyperlink{receptionist_8c_source}{receptionist.\+c}}.
+

@@ -1,0 +1,25 @@
+var hospital_8c =
+[
+    [ "ensure_data_dir", "hospital_8c.html#a3138652a2eefda30205ad05d07e3a39f", null ],
+    [ "hospital_init", "hospital_8c.html#a3e286a53087cd53bedf0e7602d5beb6b", null ],
+    [ "print_help", "hospital_8c.html#ae5d62d86e562ee295d1566f9ad74b73c", null ],
+    [ "print_version", "hospital_8c.html#ac6230d495fc909bb61195c45f703d492", null ],
+    [ "show_about", "hospital_8c.html#ac2793234764f34a3505fcf01bbc7929b", null ],
+    [ "appointment_count", "hospital_8c.html#a604fa8fe8670650b0f8e916eafb53bc4", null ],
+    [ "appointments", "hospital_8c.html#a98ec0aa887cb60c310f70571d8f2646d", null ],
+    [ "current_user", "hospital_8c.html#ab09949a042d92a2a6484981e7d2e25ad", null ],
+    [ "doctor_available", "hospital_8c.html#ab74106f1c2b12d99efaa0efd870f16eb", null ],
+    [ "doctor_count", "hospital_8c.html#ad99c90b87dadff47fd0da61344796113", null ],
+    [ "doctor_unavailable", "hospital_8c.html#a60b930da5102df130b4cccc6c2b96d3c", null ],
+    [ "doctors", "hospital_8c.html#a67bfc76cc71fe880c284c96205444fab", null ],
+    [ "patient_available", "hospital_8c.html#acd51bfe3eea63e29c8ea66e07980478a", null ],
+    [ "patient_count", "hospital_8c.html#a3093d5e98b2236eef700a5bc9ed1f622", null ],
+    [ "patient_unavailable", "hospital_8c.html#a7a0d9e04ba1e63a0813340cb7bc9d8d2", null ],
+    [ "patients", "hospital_8c.html#a3caa5423980f287dc9ac2a4f18accfae", null ],
+    [ "receptionist_available", "hospital_8c.html#a5fd7e56f9d71f3ffe638e1f7ffd701b3", null ],
+    [ "receptionist_count", "hospital_8c.html#a5547a07227bc5df132481199eef94f8c", null ],
+    [ "receptionist_unavailable", "hospital_8c.html#ad7f79c22c18645256de4eb7a5a264500", null ],
+    [ "receptionists", "hospital_8c.html#afd2e0ffb4334642c1461f6d378dddc04", null ],
+    [ "user_count", "hospital_8c.html#ad0472cbf83a6ecb87e8a07cb3110ef9e", null ],
+    [ "users", "hospital_8c.html#a2554ce10eb3d295ac9d1368d20cf1e0c", null ]
+];

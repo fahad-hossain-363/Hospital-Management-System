@@ -1,0 +1,549 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Directory Hierarchy}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Directories}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Directory Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}include Directory Reference}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}src Directory Reference}{7}{section.4.2}%
+\contentsline {section}{\numberline {4.3}tests Directory Reference}{8}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Class Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Appointment Struct Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{9}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Member Data Documentation}{9}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}date}{9}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}doctor\_id}{9}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}id}{10}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}patient\_id}{10}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.5}reason}{10}{subsubsection.5.1.2.5}%
+\contentsline {subsubsection}{\numberline {5.1.2.6}status}{10}{subsubsection.5.1.2.6}%
+\contentsline {subsubsection}{\numberline {5.1.2.7}time\_slot}{10}{subsubsection.5.1.2.7}%
+\contentsline {section}{\numberline {5.2}Doctor Struct Reference}{10}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{11}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Member Data Documentation}{11}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}email}{11}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}id}{11}{subsubsection.5.2.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.3}is\_active}{11}{subsubsection.5.2.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.2.4}is\_available}{11}{subsubsection.5.2.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.2.5}name}{11}{subsubsection.5.2.2.5}%
+\contentsline {subsubsection}{\numberline {5.2.2.6}phone}{11}{subsubsection.5.2.2.6}%
+\contentsline {subsubsection}{\numberline {5.2.2.7}room\_number}{12}{subsubsection.5.2.2.7}%
+\contentsline {subsubsection}{\numberline {5.2.2.8}specialization}{12}{subsubsection.5.2.2.8}%
+\contentsline {section}{\numberline {5.3}Patient Struct Reference}{12}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{12}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Member Data Documentation}{12}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}address}{12}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.2}age}{13}{subsubsection.5.3.2.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.3}blood\_group}{13}{subsubsection.5.3.2.3}%
+\contentsline {subsubsection}{\numberline {5.3.2.4}gender}{13}{subsubsection.5.3.2.4}%
+\contentsline {subsubsection}{\numberline {5.3.2.5}id}{13}{subsubsection.5.3.2.5}%
+\contentsline {subsubsection}{\numberline {5.3.2.6}is\_active}{13}{subsubsection.5.3.2.6}%
+\contentsline {subsubsection}{\numberline {5.3.2.7}name}{13}{subsubsection.5.3.2.7}%
+\contentsline {subsubsection}{\numberline {5.3.2.8}phone}{13}{subsubsection.5.3.2.8}%
+\contentsline {section}{\numberline {5.4}Receptionist Struct Reference}{14}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{14}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Member Data Documentation}{14}{subsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.1}email}{14}{subsubsection.5.4.2.1}%
+\contentsline {subsubsection}{\numberline {5.4.2.2}id}{14}{subsubsection.5.4.2.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.3}is\_active}{14}{subsubsection.5.4.2.3}%
+\contentsline {subsubsection}{\numberline {5.4.2.4}is\_available}{14}{subsubsection.5.4.2.4}%
+\contentsline {subsubsection}{\numberline {5.4.2.5}name}{15}{subsubsection.5.4.2.5}%
+\contentsline {subsubsection}{\numberline {5.4.2.6}phone}{15}{subsubsection.5.4.2.6}%
+\contentsline {section}{\numberline {5.5}User Struct Reference}{15}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{15}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Member Data Documentation}{15}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}id}{15}{subsubsection.5.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.5.2.2}is\_active}{15}{subsubsection.5.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.3}password}{16}{subsubsection.5.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.5.2.4}role}{16}{subsubsection.5.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.5.2.5}username}{16}{subsubsection.5.5.2.5}%
+\contentsline {chapter}{\numberline {6}File Documentation}{17}{chapter.6}%
+\contentsline {section}{\numberline {6.1}include/admin.h File Reference}{17}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{17}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Function Documentation}{18}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}admin\_delete\_doctor()}{18}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}admin\_delete\_patient()}{18}{subsubsection.6.1.2.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.3}admin\_doctor\_menu()}{18}{subsubsection.6.1.2.3}%
+\contentsline {subsubsection}{\numberline {6.1.2.4}admin\_main\_menu()}{18}{subsubsection.6.1.2.4}%
+\contentsline {subsubsection}{\numberline {6.1.2.5}admin\_patient\_menu()}{18}{subsubsection.6.1.2.5}%
+\contentsline {subsubsection}{\numberline {6.1.2.6}admin\_receptionist\_menu()}{19}{subsubsection.6.1.2.6}%
+\contentsline {subsubsection}{\numberline {6.1.2.7}admin\_search\_discharged()}{19}{subsubsection.6.1.2.7}%
+\contentsline {subsubsection}{\numberline {6.1.2.8}admin\_search\_discharged\_by\_id()}{19}{subsubsection.6.1.2.8}%
+\contentsline {subsubsection}{\numberline {6.1.2.9}admin\_search\_discharged\_by\_name()}{19}{subsubsection.6.1.2.9}%
+\contentsline {subsubsection}{\numberline {6.1.2.10}admin\_view\_discharged\_doctors()}{19}{subsubsection.6.1.2.10}%
+\contentsline {subsubsection}{\numberline {6.1.2.11}admin\_view\_discharged\_patients()}{19}{subsubsection.6.1.2.11}%
+\contentsline {section}{\numberline {6.2}admin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{20}{section.6.2}%
+\contentsline {section}{\numberline {6.3}include/appointment.h File Reference}{20}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{20}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Function Documentation}{21}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}appointment\_cancel()}{21}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}appointment\_create()}{21}{subsubsection.6.3.2.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.3}appointment\_generate\_id()}{21}{subsubsection.6.3.2.3}%
+\contentsline {subsubsection}{\numberline {6.3.2.4}appointment\_load\_from\_file()}{21}{subsubsection.6.3.2.4}%
+\contentsline {subsubsection}{\numberline {6.3.2.5}appointment\_save\_to\_file()}{22}{subsubsection.6.3.2.5}%
+\contentsline {subsubsection}{\numberline {6.3.2.6}appointment\_search\_id()}{22}{subsubsection.6.3.2.6}%
+\contentsline {subsubsection}{\numberline {6.3.2.7}appointment\_status\_str()}{22}{subsubsection.6.3.2.7}%
+\contentsline {subsubsection}{\numberline {6.3.2.8}appointment\_update\_status()}{22}{subsubsection.6.3.2.8}%
+\contentsline {subsubsection}{\numberline {6.3.2.9}appointment\_view\_by\_doctor()}{23}{subsubsection.6.3.2.9}%
+\contentsline {subsubsection}{\numberline {6.3.2.10}ui\_print\_appointment()}{23}{subsubsection.6.3.2.10}%
+\contentsline {section}{\numberline {6.4}appointment.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.6.4}%
+\contentsline {section}{\numberline {6.5}include/auth.h File Reference}{24}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{24}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Function Documentation}{24}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}auth\_init\_default\_admin()}{24}{subsubsection.6.5.2.1}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}auth\_load\_from\_file()}{25}{subsubsection.6.5.2.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.3}auth\_register\_user()}{25}{subsubsection.6.5.2.3}%
+\contentsline {subsubsection}{\numberline {6.5.2.4}auth\_role\_login()}{25}{subsubsection.6.5.2.4}%
+\contentsline {subsubsection}{\numberline {6.5.2.5}auth\_save\_to\_file()}{25}{subsubsection.6.5.2.5}%
+\contentsline {subsubsection}{\numberline {6.5.2.6}auth\_user\_menu()}{26}{subsubsection.6.5.2.6}%
+\contentsline {subsubsection}{\numberline {6.5.2.7}auth\_view\_users()}{26}{subsubsection.6.5.2.7}%
+\contentsline {subsubsection}{\numberline {6.5.2.8}decrypt()}{26}{subsubsection.6.5.2.8}%
+\contentsline {subsubsection}{\numberline {6.5.2.9}encrypt()}{26}{subsubsection.6.5.2.9}%
+\contentsline {subsubsection}{\numberline {6.5.2.10}login\_menu()}{27}{subsubsection.6.5.2.10}%
+\contentsline {section}{\numberline {6.6}auth.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{27}{section.6.6}%
+\contentsline {section}{\numberline {6.7}include/doctor.h File Reference}{27}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Detailed Description}{28}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Function Documentation}{28}{subsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.1}doctor\_deactivate\_account()}{28}{subsubsection.6.7.2.1}%
+\contentsline {subsubsection}{\numberline {6.7.2.2}doctor\_generate\_id()}{28}{subsubsection.6.7.2.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.3}doctor\_load\_from\_file()}{28}{subsubsection.6.7.2.3}%
+\contentsline {subsubsection}{\numberline {6.7.2.4}doctor\_save\_to\_file()}{29}{subsubsection.6.7.2.4}%
+\contentsline {subsubsection}{\numberline {6.7.2.5}doctor\_search\_by()}{29}{subsubsection.6.7.2.5}%
+\contentsline {subsubsection}{\numberline {6.7.2.6}doctor\_search\_by\_id()}{29}{subsubsection.6.7.2.6}%
+\contentsline {subsubsection}{\numberline {6.7.2.7}doctor\_search\_by\_name()}{29}{subsubsection.6.7.2.7}%
+\contentsline {subsubsection}{\numberline {6.7.2.8}doctor\_search\_by\_phone()}{29}{subsubsection.6.7.2.8}%
+\contentsline {subsubsection}{\numberline {6.7.2.9}doctor\_search\_id()}{29}{subsubsection.6.7.2.9}%
+\contentsline {subsubsection}{\numberline {6.7.2.10}doctor\_update\_using\_id()}{30}{subsubsection.6.7.2.10}%
+\contentsline {subsubsection}{\numberline {6.7.2.11}doctor\_view()}{30}{subsubsection.6.7.2.11}%
+\contentsline {subsubsection}{\numberline {6.7.2.12}doctor\_view\_all()}{30}{subsubsection.6.7.2.12}%
+\contentsline {subsubsection}{\numberline {6.7.2.13}doctor\_view\_discharged()}{30}{subsubsection.6.7.2.13}%
+\contentsline {subsubsection}{\numberline {6.7.2.14}doctor\_view\_one()}{31}{subsubsection.6.7.2.14}%
+\contentsline {section}{\numberline {6.8}doctor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{31}{section.6.8}%
+\contentsline {section}{\numberline {6.9}include/doctor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}portal.h File Reference}{31}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Detailed Description}{32}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}Function Documentation}{32}{subsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.1}doctor\_portal\_cancel\_appointment()}{32}{subsubsection.6.9.2.1}%
+\contentsline {subsubsection}{\numberline {6.9.2.2}doctor\_portal\_complete\_appointment()}{32}{subsubsection.6.9.2.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.3}doctor\_portal\_menu()}{32}{subsubsection.6.9.2.3}%
+\contentsline {subsubsection}{\numberline {6.9.2.4}doctor\_portal\_update\_availability()}{33}{subsubsection.6.9.2.4}%
+\contentsline {subsubsection}{\numberline {6.9.2.5}doctor\_portal\_view\_appointments()}{33}{subsubsection.6.9.2.5}%
+\contentsline {subsubsection}{\numberline {6.9.2.6}doctor\_portal\_view\_patient()}{33}{subsubsection.6.9.2.6}%
+\contentsline {subsubsection}{\numberline {6.9.2.7}doctor\_portal\_view\_pending()}{33}{subsubsection.6.9.2.7}%
+\contentsline {subsubsection}{\numberline {6.9.2.8}doctor\_portal\_view\_profile()}{34}{subsubsection.6.9.2.8}%
+\contentsline {subsubsection}{\numberline {6.9.2.9}doctor\_portal\_view\_today()}{34}{subsubsection.6.9.2.9}%
+\contentsline {section}{\numberline {6.10}doctor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}portal.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{34}{section.6.10}%
+\contentsline {section}{\numberline {6.11}include/hospital.h File Reference}{35}{section.6.11}%
+\contentsline {subsection}{\numberline {6.11.1}Detailed Description}{37}{subsection.6.11.1}%
+\contentsline {subsection}{\numberline {6.11.2}Macro Definition Documentation}{37}{subsection.6.11.2}%
+\contentsline {subsubsection}{\numberline {6.11.2.1}ADDRESS\_LINE\_SIZE}{37}{subsubsection.6.11.2.1}%
+\contentsline {subsubsection}{\numberline {6.11.2.2}ADDRESS\_SIZE}{37}{subsubsection.6.11.2.2}%
+\contentsline {subsubsection}{\numberline {6.11.2.3}ADMIN\_ID\_START}{37}{subsubsection.6.11.2.3}%
+\contentsline {subsubsection}{\numberline {6.11.2.4}AGE\_LINE\_SIZE}{37}{subsubsection.6.11.2.4}%
+\contentsline {subsubsection}{\numberline {6.11.2.5}AGE\_SIZE}{38}{subsubsection.6.11.2.5}%
+\contentsline {subsubsection}{\numberline {6.11.2.6}APPOINTMENT\_ID\_START}{38}{subsubsection.6.11.2.6}%
+\contentsline {subsubsection}{\numberline {6.11.2.7}APPOINTMENTS\_FILE}{38}{subsubsection.6.11.2.7}%
+\contentsline {subsubsection}{\numberline {6.11.2.8}BLOOD\_LINE\_SIZE\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{38}{subsubsection.6.11.2.8}%
+\contentsline {subsubsection}{\numberline {6.11.2.9}BLOOD\_LINE\_SIZE\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{38}{subsubsection.6.11.2.9}%
+\contentsline {subsubsection}{\numberline {6.11.2.10}BLOOD\_SIZE}{38}{subsubsection.6.11.2.10}%
+\contentsline {subsubsection}{\numberline {6.11.2.11}DATA\_DIR}{38}{subsubsection.6.11.2.11}%
+\contentsline {subsubsection}{\numberline {6.11.2.12}DATE\_SIZE}{38}{subsubsection.6.11.2.12}%
+\contentsline {subsubsection}{\numberline {6.11.2.13}DOCTOR\_ID\_START}{39}{subsubsection.6.11.2.13}%
+\contentsline {subsubsection}{\numberline {6.11.2.14}DOCTORS\_FILE}{39}{subsubsection.6.11.2.14}%
+\contentsline {subsubsection}{\numberline {6.11.2.15}EMAIL\_LINE\_SIZE}{39}{subsubsection.6.11.2.15}%
+\contentsline {subsubsection}{\numberline {6.11.2.16}EMAIL\_SIZE}{39}{subsubsection.6.11.2.16}%
+\contentsline {subsubsection}{\numberline {6.11.2.17}GENDER\_LINE\_SIZE\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{39}{subsubsection.6.11.2.17}%
+\contentsline {subsubsection}{\numberline {6.11.2.18}GENDER\_LINE\_SIZE\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{39}{subsubsection.6.11.2.18}%
+\contentsline {subsubsection}{\numberline {6.11.2.19}GENDER\_SIZE}{39}{subsubsection.6.11.2.19}%
+\contentsline {subsubsection}{\numberline {6.11.2.20}ID\_LINE\_SIZE}{39}{subsubsection.6.11.2.20}%
+\contentsline {subsubsection}{\numberline {6.11.2.21}MAX\_APPOINTMENTS}{40}{subsubsection.6.11.2.21}%
+\contentsline {subsubsection}{\numberline {6.11.2.22}MAX\_DOCTORS}{40}{subsubsection.6.11.2.22}%
+\contentsline {subsubsection}{\numberline {6.11.2.23}MAX\_PATIENTS}{40}{subsubsection.6.11.2.23}%
+\contentsline {subsubsection}{\numberline {6.11.2.24}MAX\_RECEPTIONISTS}{40}{subsubsection.6.11.2.24}%
+\contentsline {subsubsection}{\numberline {6.11.2.25}MAX\_USERS}{40}{subsubsection.6.11.2.25}%
+\contentsline {subsubsection}{\numberline {6.11.2.26}NAME\_LINE\_SIZE}{40}{subsubsection.6.11.2.26}%
+\contentsline {subsubsection}{\numberline {6.11.2.27}NAME\_SIZE}{40}{subsubsection.6.11.2.27}%
+\contentsline {subsubsection}{\numberline {6.11.2.28}PASSWORD\_SIZE}{40}{subsubsection.6.11.2.28}%
+\contentsline {subsubsection}{\numberline {6.11.2.29}PATIENT\_ID\_START}{41}{subsubsection.6.11.2.29}%
+\contentsline {subsubsection}{\numberline {6.11.2.30}PATIENTS\_FILE}{41}{subsubsection.6.11.2.30}%
+\contentsline {subsubsection}{\numberline {6.11.2.31}PHONE\_LINE\_SIZE\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{41}{subsubsection.6.11.2.31}%
+\contentsline {subsubsection}{\numberline {6.11.2.32}PHONE\_LINE\_SIZE\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{41}{subsubsection.6.11.2.32}%
+\contentsline {subsubsection}{\numberline {6.11.2.33}PHONE\_SIZE}{41}{subsubsection.6.11.2.33}%
+\contentsline {subsubsection}{\numberline {6.11.2.34}REASON\_SIZE}{41}{subsubsection.6.11.2.34}%
+\contentsline {subsubsection}{\numberline {6.11.2.35}RECEPTIONIST\_ID\_START}{41}{subsubsection.6.11.2.35}%
+\contentsline {subsubsection}{\numberline {6.11.2.36}RECEPTIONISTS\_FILE}{41}{subsubsection.6.11.2.36}%
+\contentsline {subsubsection}{\numberline {6.11.2.37}ROOM\_LINE\_SIZE}{42}{subsubsection.6.11.2.37}%
+\contentsline {subsubsection}{\numberline {6.11.2.38}ROOM\_SIZE}{42}{subsubsection.6.11.2.38}%
+\contentsline {subsubsection}{\numberline {6.11.2.39}SPEC\_LINE\_SIZE}{42}{subsubsection.6.11.2.39}%
+\contentsline {subsubsection}{\numberline {6.11.2.40}SPEC\_SIZE}{42}{subsubsection.6.11.2.40}%
+\contentsline {subsubsection}{\numberline {6.11.2.41}STATUS\_LINE\_SIZE\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{42}{subsubsection.6.11.2.41}%
+\contentsline {subsubsection}{\numberline {6.11.2.42}STATUS\_LINE\_SIZE\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{42}{subsubsection.6.11.2.42}%
+\contentsline {subsubsection}{\numberline {6.11.2.43}STATUS\_SIZE}{42}{subsubsection.6.11.2.43}%
+\contentsline {subsubsection}{\numberline {6.11.2.44}TIME\_SIZE}{42}{subsubsection.6.11.2.44}%
+\contentsline {subsubsection}{\numberline {6.11.2.45}UI\_SIZE}{43}{subsubsection.6.11.2.45}%
+\contentsline {subsubsection}{\numberline {6.11.2.46}USERNAME\_SIZE}{43}{subsubsection.6.11.2.46}%
+\contentsline {subsubsection}{\numberline {6.11.2.47}USERS\_FILE}{43}{subsubsection.6.11.2.47}%
+\contentsline {subsubsection}{\numberline {6.11.2.48}VERSION}{43}{subsubsection.6.11.2.48}%
+\contentsline {subsection}{\numberline {6.11.3}Enumeration Type Documentation}{43}{subsection.6.11.3}%
+\contentsline {subsubsection}{\numberline {6.11.3.1}AppointmentStatus}{43}{subsubsection.6.11.3.1}%
+\contentsline {subsubsection}{\numberline {6.11.3.2}Gender}{43}{subsubsection.6.11.3.2}%
+\contentsline {subsubsection}{\numberline {6.11.3.3}UserRole}{44}{subsubsection.6.11.3.3}%
+\contentsline {subsection}{\numberline {6.11.4}Function Documentation}{44}{subsection.6.11.4}%
+\contentsline {subsubsection}{\numberline {6.11.4.1}ensure\_data\_dir()}{44}{subsubsection.6.11.4.1}%
+\contentsline {subsubsection}{\numberline {6.11.4.2}hospital\_init()}{44}{subsubsection.6.11.4.2}%
+\contentsline {subsubsection}{\numberline {6.11.4.3}print\_help()}{44}{subsubsection.6.11.4.3}%
+\contentsline {subsubsection}{\numberline {6.11.4.4}print\_version()}{45}{subsubsection.6.11.4.4}%
+\contentsline {subsubsection}{\numberline {6.11.4.5}show\_about()}{45}{subsubsection.6.11.4.5}%
+\contentsline {subsection}{\numberline {6.11.5}Variable Documentation}{45}{subsection.6.11.5}%
+\contentsline {subsubsection}{\numberline {6.11.5.1}appointment\_count}{45}{subsubsection.6.11.5.1}%
+\contentsline {subsubsection}{\numberline {6.11.5.2}appointments}{45}{subsubsection.6.11.5.2}%
+\contentsline {subsubsection}{\numberline {6.11.5.3}current\_user}{45}{subsubsection.6.11.5.3}%
+\contentsline {subsubsection}{\numberline {6.11.5.4}doctor\_available}{45}{subsubsection.6.11.5.4}%
+\contentsline {subsubsection}{\numberline {6.11.5.5}doctor\_count}{46}{subsubsection.6.11.5.5}%
+\contentsline {subsubsection}{\numberline {6.11.5.6}doctor\_unavailable}{46}{subsubsection.6.11.5.6}%
+\contentsline {subsubsection}{\numberline {6.11.5.7}doctors}{46}{subsubsection.6.11.5.7}%
+\contentsline {subsubsection}{\numberline {6.11.5.8}patient\_available}{46}{subsubsection.6.11.5.8}%
+\contentsline {subsubsection}{\numberline {6.11.5.9}patient\_count}{46}{subsubsection.6.11.5.9}%
+\contentsline {subsubsection}{\numberline {6.11.5.10}patient\_unavailable}{46}{subsubsection.6.11.5.10}%
+\contentsline {subsubsection}{\numberline {6.11.5.11}patients}{46}{subsubsection.6.11.5.11}%
+\contentsline {subsubsection}{\numberline {6.11.5.12}receptionist\_available}{46}{subsubsection.6.11.5.12}%
+\contentsline {subsubsection}{\numberline {6.11.5.13}receptionist\_count}{47}{subsubsection.6.11.5.13}%
+\contentsline {subsubsection}{\numberline {6.11.5.14}receptionist\_unavailable}{47}{subsubsection.6.11.5.14}%
+\contentsline {subsubsection}{\numberline {6.11.5.15}receptionists}{47}{subsubsection.6.11.5.15}%
+\contentsline {subsubsection}{\numberline {6.11.5.16}user\_available}{47}{subsubsection.6.11.5.16}%
+\contentsline {subsubsection}{\numberline {6.11.5.17}user\_count}{47}{subsubsection.6.11.5.17}%
+\contentsline {subsubsection}{\numberline {6.11.5.18}user\_unavailable}{47}{subsubsection.6.11.5.18}%
+\contentsline {subsubsection}{\numberline {6.11.5.19}users}{47}{subsubsection.6.11.5.19}%
+\contentsline {section}{\numberline {6.12}hospital.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{48}{section.6.12}%
+\contentsline {section}{\numberline {6.13}include/patient.h File Reference}{50}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Detailed Description}{50}{subsection.6.13.1}%
+\contentsline {subsection}{\numberline {6.13.2}Function Documentation}{51}{subsection.6.13.2}%
+\contentsline {subsubsection}{\numberline {6.13.2.1}patient\_add()}{51}{subsubsection.6.13.2.1}%
+\contentsline {subsubsection}{\numberline {6.13.2.2}patient\_discharge()}{51}{subsubsection.6.13.2.2}%
+\contentsline {subsubsection}{\numberline {6.13.2.3}patient\_generate\_id()}{51}{subsubsection.6.13.2.3}%
+\contentsline {subsubsection}{\numberline {6.13.2.4}patient\_load\_from\_file()}{51}{subsubsection.6.13.2.4}%
+\contentsline {subsubsection}{\numberline {6.13.2.5}patient\_save\_to\_file()}{52}{subsubsection.6.13.2.5}%
+\contentsline {subsubsection}{\numberline {6.13.2.6}patient\_search\_by()}{52}{subsubsection.6.13.2.6}%
+\contentsline {subsubsection}{\numberline {6.13.2.7}patient\_search\_by\_id()}{52}{subsubsection.6.13.2.7}%
+\contentsline {subsubsection}{\numberline {6.13.2.8}patient\_search\_by\_name()}{52}{subsubsection.6.13.2.8}%
+\contentsline {subsubsection}{\numberline {6.13.2.9}patient\_search\_by\_phone()}{52}{subsubsection.6.13.2.9}%
+\contentsline {subsubsection}{\numberline {6.13.2.10}patient\_search\_id()}{52}{subsubsection.6.13.2.10}%
+\contentsline {subsubsection}{\numberline {6.13.2.11}patient\_update\_using\_id()}{53}{subsubsection.6.13.2.11}%
+\contentsline {subsubsection}{\numberline {6.13.2.12}patient\_view\_all()}{53}{subsubsection.6.13.2.12}%
+\contentsline {subsubsection}{\numberline {6.13.2.13}patient\_view\_discharged()}{53}{subsubsection.6.13.2.13}%
+\contentsline {section}{\numberline {6.14}patient.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{54}{section.6.14}%
+\contentsline {section}{\numberline {6.15}include/receptionist.h File Reference}{54}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Detailed Description}{54}{subsection.6.15.1}%
+\contentsline {subsection}{\numberline {6.15.2}Function Documentation}{55}{subsection.6.15.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.1}receptionist\_appointment\_menu()}{55}{subsubsection.6.15.2.1}%
+\contentsline {subsubsection}{\numberline {6.15.2.2}receptionist\_discharge()}{55}{subsubsection.6.15.2.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.3}receptionist\_load\_from\_file()}{55}{subsubsection.6.15.2.3}%
+\contentsline {subsubsection}{\numberline {6.15.2.4}receptionist\_menu()}{55}{subsubsection.6.15.2.4}%
+\contentsline {subsubsection}{\numberline {6.15.2.5}receptionist\_patient\_menu()}{55}{subsubsection.6.15.2.5}%
+\contentsline {subsubsection}{\numberline {6.15.2.6}receptionist\_save\_to\_file()}{56}{subsubsection.6.15.2.6}%
+\contentsline {subsubsection}{\numberline {6.15.2.7}receptionist\_search\_id()}{56}{subsubsection.6.15.2.7}%
+\contentsline {subsubsection}{\numberline {6.15.2.8}receptionist\_view\_all()}{56}{subsubsection.6.15.2.8}%
+\contentsline {subsubsection}{\numberline {6.15.2.9}receptionist\_view\_discharged()}{56}{subsubsection.6.15.2.9}%
+\contentsline {section}{\numberline {6.16}receptionist.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{57}{section.6.16}%
+\contentsline {section}{\numberline {6.17}include/ui.h File Reference}{57}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Detailed Description}{58}{subsection.6.17.1}%
+\contentsline {subsection}{\numberline {6.17.2}Macro Definition Documentation}{59}{subsection.6.17.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.1}BG\_BLACK}{59}{subsubsection.6.17.2.1}%
+\contentsline {subsubsection}{\numberline {6.17.2.2}BG\_BRIGHT\_BLACK}{59}{subsubsection.6.17.2.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.3}BG\_BRIGHT\_GREEN}{59}{subsubsection.6.17.2.3}%
+\contentsline {subsubsection}{\numberline {6.17.2.4}BG\_BRIGHT\_RED}{59}{subsubsection.6.17.2.4}%
+\contentsline {subsubsection}{\numberline {6.17.2.5}BG\_BRIGHT\_YELLOW}{59}{subsubsection.6.17.2.5}%
+\contentsline {subsubsection}{\numberline {6.17.2.6}BG\_NEON\_PURPLE}{59}{subsubsection.6.17.2.6}%
+\contentsline {subsubsection}{\numberline {6.17.2.7}BG\_NEON\_TEAL}{59}{subsubsection.6.17.2.7}%
+\contentsline {subsubsection}{\numberline {6.17.2.8}BG\_WHITE}{60}{subsubsection.6.17.2.8}%
+\contentsline {subsubsection}{\numberline {6.17.2.9}BLACK}{60}{subsubsection.6.17.2.9}%
+\contentsline {subsubsection}{\numberline {6.17.2.10}BLUE}{60}{subsubsection.6.17.2.10}%
+\contentsline {subsubsection}{\numberline {6.17.2.11}BOLD}{60}{subsubsection.6.17.2.11}%
+\contentsline {subsubsection}{\numberline {6.17.2.12}BRIGHT\_BLACK}{60}{subsubsection.6.17.2.12}%
+\contentsline {subsubsection}{\numberline {6.17.2.13}BRIGHT\_BLUE}{60}{subsubsection.6.17.2.13}%
+\contentsline {subsubsection}{\numberline {6.17.2.14}BRIGHT\_CYAN}{60}{subsubsection.6.17.2.14}%
+\contentsline {subsubsection}{\numberline {6.17.2.15}BRIGHT\_GREEN}{60}{subsubsection.6.17.2.15}%
+\contentsline {subsubsection}{\numberline {6.17.2.16}BRIGHT\_MAGENTA}{61}{subsubsection.6.17.2.16}%
+\contentsline {subsubsection}{\numberline {6.17.2.17}BRIGHT\_RED}{61}{subsubsection.6.17.2.17}%
+\contentsline {subsubsection}{\numberline {6.17.2.18}BRIGHT\_WHITE}{61}{subsubsection.6.17.2.18}%
+\contentsline {subsubsection}{\numberline {6.17.2.19}BRIGHT\_YELLOW}{61}{subsubsection.6.17.2.19}%
+\contentsline {subsubsection}{\numberline {6.17.2.20}CYAN}{61}{subsubsection.6.17.2.20}%
+\contentsline {subsubsection}{\numberline {6.17.2.21}GREEN}{61}{subsubsection.6.17.2.21}%
+\contentsline {subsubsection}{\numberline {6.17.2.22}HIDE\_CURSOR}{61}{subsubsection.6.17.2.22}%
+\contentsline {subsubsection}{\numberline {6.17.2.23}LIME}{61}{subsubsection.6.17.2.23}%
+\contentsline {subsubsection}{\numberline {6.17.2.24}MAGENTA}{62}{subsubsection.6.17.2.24}%
+\contentsline {subsubsection}{\numberline {6.17.2.25}NEON\_ORANGE}{62}{subsubsection.6.17.2.25}%
+\contentsline {subsubsection}{\numberline {6.17.2.26}NEON\_PINK}{62}{subsubsection.6.17.2.26}%
+\contentsline {subsubsection}{\numberline {6.17.2.27}NEON\_PURPLE}{62}{subsubsection.6.17.2.27}%
+\contentsline {subsubsection}{\numberline {6.17.2.28}NEON\_TEAL}{62}{subsubsection.6.17.2.28}%
+\contentsline {subsubsection}{\numberline {6.17.2.29}RED}{62}{subsubsection.6.17.2.29}%
+\contentsline {subsubsection}{\numberline {6.17.2.30}RESET}{62}{subsubsection.6.17.2.30}%
+\contentsline {subsubsection}{\numberline {6.17.2.31}SHOW\_CURSOR}{62}{subsubsection.6.17.2.31}%
+\contentsline {subsubsection}{\numberline {6.17.2.32}SOFT\_BLUE}{63}{subsubsection.6.17.2.32}%
+\contentsline {subsubsection}{\numberline {6.17.2.33}SOFT\_CYAN}{63}{subsubsection.6.17.2.33}%
+\contentsline {subsubsection}{\numberline {6.17.2.34}SOFT\_GRAY}{63}{subsubsection.6.17.2.34}%
+\contentsline {subsubsection}{\numberline {6.17.2.35}SOFT\_GREEN}{63}{subsubsection.6.17.2.35}%
+\contentsline {subsubsection}{\numberline {6.17.2.36}SOFT\_RED}{63}{subsubsection.6.17.2.36}%
+\contentsline {subsubsection}{\numberline {6.17.2.37}SOFT\_TEAL}{63}{subsubsection.6.17.2.37}%
+\contentsline {subsubsection}{\numberline {6.17.2.38}SOFT\_YELLOW}{63}{subsubsection.6.17.2.38}%
+\contentsline {subsubsection}{\numberline {6.17.2.39}STATUS\_BAD}{63}{subsubsection.6.17.2.39}%
+\contentsline {subsubsection}{\numberline {6.17.2.40}STATUS\_GOOD}{64}{subsubsection.6.17.2.40}%
+\contentsline {subsubsection}{\numberline {6.17.2.41}STATUS\_INFO}{64}{subsubsection.6.17.2.41}%
+\contentsline {subsubsection}{\numberline {6.17.2.42}STATUS\_WARN}{64}{subsubsection.6.17.2.42}%
+\contentsline {subsubsection}{\numberline {6.17.2.43}TEXT\_DIM}{64}{subsubsection.6.17.2.43}%
+\contentsline {subsubsection}{\numberline {6.17.2.44}TEXT\_MUTED}{64}{subsubsection.6.17.2.44}%
+\contentsline {subsubsection}{\numberline {6.17.2.45}UNDERLINE}{64}{subsubsection.6.17.2.45}%
+\contentsline {subsubsection}{\numberline {6.17.2.46}WHITE}{64}{subsubsection.6.17.2.46}%
+\contentsline {subsubsection}{\numberline {6.17.2.47}YELLOW}{64}{subsubsection.6.17.2.47}%
+\contentsline {subsection}{\numberline {6.17.3}Function Documentation}{65}{subsection.6.17.3}%
+\contentsline {subsubsection}{\numberline {6.17.3.1}ui\_clear\_screen()}{65}{subsubsection.6.17.3.1}%
+\contentsline {subsubsection}{\numberline {6.17.3.2}ui\_dummy\_loading()}{65}{subsubsection.6.17.3.2}%
+\contentsline {subsubsection}{\numberline {6.17.3.3}ui\_pause()}{65}{subsubsection.6.17.3.3}%
+\contentsline {subsubsection}{\numberline {6.17.3.4}ui\_print\_banner()}{65}{subsubsection.6.17.3.4}%
+\contentsline {subsubsection}{\numberline {6.17.3.5}ui\_print\_doctor()}{65}{subsubsection.6.17.3.5}%
+\contentsline {subsubsection}{\numberline {6.17.3.6}ui\_print\_error()}{66}{subsubsection.6.17.3.6}%
+\contentsline {subsubsection}{\numberline {6.17.3.7}ui\_print\_header()}{66}{subsubsection.6.17.3.7}%
+\contentsline {subsubsection}{\numberline {6.17.3.8}ui\_print\_info()}{66}{subsubsection.6.17.3.8}%
+\contentsline {subsubsection}{\numberline {6.17.3.9}ui\_print\_menu()}{67}{subsubsection.6.17.3.9}%
+\contentsline {subsubsection}{\numberline {6.17.3.10}ui\_print\_patient()}{68}{subsubsection.6.17.3.10}%
+\contentsline {subsubsection}{\numberline {6.17.3.11}ui\_print\_receptionist()}{68}{subsubsection.6.17.3.11}%
+\contentsline {subsubsection}{\numberline {6.17.3.12}ui\_print\_success()}{68}{subsubsection.6.17.3.12}%
+\contentsline {subsubsection}{\numberline {6.17.3.13}ui\_print\_warning()}{69}{subsubsection.6.17.3.13}%
+\contentsline {section}{\numberline {6.18}ui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{69}{section.6.18}%
+\contentsline {section}{\numberline {6.19}include/utils.h File Reference}{70}{section.6.19}%
+\contentsline {subsection}{\numberline {6.19.1}Detailed Description}{71}{subsection.6.19.1}%
+\contentsline {subsection}{\numberline {6.19.2}Function Documentation}{71}{subsection.6.19.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.1}utils\_clear\_input\_buffer()}{71}{subsubsection.6.19.2.1}%
+\contentsline {subsubsection}{\numberline {6.19.2.2}utils\_fix\_name()}{71}{subsubsection.6.19.2.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.3}utils\_get\_char()}{72}{subsubsection.6.19.2.3}%
+\contentsline {subsubsection}{\numberline {6.19.2.4}utils\_get\_double()}{72}{subsubsection.6.19.2.4}%
+\contentsline {subsubsection}{\numberline {6.19.2.5}utils\_get\_float()}{72}{subsubsection.6.19.2.5}%
+\contentsline {subsubsection}{\numberline {6.19.2.6}utils\_get\_int()}{72}{subsubsection.6.19.2.6}%
+\contentsline {subsubsection}{\numberline {6.19.2.7}utils\_get\_string()}{72}{subsubsection.6.19.2.7}%
+\contentsline {subsubsection}{\numberline {6.19.2.8}utils\_is\_valid\_address()}{73}{subsubsection.6.19.2.8}%
+\contentsline {subsubsection}{\numberline {6.19.2.9}utils\_is\_valid\_blood\_group()}{73}{subsubsection.6.19.2.9}%
+\contentsline {subsubsection}{\numberline {6.19.2.10}utils\_is\_valid\_email()}{73}{subsubsection.6.19.2.10}%
+\contentsline {subsubsection}{\numberline {6.19.2.11}utils\_is\_valid\_gender()}{74}{subsubsection.6.19.2.11}%
+\contentsline {subsubsection}{\numberline {6.19.2.12}utils\_is\_valid\_id()}{74}{subsubsection.6.19.2.12}%
+\contentsline {subsubsection}{\numberline {6.19.2.13}utils\_is\_valid\_name()}{74}{subsubsection.6.19.2.13}%
+\contentsline {subsubsection}{\numberline {6.19.2.14}utils\_is\_valid\_phone()}{75}{subsubsection.6.19.2.14}%
+\contentsline {subsection}{\numberline {6.19.3}Validity Functions}{75}{subsection.6.19.3}%
+\contentsline {subsection}{\numberline {6.19.4}Validity Functions}{75}{subsection.6.19.4}%
+\contentsline {subsubsection}{\numberline {6.19.4.1}utils\_str\_to\_upper()}{75}{subsubsection.6.19.4.1}%
+\contentsline {section}{\numberline {6.20}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{76}{section.6.20}%
+\contentsline {section}{\numberline {6.21}src/admin.c File Reference}{76}{section.6.21}%
+\contentsline {subsection}{\numberline {6.21.1}Detailed Description}{77}{subsection.6.21.1}%
+\contentsline {subsection}{\numberline {6.21.2}Function Documentation}{77}{subsection.6.21.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.1}admin\_delete\_doctor()}{77}{subsubsection.6.21.2.1}%
+\contentsline {subsubsection}{\numberline {6.21.2.2}admin\_delete\_patient()}{77}{subsubsection.6.21.2.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.3}admin\_doctor\_menu()}{77}{subsubsection.6.21.2.3}%
+\contentsline {subsubsection}{\numberline {6.21.2.4}admin\_main\_menu()}{77}{subsubsection.6.21.2.4}%
+\contentsline {subsubsection}{\numberline {6.21.2.5}admin\_patient\_menu()}{77}{subsubsection.6.21.2.5}%
+\contentsline {subsubsection}{\numberline {6.21.2.6}admin\_receptionist\_menu()}{77}{subsubsection.6.21.2.6}%
+\contentsline {subsubsection}{\numberline {6.21.2.7}admin\_search\_discharged()}{77}{subsubsection.6.21.2.7}%
+\contentsline {subsubsection}{\numberline {6.21.2.8}admin\_search\_discharged\_by\_id()}{78}{subsubsection.6.21.2.8}%
+\contentsline {subsubsection}{\numberline {6.21.2.9}admin\_search\_discharged\_by\_name()}{78}{subsubsection.6.21.2.9}%
+\contentsline {subsubsection}{\numberline {6.21.2.10}admin\_view\_discharged\_doctors()}{78}{subsubsection.6.21.2.10}%
+\contentsline {subsubsection}{\numberline {6.21.2.11}admin\_view\_discharged\_patients()}{78}{subsubsection.6.21.2.11}%
+\contentsline {section}{\numberline {6.22}admin.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{78}{section.6.22}%
+\contentsline {section}{\numberline {6.23}src/appointment.c File Reference}{84}{section.6.23}%
+\contentsline {subsection}{\numberline {6.23.1}Detailed Description}{85}{subsection.6.23.1}%
+\contentsline {subsection}{\numberline {6.23.2}Function Documentation}{85}{subsection.6.23.2}%
+\contentsline {subsubsection}{\numberline {6.23.2.1}appointment\_cancel()}{85}{subsubsection.6.23.2.1}%
+\contentsline {subsubsection}{\numberline {6.23.2.2}appointment\_create()}{85}{subsubsection.6.23.2.2}%
+\contentsline {subsubsection}{\numberline {6.23.2.3}appointment\_generate\_id()}{85}{subsubsection.6.23.2.3}%
+\contentsline {subsubsection}{\numberline {6.23.2.4}appointment\_load\_from\_file()}{85}{subsubsection.6.23.2.4}%
+\contentsline {subsubsection}{\numberline {6.23.2.5}appointment\_save\_to\_file()}{85}{subsubsection.6.23.2.5}%
+\contentsline {subsubsection}{\numberline {6.23.2.6}appointment\_search\_id()}{86}{subsubsection.6.23.2.6}%
+\contentsline {subsubsection}{\numberline {6.23.2.7}appointment\_status\_str()}{86}{subsubsection.6.23.2.7}%
+\contentsline {subsubsection}{\numberline {6.23.2.8}appointment\_update\_status()}{86}{subsubsection.6.23.2.8}%
+\contentsline {subsubsection}{\numberline {6.23.2.9}appointment\_view\_by\_doctor()}{86}{subsubsection.6.23.2.9}%
+\contentsline {subsubsection}{\numberline {6.23.2.10}ui\_print\_appointment()}{87}{subsubsection.6.23.2.10}%
+\contentsline {section}{\numberline {6.24}appointment.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{87}{section.6.24}%
+\contentsline {section}{\numberline {6.25}src/auth.c File Reference}{91}{section.6.25}%
+\contentsline {subsection}{\numberline {6.25.1}Detailed Description}{91}{subsection.6.25.1}%
+\contentsline {subsection}{\numberline {6.25.2}Function Documentation}{91}{subsection.6.25.2}%
+\contentsline {subsubsection}{\numberline {6.25.2.1}auth\_init\_default\_admin()}{91}{subsubsection.6.25.2.1}%
+\contentsline {subsubsection}{\numberline {6.25.2.2}auth\_load\_from\_file()}{91}{subsubsection.6.25.2.2}%
+\contentsline {subsubsection}{\numberline {6.25.2.3}auth\_register\_user()}{91}{subsubsection.6.25.2.3}%
+\contentsline {subsubsection}{\numberline {6.25.2.4}auth\_role\_login()}{92}{subsubsection.6.25.2.4}%
+\contentsline {subsubsection}{\numberline {6.25.2.5}auth\_save\_to\_file()}{92}{subsubsection.6.25.2.5}%
+\contentsline {subsubsection}{\numberline {6.25.2.6}auth\_user\_menu()}{92}{subsubsection.6.25.2.6}%
+\contentsline {subsubsection}{\numberline {6.25.2.7}auth\_view\_users()}{92}{subsubsection.6.25.2.7}%
+\contentsline {subsubsection}{\numberline {6.25.2.8}decrypt()}{92}{subsubsection.6.25.2.8}%
+\contentsline {subsubsection}{\numberline {6.25.2.9}encrypt()}{92}{subsubsection.6.25.2.9}%
+\contentsline {subsubsection}{\numberline {6.25.2.10}login\_menu()}{93}{subsubsection.6.25.2.10}%
+\contentsline {section}{\numberline {6.26}auth.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{93}{section.6.26}%
+\contentsline {section}{\numberline {6.27}src/doctor.c File Reference}{99}{section.6.27}%
+\contentsline {subsection}{\numberline {6.27.1}Detailed Description}{100}{subsection.6.27.1}%
+\contentsline {subsection}{\numberline {6.27.2}Function Documentation}{100}{subsection.6.27.2}%
+\contentsline {subsubsection}{\numberline {6.27.2.1}doctor\_deactivate\_account()}{100}{subsubsection.6.27.2.1}%
+\contentsline {subsubsection}{\numberline {6.27.2.2}doctor\_generate\_id()}{100}{subsubsection.6.27.2.2}%
+\contentsline {subsubsection}{\numberline {6.27.2.3}doctor\_load\_from\_file()}{100}{subsubsection.6.27.2.3}%
+\contentsline {subsubsection}{\numberline {6.27.2.4}doctor\_save\_to\_file()}{100}{subsubsection.6.27.2.4}%
+\contentsline {subsubsection}{\numberline {6.27.2.5}doctor\_search\_by()}{100}{subsubsection.6.27.2.5}%
+\contentsline {subsubsection}{\numberline {6.27.2.6}doctor\_search\_by\_id()}{101}{subsubsection.6.27.2.6}%
+\contentsline {subsubsection}{\numberline {6.27.2.7}doctor\_search\_by\_name()}{101}{subsubsection.6.27.2.7}%
+\contentsline {subsubsection}{\numberline {6.27.2.8}doctor\_search\_by\_phone()}{101}{subsubsection.6.27.2.8}%
+\contentsline {subsubsection}{\numberline {6.27.2.9}doctor\_search\_id()}{101}{subsubsection.6.27.2.9}%
+\contentsline {subsubsection}{\numberline {6.27.2.10}doctor\_update\_availability()}{101}{subsubsection.6.27.2.10}%
+\contentsline {subsubsection}{\numberline {6.27.2.11}doctor\_update\_email()}{101}{subsubsection.6.27.2.11}%
+\contentsline {subsubsection}{\numberline {6.27.2.12}doctor\_update\_name()}{101}{subsubsection.6.27.2.12}%
+\contentsline {subsubsection}{\numberline {6.27.2.13}doctor\_update\_phone()}{102}{subsubsection.6.27.2.13}%
+\contentsline {subsubsection}{\numberline {6.27.2.14}doctor\_update\_room()}{102}{subsubsection.6.27.2.14}%
+\contentsline {subsubsection}{\numberline {6.27.2.15}doctor\_update\_specialization()}{102}{subsubsection.6.27.2.15}%
+\contentsline {subsubsection}{\numberline {6.27.2.16}doctor\_update\_status()}{102}{subsubsection.6.27.2.16}%
+\contentsline {subsubsection}{\numberline {6.27.2.17}doctor\_update\_using\_id()}{102}{subsubsection.6.27.2.17}%
+\contentsline {subsubsection}{\numberline {6.27.2.18}doctor\_view()}{102}{subsubsection.6.27.2.18}%
+\contentsline {subsubsection}{\numberline {6.27.2.19}doctor\_view\_all()}{102}{subsubsection.6.27.2.19}%
+\contentsline {subsubsection}{\numberline {6.27.2.20}doctor\_view\_discharged()}{102}{subsubsection.6.27.2.20}%
+\contentsline {subsubsection}{\numberline {6.27.2.21}doctor\_view\_one()}{102}{subsubsection.6.27.2.21}%
+\contentsline {section}{\numberline {6.28}doctor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{103}{section.6.28}%
+\contentsline {section}{\numberline {6.29}src/doctor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}portal.c File Reference}{110}{section.6.29}%
+\contentsline {subsection}{\numberline {6.29.1}Detailed Description}{110}{subsection.6.29.1}%
+\contentsline {subsection}{\numberline {6.29.2}Function Documentation}{111}{subsection.6.29.2}%
+\contentsline {subsubsection}{\numberline {6.29.2.1}doctor\_portal\_cancel\_appointment()}{111}{subsubsection.6.29.2.1}%
+\contentsline {subsubsection}{\numberline {6.29.2.2}doctor\_portal\_complete\_appointment()}{111}{subsubsection.6.29.2.2}%
+\contentsline {subsubsection}{\numberline {6.29.2.3}doctor\_portal\_menu()}{111}{subsubsection.6.29.2.3}%
+\contentsline {subsubsection}{\numberline {6.29.2.4}doctor\_portal\_update\_availability()}{111}{subsubsection.6.29.2.4}%
+\contentsline {subsubsection}{\numberline {6.29.2.5}doctor\_portal\_view\_appointments()}{112}{subsubsection.6.29.2.5}%
+\contentsline {subsubsection}{\numberline {6.29.2.6}doctor\_portal\_view\_patient()}{112}{subsubsection.6.29.2.6}%
+\contentsline {subsubsection}{\numberline {6.29.2.7}doctor\_portal\_view\_pending()}{112}{subsubsection.6.29.2.7}%
+\contentsline {subsubsection}{\numberline {6.29.2.8}doctor\_portal\_view\_profile()}{112}{subsubsection.6.29.2.8}%
+\contentsline {subsubsection}{\numberline {6.29.2.9}doctor\_portal\_view\_today()}{112}{subsubsection.6.29.2.9}%
+\contentsline {section}{\numberline {6.30}doctor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}portal.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{113}{section.6.30}%
+\contentsline {section}{\numberline {6.31}src/hospital.c File Reference}{116}{section.6.31}%
+\contentsline {subsection}{\numberline {6.31.1}Detailed Description}{117}{subsection.6.31.1}%
+\contentsline {subsection}{\numberline {6.31.2}Function Documentation}{117}{subsection.6.31.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.1}ensure\_data\_dir()}{117}{subsubsection.6.31.2.1}%
+\contentsline {subsubsection}{\numberline {6.31.2.2}hospital\_init()}{117}{subsubsection.6.31.2.2}%
+\contentsline {subsubsection}{\numberline {6.31.2.3}print\_help()}{117}{subsubsection.6.31.2.3}%
+\contentsline {subsubsection}{\numberline {6.31.2.4}print\_version()}{118}{subsubsection.6.31.2.4}%
+\contentsline {subsubsection}{\numberline {6.31.2.5}show\_about()}{118}{subsubsection.6.31.2.5}%
+\contentsline {subsection}{\numberline {6.31.3}Variable Documentation}{118}{subsection.6.31.3}%
+\contentsline {subsubsection}{\numberline {6.31.3.1}appointment\_count}{118}{subsubsection.6.31.3.1}%
+\contentsline {subsubsection}{\numberline {6.31.3.2}appointments}{118}{subsubsection.6.31.3.2}%
+\contentsline {subsubsection}{\numberline {6.31.3.3}current\_user}{118}{subsubsection.6.31.3.3}%
+\contentsline {subsubsection}{\numberline {6.31.3.4}doctor\_available}{118}{subsubsection.6.31.3.4}%
+\contentsline {subsubsection}{\numberline {6.31.3.5}doctor\_count}{118}{subsubsection.6.31.3.5}%
+\contentsline {subsubsection}{\numberline {6.31.3.6}doctor\_unavailable}{118}{subsubsection.6.31.3.6}%
+\contentsline {subsubsection}{\numberline {6.31.3.7}doctors}{118}{subsubsection.6.31.3.7}%
+\contentsline {subsubsection}{\numberline {6.31.3.8}patient\_available}{118}{subsubsection.6.31.3.8}%
+\contentsline {subsubsection}{\numberline {6.31.3.9}patient\_count}{118}{subsubsection.6.31.3.9}%
+\contentsline {subsubsection}{\numberline {6.31.3.10}patient\_unavailable}{119}{subsubsection.6.31.3.10}%
+\contentsline {subsubsection}{\numberline {6.31.3.11}patients}{119}{subsubsection.6.31.3.11}%
+\contentsline {subsubsection}{\numberline {6.31.3.12}receptionist\_available}{119}{subsubsection.6.31.3.12}%
+\contentsline {subsubsection}{\numberline {6.31.3.13}receptionist\_count}{119}{subsubsection.6.31.3.13}%
+\contentsline {subsubsection}{\numberline {6.31.3.14}receptionist\_unavailable}{119}{subsubsection.6.31.3.14}%
+\contentsline {subsubsection}{\numberline {6.31.3.15}receptionists}{119}{subsubsection.6.31.3.15}%
+\contentsline {subsubsection}{\numberline {6.31.3.16}user\_count}{119}{subsubsection.6.31.3.16}%
+\contentsline {subsubsection}{\numberline {6.31.3.17}users}{119}{subsubsection.6.31.3.17}%
+\contentsline {section}{\numberline {6.32}hospital.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{119}{section.6.32}%
+\contentsline {section}{\numberline {6.33}src/patient.c File Reference}{120}{section.6.33}%
+\contentsline {subsection}{\numberline {6.33.1}Detailed Description}{121}{subsection.6.33.1}%
+\contentsline {subsection}{\numberline {6.33.2}Function Documentation}{121}{subsection.6.33.2}%
+\contentsline {subsubsection}{\numberline {6.33.2.1}patient\_add()}{121}{subsubsection.6.33.2.1}%
+\contentsline {subsubsection}{\numberline {6.33.2.2}patient\_discharge()}{121}{subsubsection.6.33.2.2}%
+\contentsline {subsubsection}{\numberline {6.33.2.3}patient\_generate\_id()}{121}{subsubsection.6.33.2.3}%
+\contentsline {subsubsection}{\numberline {6.33.2.4}patient\_load\_from\_file()}{122}{subsubsection.6.33.2.4}%
+\contentsline {subsubsection}{\numberline {6.33.2.5}patient\_save\_to\_file()}{122}{subsubsection.6.33.2.5}%
+\contentsline {subsubsection}{\numberline {6.33.2.6}patient\_search\_by()}{122}{subsubsection.6.33.2.6}%
+\contentsline {subsubsection}{\numberline {6.33.2.7}patient\_search\_by\_id()}{122}{subsubsection.6.33.2.7}%
+\contentsline {subsubsection}{\numberline {6.33.2.8}patient\_search\_by\_name()}{122}{subsubsection.6.33.2.8}%
+\contentsline {subsubsection}{\numberline {6.33.2.9}patient\_search\_by\_phone()}{122}{subsubsection.6.33.2.9}%
+\contentsline {subsubsection}{\numberline {6.33.2.10}patient\_search\_id()}{122}{subsubsection.6.33.2.10}%
+\contentsline {subsubsection}{\numberline {6.33.2.11}patient\_update\_address()}{123}{subsubsection.6.33.2.11}%
+\contentsline {subsubsection}{\numberline {6.33.2.12}patient\_update\_blood\_group()}{123}{subsubsection.6.33.2.12}%
+\contentsline {subsubsection}{\numberline {6.33.2.13}patient\_update\_gender()}{123}{subsubsection.6.33.2.13}%
+\contentsline {subsubsection}{\numberline {6.33.2.14}patient\_update\_name()}{123}{subsubsection.6.33.2.14}%
+\contentsline {subsubsection}{\numberline {6.33.2.15}patient\_update\_phone()}{123}{subsubsection.6.33.2.15}%
+\contentsline {subsubsection}{\numberline {6.33.2.16}patient\_update\_status()}{123}{subsubsection.6.33.2.16}%
+\contentsline {subsubsection}{\numberline {6.33.2.17}patient\_update\_using\_id()}{123}{subsubsection.6.33.2.17}%
+\contentsline {subsubsection}{\numberline {6.33.2.18}patient\_view()}{123}{subsubsection.6.33.2.18}%
+\contentsline {subsubsection}{\numberline {6.33.2.19}patient\_view\_all()}{124}{subsubsection.6.33.2.19}%
+\contentsline {subsubsection}{\numberline {6.33.2.20}patient\_view\_discharged()}{124}{subsubsection.6.33.2.20}%
+\contentsline {subsubsection}{\numberline {6.33.2.21}patient\_view\_one()}{124}{subsubsection.6.33.2.21}%
+\contentsline {section}{\numberline {6.34}patient.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{124}{section.6.34}%
+\contentsline {section}{\numberline {6.35}src/receptionist.c File Reference}{133}{section.6.35}%
+\contentsline {subsection}{\numberline {6.35.1}Detailed Description}{133}{subsection.6.35.1}%
+\contentsline {subsection}{\numberline {6.35.2}Function Documentation}{133}{subsection.6.35.2}%
+\contentsline {subsubsection}{\numberline {6.35.2.1}receptionist\_appointment\_menu()}{133}{subsubsection.6.35.2.1}%
+\contentsline {subsubsection}{\numberline {6.35.2.2}receptionist\_discharge()}{134}{subsubsection.6.35.2.2}%
+\contentsline {subsubsection}{\numberline {6.35.2.3}receptionist\_load\_from\_file()}{134}{subsubsection.6.35.2.3}%
+\contentsline {subsubsection}{\numberline {6.35.2.4}receptionist\_menu()}{134}{subsubsection.6.35.2.4}%
+\contentsline {subsubsection}{\numberline {6.35.2.5}receptionist\_patient\_menu()}{134}{subsubsection.6.35.2.5}%
+\contentsline {subsubsection}{\numberline {6.35.2.6}receptionist\_save\_to\_file()}{134}{subsubsection.6.35.2.6}%
+\contentsline {subsubsection}{\numberline {6.35.2.7}receptionist\_search\_id()}{134}{subsubsection.6.35.2.7}%
+\contentsline {subsubsection}{\numberline {6.35.2.8}receptionist\_view\_all()}{135}{subsubsection.6.35.2.8}%
+\contentsline {subsubsection}{\numberline {6.35.2.9}receptionist\_view\_discharged()}{135}{subsubsection.6.35.2.9}%
+\contentsline {section}{\numberline {6.36}receptionist.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{135}{section.6.36}%
+\contentsline {section}{\numberline {6.37}src/ui.c File Reference}{138}{section.6.37}%
+\contentsline {subsection}{\numberline {6.37.1}Detailed Description}{139}{subsection.6.37.1}%
+\contentsline {subsection}{\numberline {6.37.2}Function Documentation}{139}{subsection.6.37.2}%
+\contentsline {subsubsection}{\numberline {6.37.2.1}ui\_clear\_screen()}{139}{subsubsection.6.37.2.1}%
+\contentsline {subsubsection}{\numberline {6.37.2.2}ui\_dummy\_loading()}{139}{subsubsection.6.37.2.2}%
+\contentsline {subsubsection}{\numberline {6.37.2.3}ui\_pause()}{139}{subsubsection.6.37.2.3}%
+\contentsline {subsubsection}{\numberline {6.37.2.4}ui\_print\_banner()}{139}{subsubsection.6.37.2.4}%
+\contentsline {subsubsection}{\numberline {6.37.2.5}ui\_print\_doctor()}{139}{subsubsection.6.37.2.5}%
+\contentsline {subsubsection}{\numberline {6.37.2.6}ui\_print\_error()}{140}{subsubsection.6.37.2.6}%
+\contentsline {subsubsection}{\numberline {6.37.2.7}ui\_print\_header()}{140}{subsubsection.6.37.2.7}%
+\contentsline {subsubsection}{\numberline {6.37.2.8}ui\_print\_info()}{140}{subsubsection.6.37.2.8}%
+\contentsline {subsubsection}{\numberline {6.37.2.9}ui\_print\_menu()}{140}{subsubsection.6.37.2.9}%
+\contentsline {subsubsection}{\numberline {6.37.2.10}ui\_print\_patient()}{141}{subsubsection.6.37.2.10}%
+\contentsline {subsubsection}{\numberline {6.37.2.11}ui\_print\_receptionist()}{141}{subsubsection.6.37.2.11}%
+\contentsline {subsubsection}{\numberline {6.37.2.12}ui\_print\_success()}{141}{subsubsection.6.37.2.12}%
+\contentsline {subsubsection}{\numberline {6.37.2.13}ui\_print\_warning()}{141}{subsubsection.6.37.2.13}%
+\contentsline {section}{\numberline {6.38}ui.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{142}{section.6.38}%
+\contentsline {section}{\numberline {6.39}src/utils.c File Reference}{145}{section.6.39}%
+\contentsline {subsection}{\numberline {6.39.1}Detailed Description}{146}{subsection.6.39.1}%
+\contentsline {subsection}{\numberline {6.39.2}Function Documentation}{146}{subsection.6.39.2}%
+\contentsline {subsubsection}{\numberline {6.39.2.1}utils\_clear\_input\_buffer()}{146}{subsubsection.6.39.2.1}%
+\contentsline {subsubsection}{\numberline {6.39.2.2}utils\_fix\_name()}{146}{subsubsection.6.39.2.2}%
+\contentsline {subsubsection}{\numberline {6.39.2.3}utils\_get\_char()}{146}{subsubsection.6.39.2.3}%
+\contentsline {subsubsection}{\numberline {6.39.2.4}utils\_get\_double()}{146}{subsubsection.6.39.2.4}%
+\contentsline {subsubsection}{\numberline {6.39.2.5}utils\_get\_float()}{146}{subsubsection.6.39.2.5}%
+\contentsline {subsubsection}{\numberline {6.39.2.6}utils\_get\_int()}{147}{subsubsection.6.39.2.6}%
+\contentsline {subsubsection}{\numberline {6.39.2.7}utils\_get\_string()}{147}{subsubsection.6.39.2.7}%
+\contentsline {subsubsection}{\numberline {6.39.2.8}utils\_is\_valid\_address()}{147}{subsubsection.6.39.2.8}%
+\contentsline {subsubsection}{\numberline {6.39.2.9}utils\_is\_valid\_blood\_group()}{147}{subsubsection.6.39.2.9}%
+\contentsline {subsubsection}{\numberline {6.39.2.10}utils\_is\_valid\_email()}{148}{subsubsection.6.39.2.10}%
+\contentsline {subsubsection}{\numberline {6.39.2.11}utils\_is\_valid\_id()}{148}{subsubsection.6.39.2.11}%
+\contentsline {subsubsection}{\numberline {6.39.2.12}utils\_is\_valid\_name()}{148}{subsubsection.6.39.2.12}%
+\contentsline {subsubsection}{\numberline {6.39.2.13}utils\_is\_valid\_phone()}{149}{subsubsection.6.39.2.13}%
+\contentsline {subsection}{\numberline {6.39.3}Validity Functions}{149}{subsection.6.39.3}%
+\contentsline {subsubsection}{\numberline {6.39.3.1}utils\_pause()}{149}{subsubsection.6.39.3.1}%
+\contentsline {subsubsection}{\numberline {6.39.3.2}utils\_str\_to\_upper()}{149}{subsubsection.6.39.3.2}%
+\contentsline {section}{\numberline {6.40}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{149}{section.6.40}%
+\contentsline {section}{\numberline {6.41}tests/patient\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}test.c File Reference}{152}{section.6.41}%
+\contentsline {subsection}{\numberline {6.41.1}Function Documentation}{152}{subsection.6.41.1}%
+\contentsline {subsubsection}{\numberline {6.41.1.1}hospital\_init()}{152}{subsubsection.6.41.1.1}%
+\contentsline {subsubsection}{\numberline {6.41.1.2}main()}{152}{subsubsection.6.41.1.2}%
+\contentsline {section}{\numberline {6.42}patient\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}test.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{152}{section.6.42}%
+\contentsline {section}{\numberline {6.43}tests/test.c File Reference}{152}{section.6.43}%
+\contentsline {subsection}{\numberline {6.43.1}Function Documentation}{152}{subsection.6.43.1}%
+\contentsline {subsubsection}{\numberline {6.43.1.1}main()}{152}{subsubsection.6.43.1.1}%
+\contentsline {section}{\numberline {6.44}test.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{153}{section.6.44}%
+\contentsline {section}{\numberline {6.45}tests/test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}phone\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}validator.c File Reference}{153}{section.6.45}%
+\contentsline {subsection}{\numberline {6.45.1}Function Documentation}{153}{subsection.6.45.1}%
+\contentsline {subsubsection}{\numberline {6.45.1.1}main()}{153}{subsubsection.6.45.1.1}%
+\contentsline {subsubsection}{\numberline {6.45.1.2}test\_validate\_validphone()}{153}{subsubsection.6.45.1.2}%
+\contentsline {section}{\numberline {6.46}test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}phone\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}validator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{153}{section.6.46}%
+\contentsline {section}{\numberline {6.47}tests/ui\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}test.c File Reference}{154}{section.6.47}%
+\contentsline {subsection}{\numberline {6.47.1}Function Documentation}{154}{subsection.6.47.1}%
+\contentsline {subsubsection}{\numberline {6.47.1.1}main()}{154}{subsubsection.6.47.1.1}%
+\contentsline {section}{\numberline {6.48}ui\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}test.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{154}{section.6.48}%
+\contentsline {section}{\numberline {6.49}tests/utils\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}test.c File Reference}{154}{section.6.49}%
+\contentsline {subsection}{\numberline {6.49.1}Function Documentation}{155}{subsection.6.49.1}%
+\contentsline {subsubsection}{\numberline {6.49.1.1}main()}{155}{subsubsection.6.49.1.1}%
+\contentsline {subsubsection}{\numberline {6.49.1.2}test\_utils\_get\_char()}{155}{subsubsection.6.49.1.2}%
+\contentsline {subsubsection}{\numberline {6.49.1.3}test\_utils\_get\_double()}{155}{subsubsection.6.49.1.3}%
+\contentsline {subsubsection}{\numberline {6.49.1.4}test\_utils\_get\_float()}{155}{subsubsection.6.49.1.4}%
+\contentsline {subsubsection}{\numberline {6.49.1.5}test\_utils\_get\_int()}{155}{subsubsection.6.49.1.5}%
+\contentsline {subsubsection}{\numberline {6.49.1.6}test\_utils\_get\_string()}{155}{subsubsection.6.49.1.6}%
+\contentsline {subsubsection}{\numberline {6.49.1.7}test\_utils\_is\_valid\_address()}{155}{subsubsection.6.49.1.7}%
+\contentsline {subsubsection}{\numberline {6.49.1.8}test\_utils\_is\_valid\_blood\_group()}{155}{subsubsection.6.49.1.8}%
+\contentsline {subsubsection}{\numberline {6.49.1.9}test\_utils\_is\_valid\_email()}{155}{subsubsection.6.49.1.9}%
+\contentsline {subsubsection}{\numberline {6.49.1.10}test\_utils\_is\_valid\_phone()}{155}{subsubsection.6.49.1.10}%
+\contentsline {subsubsection}{\numberline {6.49.1.11}test\_utils\_str\_to\_upper()}{155}{subsubsection.6.49.1.11}%
+\contentsline {section}{\numberline {6.50}utils\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}test.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c}{156}{section.6.50}%

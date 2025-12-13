@@ -1,0 +1,308 @@
+\doxysection{src/hospital.c File Reference}
+\hypertarget{hospital_8c}{}\label{hospital_8c}\index{src/hospital.c@{src/hospital.c}}
+
+
+Global data definitions for Healthcare Management System.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include "{}../include/hospital.\+h"{}}\newline
+{\ttfamily \#include "{}../include/patient.\+h"{}}\newline
+{\ttfamily \#include "{}../include/doctor.\+h"{}}\newline
+{\ttfamily \#include "{}../include/appointment.\+h"{}}\newline
+{\ttfamily \#include "{}../include/receptionist.\+h"{}}\newline
+{\ttfamily \#include "{}../include/auth.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ui.\+h"{}}\newline
+{\ttfamily \#include "{}../include/utils.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hospital_8c_a3e286a53087cd53bedf0e7602d5beb6b}{hospital\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{hospital_8c_ac2793234764f34a3505fcf01bbc7929b}{show\+\_\+about}} (void)
+\item 
+void \mbox{\hyperlink{hospital_8c_ae5d62d86e562ee295d1566f9ad74b73c}{print\+\_\+help}} (const char \texorpdfstring{$\ast$}{*}program\+\_\+name)
+\item 
+void \mbox{\hyperlink{hospital_8c_ac6230d495fc909bb61195c45f703d492}{print\+\_\+version}} (void)
+\item 
+void \mbox{\hyperlink{hospital_8c_a3138652a2eefda30205ad05d07e3a39f}{ensure\+\_\+data\+\_\+dir}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_patient}{Patient}} \mbox{\hyperlink{hospital_8c_a3caa5423980f287dc9ac2a4f18accfae}{patients}} \mbox{[}100\mbox{]}
+\item 
+\mbox{\hyperlink{struct_doctor}{Doctor}} \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}} \mbox{[}20\mbox{]}
+\item 
+\mbox{\hyperlink{struct_receptionist}{Receptionist}} \mbox{\hyperlink{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}{receptionists}} \mbox{[}20\mbox{]}
+\item 
+\mbox{\hyperlink{struct_user}{User}} \mbox{\hyperlink{hospital_8c_a2554ce10eb3d295ac9d1368d20cf1e0c}{users}} \mbox{[}50\mbox{]}
+\item 
+\mbox{\hyperlink{struct_appointment}{Appointment}} \mbox{\hyperlink{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}{appointments}} \mbox{[}200\mbox{]}
+\item 
+int \mbox{\hyperlink{hospital_8c_a3093d5e98b2236eef700a5bc9ed1f622}{patient\+\_\+count}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_acd51bfe3eea63e29c8ea66e07980478a}{patient\+\_\+available}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_a7a0d9e04ba1e63a0813340cb7bc9d8d2}{patient\+\_\+unavailable}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\+\_\+count}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_ab74106f1c2b12d99efaa0efd870f16eb}{doctor\+\_\+available}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_a60b930da5102df130b4cccc6c2b96d3c}{doctor\+\_\+unavailable}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_a5547a07227bc5df132481199eef94f8c}{receptionist\+\_\+count}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_a5fd7e56f9d71f3ffe638e1f7ffd701b3}{receptionist\+\_\+available}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_ad7f79c22c18645256de4eb7a5a264500}{receptionist\+\_\+unavailable}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_ad0472cbf83a6ecb87e8a07cb3110ef9e}{user\+\_\+count}} = 0
+\item 
+int \mbox{\hyperlink{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}{appointment\+\_\+count}} = 0
+\item 
+\mbox{\hyperlink{struct_user}{User}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hospital_8c_ab09949a042d92a2a6484981e7d2e25ad}{current\+\_\+user}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Global data definitions for Healthcare Management System. 
+
+This file contains the actual definitions of global variables declared with extern in \doxylink{hospital_8h}{hospital.\+h}. 
+
+Definition in file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{hospital_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{hospital_8c_a3138652a2eefda30205ad05d07e3a39f}\index{hospital.c@{hospital.c}!ensure\_data\_dir@{ensure\_data\_dir}}
+\index{ensure\_data\_dir@{ensure\_data\_dir}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{ensure\_data\_dir()}{ensure\_data\_dir()}}
+{\footnotesize\ttfamily \label{hospital_8c_a3138652a2eefda30205ad05d07e3a39f} 
+void ensure\+\_\+data\+\_\+dir (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Ensure data directory exists. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00092}{92}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a3e286a53087cd53bedf0e7602d5beb6b}\index{hospital.c@{hospital.c}!hospital\_init@{hospital\_init}}
+\index{hospital\_init@{hospital\_init}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{hospital\_init()}{hospital\_init()}}
+{\footnotesize\ttfamily \label{hospital_8c_a3e286a53087cd53bedf0e7602d5beb6b} 
+void hospital\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize the hospital system by loading all data. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00047}{47}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_ae5d62d86e562ee295d1566f9ad74b73c}\index{hospital.c@{hospital.c}!print\_help@{print\_help}}
+\index{print\_help@{print\_help}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{print\_help()}{print\_help()}}
+{\footnotesize\ttfamily \label{hospital_8c_ae5d62d86e562ee295d1566f9ad74b73c} 
+void print\+\_\+help (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{program\+\_\+name}{}\end{DoxyParamCaption})}
+
+Display help information. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00073}{73}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_ac6230d495fc909bb61195c45f703d492}\index{hospital.c@{hospital.c}!print\_version@{print\_version}}
+\index{print\_version@{print\_version}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{print\_version()}{print\_version()}}
+{\footnotesize\ttfamily \label{hospital_8c_ac6230d495fc909bb61195c45f703d492} 
+void print\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Display version information. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00086}{86}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_ac2793234764f34a3505fcf01bbc7929b}\index{hospital.c@{hospital.c}!show\_about@{show\_about}}
+\index{show\_about@{show\_about}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{show\_about()}{show\_about()}}
+{\footnotesize\ttfamily \label{hospital_8c_ac2793234764f34a3505fcf01bbc7929b} 
+void show\+\_\+about (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Display about information. 
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00055}{55}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{hospital_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4}\index{hospital.c@{hospital.c}!appointment\_count@{appointment\_count}}
+\index{appointment\_count@{appointment\_count}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{appointment\_count}{appointment\_count}}
+{\footnotesize\ttfamily \label{hospital_8c_a604fa8fe8670650b0f8e916eafb53bc4} 
+int appointment\+\_\+count = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00043}{43}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d}\index{hospital.c@{hospital.c}!appointments@{appointments}}
+\index{appointments@{appointments}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{appointments}{appointments}}
+{\footnotesize\ttfamily \label{hospital_8c_a98ec0aa887cb60c310f70571d8f2646d} 
+\mbox{\hyperlink{struct_appointment}{Appointment}} appointments\mbox{[}200\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00031}{31}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_ab09949a042d92a2a6484981e7d2e25ad}\index{hospital.c@{hospital.c}!current\_user@{current\_user}}
+\index{current\_user@{current\_user}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{current\_user}{current\_user}}
+{\footnotesize\ttfamily \label{hospital_8c_ab09949a042d92a2a6484981e7d2e25ad} 
+\mbox{\hyperlink{struct_user}{User}}\texorpdfstring{$\ast$}{*} current\+\_\+user = NULL}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00045}{45}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_ab74106f1c2b12d99efaa0efd870f16eb}\index{hospital.c@{hospital.c}!doctor\_available@{doctor\_available}}
+\index{doctor\_available@{doctor\_available}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{doctor\_available}{doctor\_available}}
+{\footnotesize\ttfamily \label{hospital_8c_ab74106f1c2b12d99efaa0efd870f16eb} 
+int doctor\+\_\+available = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00037}{37}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_ad99c90b87dadff47fd0da61344796113}\index{hospital.c@{hospital.c}!doctor\_count@{doctor\_count}}
+\index{doctor\_count@{doctor\_count}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{doctor\_count}{doctor\_count}}
+{\footnotesize\ttfamily \label{hospital_8c_ad99c90b87dadff47fd0da61344796113} 
+int doctor\+\_\+count = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00036}{36}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a60b930da5102df130b4cccc6c2b96d3c}\index{hospital.c@{hospital.c}!doctor\_unavailable@{doctor\_unavailable}}
+\index{doctor\_unavailable@{doctor\_unavailable}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{doctor\_unavailable}{doctor\_unavailable}}
+{\footnotesize\ttfamily \label{hospital_8c_a60b930da5102df130b4cccc6c2b96d3c} 
+int doctor\+\_\+unavailable = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00038}{38}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a67bfc76cc71fe880c284c96205444fab}\index{hospital.c@{hospital.c}!doctors@{doctors}}
+\index{doctors@{doctors}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{doctors}{doctors}}
+{\footnotesize\ttfamily \label{hospital_8c_a67bfc76cc71fe880c284c96205444fab} 
+\mbox{\hyperlink{struct_doctor}{Doctor}} doctors\mbox{[}20\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00028}{28}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_acd51bfe3eea63e29c8ea66e07980478a}\index{hospital.c@{hospital.c}!patient\_available@{patient\_available}}
+\index{patient\_available@{patient\_available}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{patient\_available}{patient\_available}}
+{\footnotesize\ttfamily \label{hospital_8c_acd51bfe3eea63e29c8ea66e07980478a} 
+int patient\+\_\+available = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00034}{34}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a3093d5e98b2236eef700a5bc9ed1f622}\index{hospital.c@{hospital.c}!patient\_count@{patient\_count}}
+\index{patient\_count@{patient\_count}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{patient\_count}{patient\_count}}
+{\footnotesize\ttfamily \label{hospital_8c_a3093d5e98b2236eef700a5bc9ed1f622} 
+int patient\+\_\+count = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00033}{33}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a7a0d9e04ba1e63a0813340cb7bc9d8d2}\index{hospital.c@{hospital.c}!patient\_unavailable@{patient\_unavailable}}
+\index{patient\_unavailable@{patient\_unavailable}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{patient\_unavailable}{patient\_unavailable}}
+{\footnotesize\ttfamily \label{hospital_8c_a7a0d9e04ba1e63a0813340cb7bc9d8d2} 
+int patient\+\_\+unavailable = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00035}{35}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a3caa5423980f287dc9ac2a4f18accfae}\index{hospital.c@{hospital.c}!patients@{patients}}
+\index{patients@{patients}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{patients}{patients}}
+{\footnotesize\ttfamily \label{hospital_8c_a3caa5423980f287dc9ac2a4f18accfae} 
+\mbox{\hyperlink{struct_patient}{Patient}} patients\mbox{[}100\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00027}{27}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a5fd7e56f9d71f3ffe638e1f7ffd701b3}\index{hospital.c@{hospital.c}!receptionist\_available@{receptionist\_available}}
+\index{receptionist\_available@{receptionist\_available}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_available}{receptionist\_available}}
+{\footnotesize\ttfamily \label{hospital_8c_a5fd7e56f9d71f3ffe638e1f7ffd701b3} 
+int receptionist\+\_\+available = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00040}{40}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a5547a07227bc5df132481199eef94f8c}\index{hospital.c@{hospital.c}!receptionist\_count@{receptionist\_count}}
+\index{receptionist\_count@{receptionist\_count}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_count}{receptionist\_count}}
+{\footnotesize\ttfamily \label{hospital_8c_a5547a07227bc5df132481199eef94f8c} 
+int receptionist\+\_\+count = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00039}{39}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_ad7f79c22c18645256de4eb7a5a264500}\index{hospital.c@{hospital.c}!receptionist\_unavailable@{receptionist\_unavailable}}
+\index{receptionist\_unavailable@{receptionist\_unavailable}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{receptionist\_unavailable}{receptionist\_unavailable}}
+{\footnotesize\ttfamily \label{hospital_8c_ad7f79c22c18645256de4eb7a5a264500} 
+int receptionist\+\_\+unavailable = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00041}{41}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04}\index{hospital.c@{hospital.c}!receptionists@{receptionists}}
+\index{receptionists@{receptionists}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{receptionists}{receptionists}}
+{\footnotesize\ttfamily \label{hospital_8c_afd2e0ffb4334642c1461f6d378dddc04} 
+\mbox{\hyperlink{struct_receptionist}{Receptionist}} receptionists\mbox{[}20\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00029}{29}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_ad0472cbf83a6ecb87e8a07cb3110ef9e}\index{hospital.c@{hospital.c}!user\_count@{user\_count}}
+\index{user\_count@{user\_count}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{user\_count}{user\_count}}
+{\footnotesize\ttfamily \label{hospital_8c_ad0472cbf83a6ecb87e8a07cb3110ef9e} 
+int user\+\_\+count = 0}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00042}{42}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+
+\Hypertarget{hospital_8c_a2554ce10eb3d295ac9d1368d20cf1e0c}\index{hospital.c@{hospital.c}!users@{users}}
+\index{users@{users}!hospital.c@{hospital.c}}
+\doxysubsubsection{\texorpdfstring{users}{users}}
+{\footnotesize\ttfamily \label{hospital_8c_a2554ce10eb3d295ac9d1368d20cf1e0c} 
+\mbox{\hyperlink{struct_user}{User}} users\mbox{[}50\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{hospital_8c_source_l00030}{30}} of file \mbox{\hyperlink{hospital_8c_source}{hospital.\+c}}.
+

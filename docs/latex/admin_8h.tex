@@ -1,0 +1,157 @@
+\doxysection{include/admin.h File Reference}
+\hypertarget{admin_8h}{}\label{admin_8h}\index{include/admin.h@{include/admin.h}}
+
+
+Admin management functions for Healthcare Management System.  
+
+
+{\ttfamily \#include "{}hospital.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{admin_8h_aefd29bd9806f8b7441b4ecae45a18ba7}{admin\+\_\+view\+\_\+discharged\+\_\+patients}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_a36bba947c71313e03d580d05255da1ad}{admin\+\_\+search\+\_\+discharged\+\_\+by\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_a6a634ec27ab31ae0a80cd914a13ada73}{admin\+\_\+search\+\_\+discharged\+\_\+by\+\_\+name}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_a59c8a6699b351970ea7c3d553b863bf2}{admin\+\_\+search\+\_\+discharged}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_a0e27be7157349f5533dee4b5d12b780d}{admin\+\_\+delete\+\_\+patient}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_a362adf351dac2e373f0d3159224841c1}{admin\+\_\+view\+\_\+discharged\+\_\+doctors}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_a6175ff5f331cc3a3296488335a85e909}{admin\+\_\+delete\+\_\+doctor}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_aacf33cc821f20adc86d50fda38f9f3af}{admin\+\_\+patient\+\_\+menu}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_a49b64be01f2814aa69d6103faa359966}{admin\+\_\+doctor\+\_\+menu}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_afb5f765420ad5f6e7d13f34627566da0}{admin\+\_\+main\+\_\+menu}} (void)
+\item 
+void \mbox{\hyperlink{admin_8h_a4b1d10b2e0de038ed942e0cb0d1be2e9}{admin\+\_\+receptionist\+\_\+menu}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Admin management functions for Healthcare Management System. 
+
+This header declares admin-\/specific operations including discharged patient management that receptionists cannot access. 
+
+Definition in file \mbox{\hyperlink{admin_8h_source}{admin.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{admin_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{admin_8h_a6175ff5f331cc3a3296488335a85e909}\index{admin.h@{admin.h}!admin\_delete\_doctor@{admin\_delete\_doctor}}
+\index{admin\_delete\_doctor@{admin\_delete\_doctor}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_delete\_doctor()}{admin\_delete\_doctor()}}
+{\footnotesize\ttfamily \label{admin_8h_a6175ff5f331cc3a3296488335a85e909} 
+void admin\+\_\+delete\+\_\+doctor (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Permanently deletes an inactive doctor from the system. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00312}{312}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_a0e27be7157349f5533dee4b5d12b780d}\index{admin.h@{admin.h}!admin\_delete\_patient@{admin\_delete\_patient}}
+\index{admin\_delete\_patient@{admin\_delete\_patient}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_delete\_patient()}{admin\_delete\_patient()}}
+{\footnotesize\ttfamily \label{admin_8h_a0e27be7157349f5533dee4b5d12b780d} 
+void admin\+\_\+delete\+\_\+patient (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Permanently deletes a discharged patient from the system. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00154}{154}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_a49b64be01f2814aa69d6103faa359966}\index{admin.h@{admin.h}!admin\_doctor\_menu@{admin\_doctor\_menu}}
+\index{admin\_doctor\_menu@{admin\_doctor\_menu}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_doctor\_menu()}{admin\_doctor\_menu()}}
+{\footnotesize\ttfamily \label{admin_8h_a49b64be01f2814aa69d6103faa359966} 
+void admin\+\_\+doctor\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Admin doctor management menu. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00382}{382}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_afb5f765420ad5f6e7d13f34627566da0}\index{admin.h@{admin.h}!admin\_main\_menu@{admin\_main\_menu}}
+\index{admin\_main\_menu@{admin\_main\_menu}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_main\_menu()}{admin\_main\_menu()}}
+{\footnotesize\ttfamily \label{admin_8h_afb5f765420ad5f6e7d13f34627566da0} 
+void admin\+\_\+main\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Main admin menu. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00485}{485}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_aacf33cc821f20adc86d50fda38f9f3af}\index{admin.h@{admin.h}!admin\_patient\_menu@{admin\_patient\_menu}}
+\index{admin\_patient\_menu@{admin\_patient\_menu}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_patient\_menu()}{admin\_patient\_menu()}}
+{\footnotesize\ttfamily \label{admin_8h_aacf33cc821f20adc86d50fda38f9f3af} 
+void admin\+\_\+patient\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Admin patient management menu. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00224}{224}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_a4b1d10b2e0de038ed942e0cb0d1be2e9}\index{admin.h@{admin.h}!admin\_receptionist\_menu@{admin\_receptionist\_menu}}
+\index{admin\_receptionist\_menu@{admin\_receptionist\_menu}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_receptionist\_menu()}{admin\_receptionist\_menu()}}
+{\footnotesize\ttfamily \label{admin_8h_a4b1d10b2e0de038ed942e0cb0d1be2e9} 
+void admin\+\_\+receptionist\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Admin receptionist management menu. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00435}{435}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_a59c8a6699b351970ea7c3d553b863bf2}\index{admin.h@{admin.h}!admin\_search\_discharged@{admin\_search\_discharged}}
+\index{admin\_search\_discharged@{admin\_search\_discharged}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_search\_discharged()}{admin\_search\_discharged()}}
+{\footnotesize\ttfamily \label{admin_8h_a59c8a6699b351970ea7c3d553b863bf2} 
+void admin\+\_\+search\+\_\+discharged (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Handles search choice for discharged patients. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00121}{121}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_a36bba947c71313e03d580d05255da1ad}\index{admin.h@{admin.h}!admin\_search\_discharged\_by\_id@{admin\_search\_discharged\_by\_id}}
+\index{admin\_search\_discharged\_by\_id@{admin\_search\_discharged\_by\_id}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_search\_discharged\_by\_id()}{admin\_search\_discharged\_by\_id()}}
+{\footnotesize\ttfamily \label{admin_8h_a36bba947c71313e03d580d05255da1ad} 
+void admin\+\_\+search\+\_\+discharged\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Searches discharged patients by ID. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00046}{46}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_a6a634ec27ab31ae0a80cd914a13ada73}\index{admin.h@{admin.h}!admin\_search\_discharged\_by\_name@{admin\_search\_discharged\_by\_name}}
+\index{admin\_search\_discharged\_by\_name@{admin\_search\_discharged\_by\_name}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_search\_discharged\_by\_name()}{admin\_search\_discharged\_by\_name()}}
+{\footnotesize\ttfamily \label{admin_8h_a6a634ec27ab31ae0a80cd914a13ada73} 
+void admin\+\_\+search\+\_\+discharged\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Searches discharged patients by name. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00084}{84}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_a362adf351dac2e373f0d3159224841c1}\index{admin.h@{admin.h}!admin\_view\_discharged\_doctors@{admin\_view\_discharged\_doctors}}
+\index{admin\_view\_discharged\_doctors@{admin\_view\_discharged\_doctors}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_view\_discharged\_doctors()}{admin\_view\_discharged\_doctors()}}
+{\footnotesize\ttfamily \label{admin_8h_a362adf351dac2e373f0d3159224841c1} 
+void admin\+\_\+view\+\_\+discharged\+\_\+doctors (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Views all discharged (inactive) doctors. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00292}{292}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+
+\Hypertarget{admin_8h_aefd29bd9806f8b7441b4ecae45a18ba7}\index{admin.h@{admin.h}!admin\_view\_discharged\_patients@{admin\_view\_discharged\_patients}}
+\index{admin\_view\_discharged\_patients@{admin\_view\_discharged\_patients}!admin.h@{admin.h}}
+\doxysubsubsection{\texorpdfstring{admin\_view\_discharged\_patients()}{admin\_view\_discharged\_patients()}}
+{\footnotesize\ttfamily \label{admin_8h_aefd29bd9806f8b7441b4ecae45a18ba7} 
+void admin\+\_\+view\+\_\+discharged\+\_\+patients (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Views all discharged (inactive) patients. 
+
+Definition at line \mbox{\hyperlink{admin_8c_source_l00026}{26}} of file \mbox{\hyperlink{admin_8c_source}{admin.\+c}}.
+

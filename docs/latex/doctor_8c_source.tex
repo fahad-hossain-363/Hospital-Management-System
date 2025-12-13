@@ -1,0 +1,642 @@
+\doxysection{doctor.\+c}
+\hypertarget{doctor_8c_source}{}\label{doctor_8c_source}\index{src/doctor.c@{src/doctor.c}}
+\mbox{\hyperlink{doctor_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{doctor_8h}{../include/doctor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8h}{../include/utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ui_8h}{../include/ui.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hospital_8h}{../include/hospital.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00015}\mbox{\hyperlink{doctor_8c_af95f6a88d5d6077272d963a2271f45b3}{00015}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{doctor_8c_af95f6a88d5d6077272d963a2271f45b3}{doctor\_save\_to\_file}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00016}00016\ \ \ \ \ FILE*\ file\ =\ fopen(\mbox{\hyperlink{hospital_8h_a14b4acd6e4a31c42c60c65d8147f8c83}{DOCTORS\_FILE}},\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (fwrite(\&\mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1\ ||}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00021}00021\ \ \ \ \ \ \ \ \ fwrite(\&\mbox{\hyperlink{hospital_8c_ab74106f1c2b12d99efaa0efd870f16eb}{doctor\_available}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1\ ||}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ fwrite(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_doctor}{Doctor}}),\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}},\ file)\ !=\ (\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00026}00026\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00030}\mbox{\hyperlink{doctor_8c_a6c38bf1e47f30796b53b56f0d6acfac1}{00030}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{doctor_8c_a6c38bf1e47f30796b53b56f0d6acfac1}{doctor\_load\_from\_file}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00031}00031\ \ \ \ \ FILE*\ file\ =\ fopen(\mbox{\hyperlink{hospital_8h_a14b4acd6e4a31c42c60c65d8147f8c83}{DOCTORS\_FILE}},\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(\&\mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1\ ||}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ fread(\&\mbox{\hyperlink{hospital_8c_ab74106f1c2b12d99efaa0efd870f16eb}{doctor\_available}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ file)\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count\ <\ 0\ ||\ doctor\_count\ >}}\ \mbox{\hyperlink{hospital_8h_a8c8324bd3e6e85bf227df5d6120bde11}{MAX\_DOCTORS}})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}},\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_doctor}{Doctor}}),\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}},\ file)\ !=\ (\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00050}00050\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00054}\mbox{\hyperlink{doctor_8c_a3138f2ce8bb8435bd7e352901421e920}{00054}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{doctor_8c_a3138f2ce8bb8435bd7e352901421e920}{doctor\_generate\_id}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{hospital_8h_a37b0c94b12025c2a0ae50d36b8c87e72}{DOCTOR\_ID\_START}}\ +\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00058}\mbox{\hyperlink{doctor_8c_a640f9cdc39c4ce783f3fdded7eb46b23}{00058}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a640f9cdc39c4ce783f3fdded7eb46b23}{doctor\_view\_all}}()\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00059}00059\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_ab74106f1c2b12d99efaa0efd870f16eb}{doctor\_available}}\ ==\ 0\ ||\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{\textcolor{stringliteral}{"{}No\ doctors\ found!"{}}\};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}View\ All\ Doctors"{}},\ menu\_items,\ 1,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].is\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}{ui\_print\_doctor}}(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i],\ count++);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00079}\mbox{\hyperlink{doctor_8c_a4038c5bf6c289e20b5cbfdaa6d7f570f}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a4038c5bf6c289e20b5cbfdaa6d7f570f}{doctor\_view\_one}}()\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00080}00080\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_ab74106f1c2b12d99efaa0efd870f16eb}{doctor\_available}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{\textcolor{stringliteral}{"{}No\ doctors\ found!"{}}\};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}View\ All\ Doctors"{}},\ menu\_items,\ 1,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00091}00091\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].is\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}{ui\_print\_doctor}}(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i],\ count++);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00102}\mbox{\hyperlink{doctor_8c_acaefbdf4559eb7047b5f356f82f2e82f}{00102}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_acaefbdf4559eb7047b5f356f82f2e82f}{doctor\_view}}()\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00103}00103\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00104}00104\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00105}00105\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}All\ at\ once"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}One\ after\ another"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Back\ to\ Doctor\ Menu"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00110}00110\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00111}00111\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordtype}{int}\ choice;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}View\ Doctors"{}},\ menu\_items,\ 4,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ choice\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (choice)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a640f9cdc39c4ce783f3fdded7eb46b23}{doctor\_view\_all}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a4038c5bf6c289e20b5cbfdaa6d7f570f}{doctor\_view\_one}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Returning\ to\ doctor\ menu..."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ choice!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00134}00134\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 3);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00135}00135\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00137}\mbox{\hyperlink{doctor_8c_a87737148e71d82cc95cdcdacfe912821}{00137}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a87737148e71d82cc95cdcdacfe912821}{doctor\_search\_by\_id}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00138}00138\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00139}00139\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00140}00140\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ ID:\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Search\ Doctor"{}},\ menu\_items,\ 2,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ae196c1358637951d0c2712c09f7a13f8}{utils\_is\_valid\_id}}(\textcolor{keywordtype}{id},\ \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae6d2e4265c86d088fe587305c096da60}{ROLE\_DOCTOR}}))\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ ID!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}{ui\_print\_doctor}}(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i],\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].\textcolor{keywordtype}{id}\ -\/\ \mbox{\hyperlink{hospital_8h_a37b0c94b12025c2a0ae50d36b8c87e72}{DOCTOR\_ID\_START}}));}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Doctor\ not\ found!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00171}00171\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00173}00173\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00175}\mbox{\hyperlink{doctor_8c_a01352ca9d04e1440179fcde4e833985d}{00175}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a01352ca9d04e1440179fcde4e833985d}{doctor\_search\_by\_name}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00176}00176\ \ \ \ \ \textcolor{keywordtype}{char}\ name[\mbox{\hyperlink{hospital_8h_a834e9a379307f869a10f4da078be5786}{NAME\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00177}00177\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00178}00178\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ name:\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Search\ Doctor"{}},\ menu\_items,\ 2,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(name,\ \mbox{\hyperlink{hospital_8h_a834e9a379307f869a10f4da078be5786}{NAME\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ad28a4b490f8bae0fcbfeadc8262c5cc6}{utils\_is\_valid\_name}}(name))\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ name!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utils_8c_a7002bb1a299e81b7f7fd93fc885418cf}{utils\_fix\_name}}(name);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].name,\ name)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}{ui\_print\_doctor}}(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i],\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].\textcolor{keywordtype}{id}\ -\/\ \mbox{\hyperlink{hospital_8h_a37b0c94b12025c2a0ae50d36b8c87e72}{DOCTOR\_ID\_START}}));}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Doctor\ not\ found!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00210}00210\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00211}00211\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00213}\mbox{\hyperlink{doctor_8c_a178bd123cab14cad0df2a94a3dd2d868}{00213}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a178bd123cab14cad0df2a94a3dd2d868}{doctor\_search\_by\_phone}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00214}00214\ \ \ \ \ \textcolor{keywordtype}{char}\ phone[\mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00215}00215\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ phone:\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Search\ Doctor"{}},\ menu\_items,\ 2,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(phone,\ \mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ae232caa333263dac11243a80715c68fe}{utils\_is\_valid\_phone}}(phone))\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ phone!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].phone,\ phone)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}{ui\_print\_doctor}}(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i],\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].\textcolor{keywordtype}{id}\ -\/\ \mbox{\hyperlink{hospital_8h_a37b0c94b12025c2a0ae50d36b8c87e72}{DOCTOR\_ID\_START}}));}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Doctor\ not\ found!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00246}00246\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00247}00247\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00249}\mbox{\hyperlink{doctor_8c_ac7f1315adf7f34e5bb13b704bd06cea2}{00249}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_ac7f1315adf7f34e5bb13b704bd06cea2}{doctor\_search\_by}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00250}00250\ \ \ \ \ \textcolor{keywordtype}{int}\ choice;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00251}00251\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00252}00252\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Search\ by\ doctor\ ID"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Search\ by\ doctor\ name"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Search\ by\ doctor\ phone"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Back\ to\ Doctor\ Menu"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Search\ Doctor"{}},\ menu\_items,\ 5,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ choice\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00266}00266\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (choice)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a87737148e71d82cc95cdcdacfe912821}{doctor\_search\_by\_id}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a01352ca9d04e1440179fcde4e833985d}{doctor\_search\_by\_name}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a178bd123cab14cad0df2a94a3dd2d868}{doctor\_search\_by\_phone}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Returning\ to\ doctor\ menu..."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ choice!\ Please\ try\ again."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00285}00285\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (choice\ !=\ 4);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00286}00286\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00288}\mbox{\hyperlink{doctor_8c_a521b99d6e9b11eba0f53bf9efbcaee24}{00288}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{doctor_8c_a521b99d6e9b11eba0f53bf9efbcaee24}{doctor\_search\_id}}\ (\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00289}00289\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].\textcolor{keywordtype}{id}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00293}00293\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00294}00294\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00295}00295\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00297}\mbox{\hyperlink{doctor_8c_a8378e99fcc246d6427b9f9b5ef609ccc}{00297}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a8378e99fcc246d6427b9f9b5ef609ccc}{doctor\_update\_name}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[],\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00298}00298\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00299}00299\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00301}00301\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ menu\_items[0],}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ new\ name:\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00305}00305\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00307}00307\ \ \ \ \ \textcolor{keywordtype}{char}\ name[\mbox{\hyperlink{hospital_8h_a834e9a379307f869a10f4da078be5786}{NAME\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00308}00308\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Update\ Doctor"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00309}00309\ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(name,\ \mbox{\hyperlink{hospital_8h_a834e9a379307f869a10f4da078be5786}{NAME\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00310}00310\ \ \ \ \ \mbox{\hyperlink{utils_8c_a7002bb1a299e81b7f7fd93fc885418cf}{utils\_fix\_name}}(name);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00312}00312\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ad28a4b490f8bae0fcbfeadc8262c5cc6}{utils\_is\_valid\_name}}(name))\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00313}00313\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ name!\ Could\ not\ update."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00314}00314\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00315}00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00316}00316\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00317}00317\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].name[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00318}00318\ \ \ \ \ strncpy(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].name,\ name,\ \mbox{\hyperlink{hospital_8h_a834e9a379307f869a10f4da078be5786}{NAME\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00319}00319\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00321}\mbox{\hyperlink{doctor_8c_a65eab5e75b6683a35a4a41118b9730b8}{00321}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a65eab5e75b6683a35a4a41118b9730b8}{doctor\_update\_phone}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[],\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00322}00322\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00323}00323\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00324}00324\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00325}00325\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00326}00326\ \ \ \ \ \ \ \ \ menu\_items[1],}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00327}00327\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ new\ phone:\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00328}00328\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00329}00329\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00331}00331\ \ \ \ \ \textcolor{keywordtype}{char}\ phone[\mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00332}00332\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Update\ Doctor"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00333}00333\ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(phone,\ \mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00335}00335\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ae232caa333263dac11243a80715c68fe}{utils\_is\_valid\_phone}}(phone))\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00336}00336\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ phone!\ Could\ not\ update."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00337}00337\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00338}00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00339}00339\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00340}00340\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].phone[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00341}00341\ \ \ \ \ strncpy(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].phone,\ phone,\ \mbox{\hyperlink{hospital_8h_aa501b6830aa4ef92aa91c308dc330669}{PHONE\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00342}00342\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00344}\mbox{\hyperlink{doctor_8c_a2c242a27eba59d733367a8f4749a63a0}{00344}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a2c242a27eba59d733367a8f4749a63a0}{doctor\_update\_email}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[],\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00345}00345\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00346}00346\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00347}00347\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00348}00348\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ menu\_items[2],}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00350}00350\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ new\ email:\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00351}00351\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00352}00352\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00354}00354\ \ \ \ \ \textcolor{keywordtype}{char}\ email[\mbox{\hyperlink{hospital_8h_a27b1a31d571f4266e4b3152eede9796c}{EMAIL\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00355}00355\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Update\ Doctor"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00356}00356\ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(email,\ \mbox{\hyperlink{hospital_8h_a27b1a31d571f4266e4b3152eede9796c}{EMAIL\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00358}00358\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_abc5f7d4a1f14f8009f3d0ae80e892ee4}{utils\_is\_valid\_email}}(email))\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00359}00359\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ email!\ Could\ not\ update."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00360}00360\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00361}00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00362}00362\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00363}00363\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].email[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00364}00364\ \ \ \ \ strncpy(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].email,\ email,\ \mbox{\hyperlink{hospital_8h_a27b1a31d571f4266e4b3152eede9796c}{EMAIL\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00365}00365\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00367}\mbox{\hyperlink{doctor_8c_aec2ce611c99ad66bb54541827b8c9ca3}{00367}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_aec2ce611c99ad66bb54541827b8c9ca3}{doctor\_update\_specialization}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[],\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00368}00368\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00369}00369\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00370}00370\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00371}00371\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00372}00372\ \ \ \ \ \ \ \ \ menu\_items[3],}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00373}00373\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ new\ specialization:\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00374}00374\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00375}00375\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00377}00377\ \ \ \ \ \textcolor{keywordtype}{char}\ spec[\mbox{\hyperlink{hospital_8h_a8789db78c9ad3ae09e5234d03ec9a639}{SPEC\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00378}00378\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Update\ Doctor"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00379}00379\ \ \ \ \ \mbox{\hyperlink{utils_8c_a6edfffafca652b82c67997e09f7ee416}{utils\_get\_string}}(spec,\ \mbox{\hyperlink{hospital_8h_a8789db78c9ad3ae09e5234d03ec9a639}{SPEC\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00381}00381\ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(spec)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Specialization\ cannot\ be\ empty!\ Could\ not\ update."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00385}00385\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00386}00386\ \ \ \ \ \mbox{\hyperlink{utils_8c_a7002bb1a299e81b7f7fd93fc885418cf}{utils\_fix\_name}}(spec);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00387}00387\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].specialization[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00388}00388\ \ \ \ \ strncpy(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].specialization,\ spec,\ \mbox{\hyperlink{hospital_8h_a8789db78c9ad3ae09e5234d03ec9a639}{SPEC\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00389}00389\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00391}\mbox{\hyperlink{doctor_8c_a0267745de32e8dabf5f8c0fe553a224f}{00391}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a0267745de32e8dabf5f8c0fe553a224f}{doctor\_update\_room}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[],\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00392}00392\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00393}00393\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00394}00394\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00395}00395\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ menu\_items[4],}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00397}00397\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ new\ room\ number:\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00398}00398\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00399}00399\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00401}00401\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Update\ Doctor"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00402}00402\ \ \ \ \ \textcolor{keywordtype}{int}\ room\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00404}00404\ \ \ \ \ \textcolor{keywordflow}{if}\ (room\ <=\ 0\ ||\ room\ >=\ 1000)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ room\ number!\ Could\ not\ update."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00408}00408\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00409}00409\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].room\_number\ =\ room;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00410}00410\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00412}\mbox{\hyperlink{doctor_8c_ad24a2077ca32d812f6e1ff9c37bf9432}{00412}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_ad24a2077ca32d812f6e1ff9c37bf9432}{doctor\_update\_availability}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[],\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00413}00413\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00414}00414\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00415}00415\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00416}00416\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00417}00417\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Set\ availability\ (1\ for\ available,\ 2\ for\ unavailable):\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00418}00418\ \ \ \ \ \ \ \ \ menu\_items[5],}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00419}00419\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00420}00420\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00421}00421\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00422}00422\ \ \ \ \ \textcolor{keywordtype}{int}\ input;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00423}00423\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Update\ Doctor"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00424}00424\ \ \ \ \ input\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00426}00426\ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00427}00427\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].is\_available\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00428}00428\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00429}00429\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].is\_available\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00430}00430\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00431}00431\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ input!\ Could\ not\ update."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00432}00432\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00433}00433\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00434}00434\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00436}\mbox{\hyperlink{doctor_8c_a6e516fcde5a982ef7f943e56a260040c}{00436}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a6e516fcde5a982ef7f943e56a260040c}{doctor\_update\_status}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[],\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00437}00437\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00438}00438\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00439}00439\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00440}00440\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00441}00441\ \ \ \ \ \ \ \ \ menu\_items[6],}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00442}00442\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ new\ status:\ (1\ for\ active,\ 2\ for\ inactive)\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00443}00443\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00444}00444\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00445}00445\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00446}00446\ \ \ \ \ \textcolor{keywordtype}{bool}\ status;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00447}00447\ \ \ \ \ \textcolor{keywordtype}{int}\ input;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00448}00448\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Update\ Doctor"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00449}00449\ \ \ \ \ input\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00451}00451\ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00452}00452\ \ \ \ \ \ \ \ \ status\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00453}00453\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00454}00454\ \ \ \ \ \ \ \ \ status\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00455}00455\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00456}00456\ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].is\_active\ =\ status;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00457}00457\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00459}\mbox{\hyperlink{doctor_8c_a2cb3be493a1aaedcdda12e782a5e4f44}{00459}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a2cb3be493a1aaedcdda12e782a5e4f44}{doctor\_update\_using\_id}}()\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00460}00460\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00461}00461\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00462}00462\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00463}00463\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00464}00464\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00465}00465\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00466}00466\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00467}00467\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00468}00468\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00469}00469\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ enter\_id\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ doctor\ ID:\ (0\ to\ go\ back)\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00472}00472\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00473}00473\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00474}00474\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Update\ Doctor"{}},\ enter\_id\_items,\ 2,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00475}00475\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00476}00476\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00477}00477\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00479}00479\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ae196c1358637951d0c2712c09f7a13f8}{utils\_is\_valid\_id}}(\textcolor{keywordtype}{id},\ \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae6d2e4265c86d088fe587305c096da60}{ROLE\_DOCTOR}}))\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ ID!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00481}00481\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00482}00482\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Doctor\ found!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00486}00486\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00487}00487\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00489}00489\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{doctor_8c_a521b99d6e9b11eba0f53bf9efbcaee24}{doctor\_search\_id}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00490}00490\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ -\/1)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00492}00492\ \ \ \ \ \textcolor{keywordtype}{char}\ name\_line[\mbox{\hyperlink{hospital_8h_a5431e9ace83407a385b1cab453555022}{NAME\_LINE\_SIZE}}],\ phone\_line[\mbox{\hyperlink{hospital_8h_a2bab793d2e633f6c73b8428db890010a}{PHONE\_LINE\_SIZE}}],\ email\_line[70],\ spec\_line[70],\ room\_line[70],\ avail\_line[70],\ status\_line[\mbox{\hyperlink{hospital_8h_a87fbe99bc9f9356d1994a56a69a7f721}{STATUS\_LINE\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00494}00494\ \ \ \ \ snprintf(name\_line,\ \mbox{\hyperlink{hospital_8h_a5431e9ace83407a385b1cab453555022}{NAME\_LINE\_SIZE}},\ \textcolor{stringliteral}{"{}Name:\ \%s"{}},\ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].name);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00495}00495\ \ \ \ \ snprintf(phone\_line,\ \mbox{\hyperlink{hospital_8h_a2bab793d2e633f6c73b8428db890010a}{PHONE\_LINE\_SIZE}},\ \textcolor{stringliteral}{"{}Phone:\ \%s"{}},\ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].phone);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00496}00496\ \ \ \ \ snprintf(email\_line,\ \textcolor{keyword}{sizeof}(email\_line),\ \textcolor{stringliteral}{"{}Email:\ \%s"{}},\ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].email);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00497}00497\ \ \ \ \ snprintf(spec\_line,\ \textcolor{keyword}{sizeof}(spec\_line),\ \textcolor{stringliteral}{"{}Specialization:\ \%s"{}},\ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].specialization);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00498}00498\ \ \ \ \ snprintf(room\_line,\ \textcolor{keyword}{sizeof}(room\_line),\ \textcolor{stringliteral}{"{}Room\ Number:\ \%d"{}},\ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].room\_number);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00499}00499\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00500}00500\ \ \ \ \ \textcolor{keywordtype}{int}\ doctor\_id\ =\ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].id;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00501}00501\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00502}00502\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].is\_available)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00503}00503\ \ \ \ \ \ \ \ \ snprintf(avail\_line,\ \textcolor{keyword}{sizeof}(avail\_line),\ \textcolor{stringliteral}{"{}Availability:\ Available"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00504}00504\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00505}00505\ \ \ \ \ \ \ \ \ snprintf(avail\_line,\ \textcolor{keyword}{sizeof}(avail\_line),\ \textcolor{stringliteral}{"{}Availability:\ Unavailable"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00506}00506\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00507}00507\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].is\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00508}00508\ \ \ \ \ \ \ \ \ snprintf(status\_line,\ \mbox{\hyperlink{hospital_8h_a87fbe99bc9f9356d1994a56a69a7f721}{STATUS\_LINE\_SIZE}},\ \textcolor{stringliteral}{"{}Status:\ Active"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00509}00509\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00510}00510\ \ \ \ \ \ \ \ \ snprintf(status\_line,\ \mbox{\hyperlink{hospital_8h_a87fbe99bc9f9356d1994a56a69a7f721}{STATUS\_LINE\_SIZE}},\ \textcolor{stringliteral}{"{}Status:\ Inactive"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00511}00511\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00512}00512\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00513}00513\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00514}00514\ \ \ \ \ \ \ \ \ name\_line,}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00515}00515\ \ \ \ \ \ \ \ \ phone\_line,}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00516}00516\ \ \ \ \ \ \ \ \ email\_line,}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00517}00517\ \ \ \ \ \ \ \ \ spec\_line,}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00518}00518\ \ \ \ \ \ \ \ \ room\_line,}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00519}00519\ \ \ \ \ \ \ \ \ avail\_line,}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00520}00520\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Go\ back"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00521}00521\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00522}00522\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00523}00523\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00524}00524\ \ \ \ \ \textcolor{keywordtype}{char}\ title[50];}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00525}00525\ \ \ \ \ snprintf(title,\ 50,\ \textcolor{stringliteral}{"{}Update\ Doctor\ |\ ID:\ \%d"{}},\ doctor\_id);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00527}00527\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00528}00528\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00529}00529\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(title,\ menu\_items,\ 8,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00530}00530\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00531}00531\ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00532}00532\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00533}00533\ \ \ \ \ \textcolor{keywordflow}{switch}\ (choice)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00534}00534\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00535}00535\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a8378e99fcc246d6427b9f9b5ef609ccc}{doctor\_update\_name}}(menu\_items,\ index);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00536}00536\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00537}00537\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00538}00538\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a65eab5e75b6683a35a4a41118b9730b8}{doctor\_update\_phone}}(menu\_items,\ index);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00539}00539\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00540}00540\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00541}00541\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a2c242a27eba59d733367a8f4749a63a0}{doctor\_update\_email}}(menu\_items,\ index);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00542}00542\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00543}00543\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_aec2ce611c99ad66bb54541827b8c9ca3}{doctor\_update\_specialization}}(menu\_items,\ index);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00545}00545\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00546}00546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00547}00547\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_a0267745de32e8dabf5f8c0fe553a224f}{doctor\_update\_room}}(menu\_items,\ index);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00549}00549\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{doctor_8c_ad24a2077ca32d812f6e1ff9c37bf9432}{doctor\_update\_availability}}(menu\_items,\ index);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00551}00551\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00552}00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 7:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Returning\ to\ doctor\ menu..."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00556}00556\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ choice!\ Please\ try\ again."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00560}00560\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00561}00561\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00562}00562\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00563}\mbox{\hyperlink{doctor_8c_a0e0ed09c794927ff13d23eb5d5d758b6}{00563}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a0e0ed09c794927ff13d23eb5d5d758b6}{doctor\_deactivate\_account}}()\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00564}00564\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00565}00565\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00566}00566\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00567}00567\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00568}00568\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00569}00569\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ enter\_id\_items[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ doctor\ ID\ (0\ to\ cancel):\ "{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00572}00572\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00573}00573\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00574}00574\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Deactivate\ Doctor"{}},\ enter\_id\_items,\ 2,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00575}00575\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00577}00577\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}User\ Pressed\ 0.\ \(\backslash\)nCanceling\ deactivation..."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00580}00580\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00581}00581\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00583}00583\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{utils_8c_ae196c1358637951d0c2712c09f7a13f8}{utils\_is\_valid\_id}}(\textcolor{keywordtype}{id},\ \mbox{\hyperlink{hospital_8h_a00dd1c1a522bd6fb15ecc021ffefb775ae6d2e4265c86d088fe587305c096da60}{ROLE\_DOCTOR}}))\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Invalid\ ID!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00587}00587\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00588}00588\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00589}00589\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00590}00590\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00591}00591\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{doctor_8c_a521b99d6e9b11eba0f53bf9efbcaee24}{doctor\_search\_id}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00592}00592\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00593}00593\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a15c962b6b6e63d94029c449e964b0d87}{ui\_print\_error}}(\textcolor{stringliteral}{"{}Doctor\ not\ found!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00594}00594\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00595}00595\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00596}00596\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00597}00597\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00598}00598\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00599}00599\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00600}00600\ \ \ \ \ \mbox{\hyperlink{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}{ui\_print\_doctor}}(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index],\ index);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00601}00601\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00602}00602\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00603}00603\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Confirm\ Deactivation"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00604}00604\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Cancel"{}},}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00605}00605\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}>>\ "{}}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00606}00606\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00607}00607\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00608}00608\ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Deactivate\ Doctor"{}},\ menu,\ 3,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00609}00609\ \ \ \ \ \textcolor{keywordtype}{int}\ input\ =\ \mbox{\hyperlink{utils_8c_a6a610238a412adf932dfc472b1cca54f}{utils\_get\_int}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00610}00610\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00611}00611\ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00612}00612\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[index].is\_active\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00613}00613\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_aeb1cbcd8d3daa215fbfc9d03a93d28f5}{ui\_print\_success}}(\textcolor{stringliteral}{"{}Doctor\ deactivated\ successfully!"{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00614}00614\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_ab74106f1c2b12d99efaa0efd870f16eb}{doctor\_available}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00615}00615\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{hospital_8c_a60b930da5102df130b4cccc6c2b96d3c}{doctor\_unavailable}}++;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00616}00616\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00617}00617\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00618}00618\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a4b056526193906edd1c4f282a2a2e008}{ui\_print\_info}}(\textcolor{stringliteral}{"{}Deactivation\ cancelled."{}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00619}00619\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00620}00620\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00621}00621\ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00622}00622\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00623}\mbox{\hyperlink{doctor_8c_a2af7239e2bdb481f279b23b4cf7e77b9}{00623}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{doctor_8c_a2af7239e2bdb481f279b23b4cf7e77b9}{doctor\_view\_discharged}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00624}00624\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00625}00625\ \ \ \ \ \mbox{\hyperlink{ui_8c_a49b48602f7bf01efc3ca32551fea8899}{ui\_clear\_screen}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00626}00626\ \ \ \ \ \mbox{\hyperlink{ui_8c_ad3d785092daa98cfa322b76c3c0a0f8f}{ui\_print\_banner}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00627}00627\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00628}00628\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{hospital_8c_a60b930da5102df130b4cccc6c2b96d3c}{doctor\_unavailable}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00629}00629\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ menu\_items[]\ =\ \{\textcolor{stringliteral}{"{}No\ inactive\ doctors\ found!"{}}\};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00630}00630\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a0bc339a36783cd0e6422f3af351571a4}{ui\_print\_menu}}(\textcolor{stringliteral}{"{}Inactive\ Doctors"{}},\ menu\_items,\ 1,\ \mbox{\hyperlink{hospital_8h_a0f1895d94a0caae4bf1716754ed83be0}{UI\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00631}00631\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00632}00632\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00633}00633\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00634}00634\ }
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00635}00635\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{hospital_8c_ad99c90b87dadff47fd0da61344796113}{doctor\_count}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00636}00636\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i].is\_active)\ \{}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00637}00637\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ui_8c_a50eb71d1ffa1ca988811d9bb349e503b}{ui\_print\_doctor}}(\mbox{\hyperlink{hospital_8c_a67bfc76cc71fe880c284c96205444fab}{doctors}}[i],\ count++);}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00638}00638\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00639}00639\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00640}00640\ \ \ \ \ \mbox{\hyperlink{ui_8c_a058846624e566d807a86f306b701814e}{ui\_pause}}();}
+\DoxyCodeLine{\Hypertarget{doctor_8c_source_l00641}00641\ \}}
+
+\end{DoxyCode}

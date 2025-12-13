@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['patient_5fadd_0',['patient_add',['../patient_8c.html#a8a949d5343931985e0a652bf4fbc01c4',1,'patient_add(void):&#160;patient.c'],['../patient_8h.html#a8a949d5343931985e0a652bf4fbc01c4',1,'patient_add(void):&#160;patient.c']]],
+  ['patient_5fdischarge_1',['patient_discharge',['../patient_8c.html#af276616d076f4493b0e8125dfb8a817b',1,'patient_discharge():&#160;patient.c'],['../patient_8h.html#a8f89c022053c4be16f6496cea0f82283',1,'patient_discharge(void):&#160;patient.c']]],
+  ['patient_5fgenerate_5fid_2',['patient_generate_id',['../patient_8c.html#a095ee9f098c28abee810782896353c1a',1,'patient_generate_id(void):&#160;patient.c'],['../patient_8h.html#a095ee9f098c28abee810782896353c1a',1,'patient_generate_id(void):&#160;patient.c']]],
+  ['patient_5fload_5ffrom_5ffile_3',['patient_load_from_file',['../patient_8c.html#afe5e2e021d6c6d9344baaf9bbe56a10b',1,'patient_load_from_file(void):&#160;patient.c'],['../patient_8h.html#afe5e2e021d6c6d9344baaf9bbe56a10b',1,'patient_load_from_file(void):&#160;patient.c']]],
+  ['patient_5fsave_5fto_5ffile_4',['patient_save_to_file',['../patient_8c.html#a01ddfa3e34d15548d5f6e296f4b4e8a7',1,'patient_save_to_file(void):&#160;patient.c'],['../patient_8h.html#a01ddfa3e34d15548d5f6e296f4b4e8a7',1,'patient_save_to_file(void):&#160;patient.c']]],
+  ['patient_5fsearch_5fby_5',['patient_search_by',['../patient_8c.html#a452dfb186e3bef58fd380f2609e4ab53',1,'patient_search_by(void):&#160;patient.c'],['../patient_8h.html#a452dfb186e3bef58fd380f2609e4ab53',1,'patient_search_by(void):&#160;patient.c']]],
+  ['patient_5fsearch_5fby_5fid_6',['patient_search_by_id',['../patient_8c.html#a90f803799e1c2e939cc261b732a93e7a',1,'patient_search_by_id(void):&#160;patient.c'],['../patient_8h.html#a90f803799e1c2e939cc261b732a93e7a',1,'patient_search_by_id(void):&#160;patient.c']]],
+  ['patient_5fsearch_5fby_5fname_7',['patient_search_by_name',['../patient_8c.html#a8ac50a5bee2adecac3523564603559cb',1,'patient_search_by_name(void):&#160;patient.c'],['../patient_8h.html#a8ac50a5bee2adecac3523564603559cb',1,'patient_search_by_name(void):&#160;patient.c']]],
+  ['patient_5fsearch_5fby_5fphone_8',['patient_search_by_phone',['../patient_8c.html#a591f7a33f189917a85c785d71cf17fab',1,'patient_search_by_phone(void):&#160;patient.c'],['../patient_8h.html#a591f7a33f189917a85c785d71cf17fab',1,'patient_search_by_phone(void):&#160;patient.c']]],
+  ['patient_5fsearch_5fid_9',['patient_search_id',['../patient_8c.html#af84ac4f837ddb300084bb55bc1395a70',1,'patient_search_id(int id):&#160;patient.c'],['../patient_8h.html#af84ac4f837ddb300084bb55bc1395a70',1,'patient_search_id(int id):&#160;patient.c']]],
+  ['patient_5fupdate_5faddress_10',['patient_update_address',['../patient_8c.html#aad5305b0ccd6aba9479a15d1177e4952',1,'patient.c']]],
+  ['patient_5fupdate_5fblood_5fgroup_11',['patient_update_blood_group',['../patient_8c.html#ab1ab5db0cde6f4a2d40dc39e18f45f5f',1,'patient.c']]],
+  ['patient_5fupdate_5fgender_12',['patient_update_gender',['../patient_8c.html#a7ed5b489f971e36a23456746405a3785',1,'patient.c']]],
+  ['patient_5fupdate_5fname_13',['patient_update_name',['../patient_8c.html#afbddcfaabae8481f9a51e8522bd55806',1,'patient.c']]],
+  ['patient_5fupdate_5fphone_14',['patient_update_phone',['../patient_8c.html#ae49ca2c24d05c010b09147372bf5c6dd',1,'patient.c']]],
+  ['patient_5fupdate_5fstatus_15',['patient_update_status',['../patient_8c.html#af74940ccad208abd138be00714304d51',1,'patient.c']]],
+  ['patient_5fupdate_5fusing_5fid_16',['patient_update_using_id',['../patient_8c.html#a77260a6ac6154390bdaf8072b9833ed1',1,'patient_update_using_id():&#160;patient.c'],['../patient_8h.html#af91f81595797712e22856f0c150d522d',1,'patient_update_using_id(void):&#160;patient.c']]],
+  ['patient_5fview_17',['patient_view',['../patient_8c.html#ac56fe093f1197d932c1bfccd864da03d',1,'patient.c']]],
+  ['patient_5fview_5fall_18',['patient_view_all',['../patient_8c.html#a2caf574b57047c224b680bd7e5904090',1,'patient_view_all():&#160;patient.c'],['../patient_8h.html#a299bc238e56681938d2952cdb3a3bd5a',1,'patient_view_all(void):&#160;patient.c']]],
+  ['patient_5fview_5fdischarged_19',['patient_view_discharged',['../patient_8c.html#a441fbd1ac3dff87a3c2f390719ac7435',1,'patient_view_discharged(void):&#160;patient.c'],['../patient_8h.html#a441fbd1ac3dff87a3c2f390719ac7435',1,'patient_view_discharged(void):&#160;patient.c']]],
+  ['patient_5fview_5fone_20',['patient_view_one',['../patient_8c.html#a6fd5ba969d47e578d0e8092eae7c85e4',1,'patient.c']]],
+  ['print_5fhelp_21',['print_help',['../hospital_8c.html#ae5d62d86e562ee295d1566f9ad74b73c',1,'print_help(const char *program_name):&#160;hospital.c'],['../hospital_8h.html#ae5d62d86e562ee295d1566f9ad74b73c',1,'print_help(const char *program_name):&#160;hospital.c']]],
+  ['print_5fversion_22',['print_version',['../hospital_8c.html#ac6230d495fc909bb61195c45f703d492',1,'print_version(void):&#160;hospital.c'],['../hospital_8h.html#ac6230d495fc909bb61195c45f703d492',1,'print_version(void):&#160;hospital.c']]]
+];

@@ -1,0 +1,198 @@
+\doxysection{include/patient.h File Reference}
+\hypertarget{patient_8h}{}\label{patient_8h}\index{include/patient.h@{include/patient.h}}
+
+
+\doxylink{struct_patient}{Patient} management functions for Healthcare Management System.  
+
+
+{\ttfamily \#include "{}hospital.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{patient_8h_a01ddfa3e34d15548d5f6e296f4b4e8a7}{patient\+\_\+save\+\_\+to\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{patient_8h_afe5e2e021d6c6d9344baaf9bbe56a10b}{patient\+\_\+load\+\_\+from\+\_\+file}} (void)
+\item 
+int \mbox{\hyperlink{patient_8h_a095ee9f098c28abee810782896353c1a}{patient\+\_\+generate\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_a8a949d5343931985e0a652bf4fbc01c4}{patient\+\_\+add}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_a90f803799e1c2e939cc261b732a93e7a}{patient\+\_\+search\+\_\+by\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_a8ac50a5bee2adecac3523564603559cb}{patient\+\_\+search\+\_\+by\+\_\+name}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_a591f7a33f189917a85c785d71cf17fab}{patient\+\_\+search\+\_\+by\+\_\+phone}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_a452dfb186e3bef58fd380f2609e4ab53}{patient\+\_\+search\+\_\+by}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_af91f81595797712e22856f0c150d522d}{patient\+\_\+update\+\_\+using\+\_\+id}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_a8f89c022053c4be16f6496cea0f82283}{patient\+\_\+discharge}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_a299bc238e56681938d2952cdb3a3bd5a}{patient\+\_\+view\+\_\+all}} (void)
+\item 
+void \mbox{\hyperlink{patient_8h_a441fbd1ac3dff87a3c2f390719ac7435}{patient\+\_\+view\+\_\+discharged}} (void)
+\item 
+int \mbox{\hyperlink{patient_8h_af84ac4f837ddb300084bb55bc1395a70}{patient\+\_\+search\+\_\+id}} (int id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_patient}{Patient} management functions for Healthcare Management System. 
+
+This header declares all patient-\/related CRUD operations. 
+
+Definition in file \mbox{\hyperlink{patient_8h_source}{patient.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{patient_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{patient_8h_a8a949d5343931985e0a652bf4fbc01c4}\index{patient.h@{patient.h}!patient\_add@{patient\_add}}
+\index{patient\_add@{patient\_add}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_add()}{patient\_add()}}
+{\footnotesize\ttfamily \label{patient_8h_a8a949d5343931985e0a652bf4fbc01c4} 
+void patient\+\_\+add (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Adds a new patient to the system. 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00058}{58}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a8f89c022053c4be16f6496cea0f82283}\index{patient.h@{patient.h}!patient\_discharge@{patient\_discharge}}
+\index{patient\_discharge@{patient\_discharge}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_discharge()}{patient\_discharge()}}
+{\footnotesize\ttfamily \label{patient_8h_a8f89c022053c4be16f6496cea0f82283} 
+void patient\+\_\+discharge (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Discharges a patient by ID (sets is\+\_\+active to false). 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00693}{693}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a095ee9f098c28abee810782896353c1a}\index{patient.h@{patient.h}!patient\_generate\_id@{patient\_generate\_id}}
+\index{patient\_generate\_id@{patient\_generate\_id}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_generate\_id()}{patient\_generate\_id()}}
+{\footnotesize\ttfamily \label{patient_8h_a095ee9f098c28abee810782896353c1a} 
+int patient\+\_\+generate\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Generates a unique patient ID. \begin{DoxyReturn}{Returns}
+The generated patient ID. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00054}{54}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_afe5e2e021d6c6d9344baaf9bbe56a10b}\index{patient.h@{patient.h}!patient\_load\_from\_file@{patient\_load\_from\_file}}
+\index{patient\_load\_from\_file@{patient\_load\_from\_file}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_load\_from\_file()}{patient\_load\_from\_file()}}
+{\footnotesize\ttfamily \label{patient_8h_afe5e2e021d6c6d9344baaf9bbe56a10b} 
+int patient\+\_\+load\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Loads all patients from binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 if file doesn\textquotesingle{}t exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00030}{30}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a01ddfa3e34d15548d5f6e296f4b4e8a7}\index{patient.h@{patient.h}!patient\_save\_to\_file@{patient\_save\_to\_file}}
+\index{patient\_save\_to\_file@{patient\_save\_to\_file}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_save\_to\_file()}{patient\_save\_to\_file()}}
+{\footnotesize\ttfamily \label{patient_8h_a01ddfa3e34d15548d5f6e296f4b4e8a7} 
+int patient\+\_\+save\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Saves all patients to binary file. \begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00015}{15}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a452dfb186e3bef58fd380f2609e4ab53}\index{patient.h@{patient.h}!patient\_search\_by@{patient\_search\_by}}
+\index{patient\_search\_by@{patient\_search\_by}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_search\_by()}{patient\_search\_by()}}
+{\footnotesize\ttfamily \label{patient_8h_a452dfb186e3bef58fd380f2609e4ab53} 
+void patient\+\_\+search\+\_\+by (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Handles the search choice for patient. 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00402}{402}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a90f803799e1c2e939cc261b732a93e7a}\index{patient.h@{patient.h}!patient\_search\_by\_id@{patient\_search\_by\_id}}
+\index{patient\_search\_by\_id@{patient\_search\_by\_id}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_search\_by\_id()}{patient\_search\_by\_id()}}
+{\footnotesize\ttfamily \label{patient_8h_a90f803799e1c2e939cc261b732a93e7a} 
+void patient\+\_\+search\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Searches for a patient by ID. 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00290}{290}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a8ac50a5bee2adecac3523564603559cb}\index{patient.h@{patient.h}!patient\_search\_by\_name@{patient\_search\_by\_name}}
+\index{patient\_search\_by\_name@{patient\_search\_by\_name}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_search\_by\_name()}{patient\_search\_by\_name()}}
+{\footnotesize\ttfamily \label{patient_8h_a8ac50a5bee2adecac3523564603559cb} 
+void patient\+\_\+search\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Searches for a patient by name. 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00328}{328}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a591f7a33f189917a85c785d71cf17fab}\index{patient.h@{patient.h}!patient\_search\_by\_phone@{patient\_search\_by\_phone}}
+\index{patient\_search\_by\_phone@{patient\_search\_by\_phone}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_search\_by\_phone()}{patient\_search\_by\_phone()}}
+{\footnotesize\ttfamily \label{patient_8h_a591f7a33f189917a85c785d71cf17fab} 
+void patient\+\_\+search\+\_\+by\+\_\+phone (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Searches for a patient by phone number. 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00366}{366}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_af84ac4f837ddb300084bb55bc1395a70}\index{patient.h@{patient.h}!patient\_search\_id@{patient\_search\_id}}
+\index{patient\_search\_id@{patient\_search\_id}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_search\_id()}{patient\_search\_id()}}
+{\footnotesize\ttfamily \label{patient_8h_af84ac4f837ddb300084bb55bc1395a70} 
+int patient\+\_\+search\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+Searches patient by ID and returns index. 
+\begin{DoxyParams}{Parameters}
+{\em id} & The patient ID to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of patient in array, or -\/1 if not found. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00441}{441}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_af91f81595797712e22856f0c150d522d}\index{patient.h@{patient.h}!patient\_update\_using\_id@{patient\_update\_using\_id}}
+\index{patient\_update\_using\_id@{patient\_update\_using\_id}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_update\_using\_id()}{patient\_update\_using\_id()}}
+{\footnotesize\ttfamily \label{patient_8h_af91f81595797712e22856f0c150d522d} 
+void patient\+\_\+update\+\_\+using\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Updates a patient information by ID. 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00594}{594}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a299bc238e56681938d2952cdb3a3bd5a}\index{patient.h@{patient.h}!patient\_view\_all@{patient\_view\_all}}
+\index{patient\_view\_all@{patient\_view\_all}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_view\_all()}{patient\_view\_all()}}
+{\footnotesize\ttfamily \label{patient_8h_a299bc238e56681938d2952cdb3a3bd5a} 
+void patient\+\_\+view\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Displays all patients in the system. 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00211}{211}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
+\Hypertarget{patient_8h_a441fbd1ac3dff87a3c2f390719ac7435}\index{patient.h@{patient.h}!patient\_view\_discharged@{patient\_view\_discharged}}
+\index{patient\_view\_discharged@{patient\_view\_discharged}!patient.h@{patient.h}}
+\doxysubsubsection{\texorpdfstring{patient\_view\_discharged()}{patient\_view\_discharged()}}
+{\footnotesize\ttfamily \label{patient_8h_a441fbd1ac3dff87a3c2f390719ac7435} 
+void patient\+\_\+view\+\_\+discharged (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Displays all discharged patients in the system. 
+
+Definition at line \mbox{\hyperlink{patient_8c_source_l00753}{753}} of file \mbox{\hyperlink{patient_8c_source}{patient.\+c}}.
+
