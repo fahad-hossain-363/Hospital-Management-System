@@ -13,6 +13,18 @@ A console-based Hospital Management System built in C. User-friendly interface.
 
 ### Windows
 
+First clone the project repository:
+
+```bash
+git clone https://github.com/AmiValoHoteChai/Hospital-Management-System.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd Hospital-Management-System
+```
+
 To build the project, run the following command:
 
 ```bash
